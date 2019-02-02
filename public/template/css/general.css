@@ -1,0 +1,64 @@
+.form-wrap{
+    margin:30px auto;
+    /*max-width:800px;*/
+    width:80%;
+}
+
+
+.pictureID-label{
+    font-size:18px;
+    /*margin-left:80px;*/
+    margin:auto;
+    width:fit-content;
+    margin-bottom:20px
+}
+
+
+.profile-pic-container{
+    position:relative;
+}
+
+
+.profile-pic{
+    display:block;
+    width:250px;
+    height:250px;
+    margin:auto;
+}
+
+#upload-icon{
+    /*display:none;*/
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+.upload-hover:hover #image-overlay{
+    transition: .5s ease;
+    opacity:0.1;
+}
+
+#image-overlay{
+    /*display: none;*/
+    position: absolute;
+    width:250px;
+
+    top:0;
+    left:calc(50% - 125px);
+
+    background-color:black;
+    opacity:0.3;
+    cursor: pointer;
+}
+
+
+.promote-part-holder{
+    width:80%;
+    height:300px;
+    /*border:2px solid #00bb00;*/
+    margin-top:60px;
+    margin-bottom:40px;
+    margin-left:auto;
+    margin-right:auto;
+
+}

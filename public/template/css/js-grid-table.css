@@ -1,0 +1,23 @@
+.js-grid-holder{
+    width:80%;
+    padding:20px 40px;
+    background-color:white;
+    margin:auto
+}
+.js-gird-non-padding{
+    padding-right:0;
+    padding-left:0;
+}
+
+.js-gird-full-width{
+    width:100%;
+}
+
+.table-title{
+    margin-top:20px;
+    margin-bottom:30px;
+}
+
+.hide{
+    display: none;
+}
