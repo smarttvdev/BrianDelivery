@@ -43,10 +43,12 @@ Route::get('employee/create','EmployeeController@showCreate');
 Route::post('employee/save','EmployeeController@Save');
 
 Route::get('employee/list','EmployeeController@showEmployeeList');
-Route::get('/getEmployeeList','EmployeeController@getEmployeeList');
+Route::post('/getEmployeeList','EmployeeController@getEmployeeList');
+
 Route::post('/deleteEmployee','EmployeeController@deleteEmployee');
 Route::get('/employee/edit/{employee_id}','EmployeeController@showEdit');
 
+Route::post('/employee/search','EmployeeController@searchEmployee');
 
 
 

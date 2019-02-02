@@ -7,6 +7,7 @@ use App\Employee;
 use App\Job;
 use App\Postion;
 use App\EmployeeJob;
+Use \DB;
 
 class EmployeeController extends Controller
 {
@@ -270,8 +271,38 @@ class EmployeeController extends Controller
         return view('employee.list_employee',compact('menu_level1','menu_level2'));
     }
 
-    public function getEmployeeList(){
-        $employee_lists=Employee::all();
+
+    public function getEmployeeList(Request $request){
+        $search_by=$request->input('search_by');
+        $key_word=$request->input('key_word');
+
+        if (is_null($search_by) || is_null($key_word))  // Will get All Employee Lists
+            $employee_lists=Employee::all();
+        else{
+            if ($search_by=='name'){  // search by employee name
+                $employee_lists=Employee::where(DB::raw("CONCAT(`first_name`,' ', `last_name`)"), 'LIKE', "%".$key_word."%")->get();
+            }
+            elseif($search_by=='pay roll')
+            {  // if search by pay roll
+                $job_ids=Job::where(DB::raw("CONCAT(`category`,' ', `name`)"), 'LIKE', "%".$key_word."%")
+                    ->orWhere(DB::raw("CONCAT(`category`,'-', `name`)"), 'LIKE', "%".$key_word."%")
+                    ->orWhere(DB::raw("CONCAT(`category`,' - ', `name`)"), 'LIKE', "%".$key_word."%")
+                    ->orWhere(DB::raw("CONCAT(`category`,'/', `name`)"), 'LIKE', "%".$key_word."%")
+                    ->orWhere(DB::raw("CONCAT(`category`,' / ', `name`)"), 'LIKE', "%".$key_word."%")
+                    ->get()->pluck('id')->toArray();
+                $employee_ids=EmployeeJob::whereIn('job_id',$job_ids)->get()->pluck('employee_id')->toArray();
+                $employee_lists=Employee::whereIn('id',$employee_ids)->get();
+            }
+            else{  // position
+                $position_ids=Postion::where('name','LIKE','%'.$key_word.'%')->get()->pluck('id')->toArray();
+                $employee_ids=EmployeeJob::whereIn('position_id',$position_ids)->get()->pluck('employee_id')->toArray();
+                $employee_lists=Employee::whereIn('id',$employee_ids)->get();
+            }
+        }
+
+
+
+        $item=Array();
         $i=0;
         foreach ($employee_lists as $employee_list){
             $item[$i]['ID']=$employee_list->id;
@@ -281,7 +312,6 @@ class EmployeeController extends Controller
             $item[$i]['bonus']=0;
             $item[$i]['penalty']=0;
             $item[$i]['reimbursment']=0;
-
             $i++;
         }
         return response($item)->withHeaders([
@@ -296,6 +326,12 @@ class EmployeeController extends Controller
         EmployeeJob::where('employee_id',$employee_id)->delete();
         return $request->all();
     }
+
+    public function searchEmployee(Request $request){
+        return $request->all();
+
+    }
+
 
     public function showEdit($employee_id){
         $menu_level1='';

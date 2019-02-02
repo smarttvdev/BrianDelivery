@@ -3,10 +3,30 @@
 @section('page-content')
     <div class="page-content container-fluid">
         <div class="js-grid-holder" style="width:90%">
-            <form id="search_id" action="" method="post">
-                <input type="select" name="search_method">
-            </form>
             <h3 class="table-title">Employee Lists</h3>
+            <form id="search_form" action="{{url('getEmployeeList')}}" method="post" >
+                @csrf
+                <div class="row" style="margin-left:0">
+                    <div>
+                        <select name="search_by" type="text" placeholder="Search By"  style="margin-top:0px;height:32px;margin-right:0">
+                            <option value="">Search By</option>
+                            <option value="name">Name</option>
+                            <option value="pay roll">Pay Roll</option>
+                            <option value="position">Position</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="key_word" placeholder="Search..." id="key_word">
+                                <span class="input-group-append">
+                                    <button type="submit" class="btn btn-primary"><i class="icon wb-search" aria-hidden="true"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
             <div id="jsGrid" class="table-content"></div>
         </div>
     </div>
@@ -14,7 +34,9 @@
 
 @section('insert-js')
     <script>
-        $(function () {
+        function load_grid(){
+
+
             $("#jsGrid").jsGrid({
                 width: "100%",
                 height: "600px",
@@ -29,33 +51,42 @@
                 autoload: true,
                 controller: {
                     loadData: function (filter) {
+                        var formData=new FormData($('#search_form')[0]);
                         return $.ajax({
-                            method: "GET",
+                            method: "post",
                             url: "{{url('/getEmployeeList')}}",
+                            data: formData,
+                            async:false,
+                            contentType: false,
+                            processData: false,
+                            dataType:'json',
                         }).done(function (result) {
-                            // console.log(result)
+                            console.log(result)
+                        }).fail(function (result) {
+                            console.log(result);
+
                         })
                     },
 
-                    insertItem:function(item){
-                        return $.ajax({
-                            method: "post",
-                            url: "{{url('/insertJob')}}",
-                            data: item,
+                    {{--insertItem:function(item){--}}
+                        {{--return $.ajax({--}}
+                            {{--method: "post",--}}
+                            {{--url: "{{url('/insertJob')}}",--}}
+                            {{--data: item,--}}
 
-                        }).done(function (result) {
-                            // item['ID']=result;
-                        });
-                    },
-                    updateItem:function (item) {
-                        return $.ajax({
-                            method: "post",
-                            url: "{{url('/updateJob')}}",
-                            data: item,
-                        }).done(function (result) {
-                            // console.log(result);
-                        });
-                    },
+                        {{--}).done(function (result) {--}}
+                            {{--// item['ID']=result;--}}
+                        {{--});--}}
+                    {{--},--}}
+                    {{--updateItem:function (item) {--}}
+                        {{--return $.ajax({--}}
+                            {{--method: "post",--}}
+                            {{--url: "{{url('/updateJob')}}",--}}
+                            {{--data: item,--}}
+                        {{--}).done(function (result) {--}}
+                            {{--// console.log(result);--}}
+                        {{--});--}}
+                    {{--},--}}
                     deleteItem:function (item) {
                         return $.ajax({
                             method: "post",
@@ -79,18 +110,18 @@
                     },
                     { name: "name", type: "text", width: 150, validate: "required",title:"Name",css:"text-center",align: "center" ,filtering:true},
                     { name: "employeement_date", type: "text", width: 150, validate: "required",title:"Start Date",css:"text-center",align: "center" ,filtering:false},
-                    {
-                        width: 100, validate: "required",title:"Terminate Employeement",css:"text-center",align: "center",
-                        itemTemplate: function(_, item) {
-                            var grid = this._grid;
-                            return $("<button>").text("Termiate").attr('class','btn btn-warning')
-                                .on("click", function() {
-                                    console.log(grid);
-                                    grid.option("fields")[3].insertControl.val("43434");
-                                    item.employeement_date="dfdf";
-                            });
-                        }
-                    },
+                    // {
+                    //     width: 100, validate: "required",title:"Terminate Employeement",css:"text-center",align: "center",
+                    //     itemTemplate: function(_, item) {
+                    //         var grid = this._grid;
+                    //         return $("<button>").text("Termiate").attr('class','btn btn-warning')
+                    //             .on("click", function() {
+                    //                 console.log(grid);
+                    //                 grid.option("fields")[3].insertControl.val("43434");
+                    //                 item.employeement_date="dfdf";
+                    //         });
+                    //     }
+                    // },
                     {
                         name: "state", width: 100, validate: "required",title:"State",css:"text-center",align: "center",
                         itemTemplate:function (_,item) {
@@ -99,12 +130,12 @@
                                     .on("click", function() {
                                         console.log(item.state);
 
-                                     });
+                                    });
                             } else{
                                 return $("<div>").text("InActive").attr('class','btn btn-danger').css('border','none')
                                     .on("click", function() {
 
-                                 });
+                                    });
 
                             }
 
@@ -128,6 +159,21 @@
                 ]
             });
             $("#jsGrid").jsGrid("option", "filtering", false);
+
+        }
+        $(function () {
+            load_grid();
+        })
+    </script>
+    
+    <script>
+        $('#search_form').submit(function (e) {
+            e.preventDefault();
+            load_grid();
+        })
+
+        $('#key_word').change(function () {
+            console.log($('#key_word').val());
         })
     </script>
 
