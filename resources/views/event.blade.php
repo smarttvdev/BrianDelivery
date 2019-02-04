@@ -3,7 +3,7 @@
 @section('page-content')
     <div class="page-content container-fluid">
         <div class="js-grid-holder">
-            <h3 class="table-title">Jobs</h3>
+            <h3 class="table-title">Events</h3>
             <div id="jsGrid" class="table-content"></div>
         </div>
     </div>
@@ -29,26 +29,32 @@
                     loadData: function (filter) {
                         return $.ajax({
                             method: "GET",
-                            url: "{{url('/getJobs')}}",
+                            url: "{{url('/getEvents')}}",
                         }).done(function (result) {
-                            // console.log(result)
+                            console.log(result)
+                        }).fail(function (err) {
+                            console.log(err);
+
                         })
                     },
 
                     insertItem:function(item){
                         return $.ajax({
                             method: "post",
-                            url: "{{url('/insertJob')}}",
+                            url: "{{url('/insertEvent')}}",
                             data: item,
 
                         }).done(function (result) {
                             // item['ID']=result;
+                        }).fail(function (e) {
+                            console.log(e);
+
                         });
                     },
                     updateItem:function (item) {
                         return $.ajax({
                             method: "post",
-                            url: "{{url('/updateJob')}}",
+                            url: "{{url('/updateEvent')}}",
                             data: item,
                         }).done(function (result) {
                             // console.log(result);
@@ -57,7 +63,7 @@
                     deleteItem:function (item) {
                         return $.ajax({
                             method: "post",
-                            url: "{{url('/deleteJob')}}",
+                            url: "{{url('/deleteEvent')}}",
                             data: item,
                         }).done(function (result) {
                             // console.log(result);
@@ -67,7 +73,7 @@
 
                 fields: [
                     { name:"ID" ,type: "hidden", css: 'hide'},
-                    { name: "category", type: "select", width: 150, validate: "required",title:'Job Type',css:"text-center",
+                    { name: "type", type: "select", width: 150, validate: "required",title:'Event Type',css:"text-center",
                         items: [
                             { Name: null, Id: 0 },
                             { Name: "Hourly", Id:1},
@@ -79,7 +85,7 @@
                         filtering:true,
                     },
 
-                    { name: "name", type: "text", width: 150, validate: "required",title:"Job Name",css:"text-center",align: "center" ,filtering:true},
+                    { name: "variation", type: "text", width: 150, title:"Event Variation",css:"text-center",align: "center" ,filtering:true},
                     { name: "pay_amount", type: "number", width: 100, css:"text-center",title:"$, Rate",align: "center",value:"0"},
                     { name: "bonus", type: "number", width: 100, css:"text-center",title:"%, Bonus",align: "center",value:"0"},
                     { name: "extra", type: "number", width: 100, css:"text-center",title:"%, Extra Flat",align: "center",value:"0"},

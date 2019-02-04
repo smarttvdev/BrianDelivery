@@ -35,8 +35,6 @@
 @section('insert-js')
     <script>
         function load_grid(){
-
-
             $("#jsGrid").jsGrid({
                 width: "100%",
                 height: "600px",
@@ -176,7 +174,6 @@
             console.log($('#key_word').val());
         })
     </script>
-
 
 @endsection
 
