@@ -15,13 +15,23 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
-            $table->string('variation')->nullable();
-            $table->double('pay_amount')->default(0);
-            $table->double('bonus')->default(0);
-            $table->double('extra')->default(0);
-            $table->double('packing')->default(0);
-            $table->double('service')->default(0);
+            $table->string('pick_address');
+            $table->string('drop_address');
+            $table->string('start_time');
+            $table->string('finish_time');
+            $table->string('labor_hours');
+            $table->string('travel_time');
+            $table->string('total_hours');
+            $table->double('discount')->default(0);
+            $table->double('job_total');
+            $table->string('truck_license');
+            $table->text('comment');
+            $table->string('state');
+            $table->double('tips')->default(0);
+            $table->string('bonus');
+            $table->string('attach_file');
+            $table->double('non_profit')->default(0);
+            $table->string('job_id');
             $table->timestamps();
         });
     }

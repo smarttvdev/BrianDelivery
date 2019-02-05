@@ -10,6 +10,7 @@ return array(
     'App\\Employee' => $baseDir . '/app/Employee.php',
     'App\\EmployeeEvent' => $baseDir . '/app/EmployeeEvent.php',
     'App\\EmployeeJob' => $baseDir . '/app/EmployeeJob.php',
+    'App\\EmployeePay' => $baseDir . '/app/EmployeePay.php',
     'App\\Event' => $baseDir . '/app/Event.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',

@@ -424,6 +424,7 @@ class ComposerStaticInit31babcfacad2755ff9723e047383a68c
         'App\\Employee' => __DIR__ . '/../..' . '/app/Employee.php',
         'App\\EmployeeEvent' => __DIR__ . '/../..' . '/app/EmployeeEvent.php',
         'App\\EmployeeJob' => __DIR__ . '/../..' . '/app/EmployeeJob.php',
+        'App\\EmployeePay' => __DIR__ . '/../..' . '/app/EmployeePay.php',
         'App\\Event' => __DIR__ . '/../..' . '/app/Event.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',

@@ -11,10 +11,10 @@
                             {{--<span class="site-menu-title">Dashboard</span>--}}
                         {{--</a>--}}
                     {{--</li>--}}
-                    <li class="site-menu-item {{isset($menu_level1) && $menu_level1=='event' ? ' active' : '' }}">
-                        <a href="{{url('event')}}">
+                    <li class="site-menu-item {{isset($menu_level1) && $menu_level1=='job' ? ' active' : '' }}">
+                        <a href="{{url('job')}}">
                             <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                            <span class="site-menu-title">Event</span>
+                            <span class="site-menu-title">Job</span>
                         </a>
                     </li>
                     <li class="site-menu-item {{ $menu_level1=='position' ? ' active' : '' }}">
@@ -45,18 +45,18 @@
 
 
 
-                    <li class="site-menu-category">Jobs</li>
+                    <li class="site-menu-category">Events</li>
                     <li class="site-menu-item {{$menu_level1=='create_job' ? ' active' : '' }}">
-                        <a href="{{url('job/create')}}">
+                        <a href="{{url('event/create')}}">
                             <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                            <span class="site-menu-title">New Job</span>
+                            <span class="site-menu-title">New Event</span>
                         </a>
                     </li>
 
                     <li class="site-menu-item {{$menu_level1=='job_list' ? ' active' : '' }}">
                         <a href="{{url('job_list')}}">
                             <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                            <span class="site-menu-title">Job Lists</span>
+                            <span class="site-menu-title">Event Lists</span>
                         </a>
                     </li>
 

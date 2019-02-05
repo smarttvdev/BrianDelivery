@@ -23,15 +23,15 @@ Route::get('/register', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::Group(['middleware'=>'auth'],function(){
 
-    Route::get('/event','EventController@showEvent');
-    Route::get('/getEvents','EventController@getEvents');
-    Route::post('/insertEvent','EventController@insertEvent');
-    Route::post('/updateEvent','EventController@updateEvent');
-    Route::post('/deleteEvent','EventController@deleteEvent');
+    Route::get('/job','JobController@showJob');
+    Route::get('/getJobs','JobController@getJobs');
+    Route::post('/insertJob','JobController@insertJob');
+    Route::post('/updateJob','JobController@updateJob');
+    Route::post('/deleteJob','JobController@deleteJob');
 
 
     Route::get('/position','PositionController@showPosition');
@@ -52,19 +52,19 @@ Route::Group(['middleware'=>'auth'],function(){
 
     Route::post('/employee/search','EmployeeController@searchEmployee');
 
+    Route::get('/getEmployeeJob/{employee_id}/{employee_statement}','EmployeeController@getEmployeeJob');
+    Route::post('/insertEmployeeJob','EmployeeController@insertEmployeeJob');
+    Route::post('/editEmployeeJob','EmployeeController@editEmployeeJob');
+    Route::post('/deleteEmployeeJob','EmployeeController@deleteEmployeeJob');
 
 
-    Route::get('/getEmployeeEvent/{employee_id}/{employee_statement}','EmployeeController@getEmployeeEvent');
-    Route::post('/insertEmployeeEvent','EmployeeController@insertEmployeeEvent');
-    Route::post('/editEmployeeEvent','EmployeeController@editEmployeeEvent');
-    Route::post('/deleteEmployeeEvent','EmployeeController@deleteEmployeeEvent');
+    Route::get('/event/create','EventController@create');
 
 
-    Route::get('/job/create','JobController@create');
-
-
-    Route::get('/template', function (){
-        return view('layouts.template');
+    Route::get('/home', function (){
+        $menu_level1='';
+        $menu_level2='';
+        return view('layouts.template',compact('menu_level2','menu_level1'));
     });
 
 });

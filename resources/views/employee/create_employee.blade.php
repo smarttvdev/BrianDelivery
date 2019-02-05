@@ -64,7 +64,7 @@
                     </div>
 
                     <div class="js-grid-holder" style="margin-top:-40px;padding-left:0;padding-right:0">
-                        <h3 class="table-title" style="margin-bottom:10px">Initial Position</h3>
+                        <h3 class="table-title" style="margin-bottom:10px">Initial Payroll</h3>
                         <div id="beginner_position" class="table-content"></div>
                     </div>
 
@@ -86,17 +86,14 @@
                         </div>
 
                         <div class="js-grid-holder js-gird-full-width" style="margin-top:-30px;padding-left:0;padding-right:0">
-                            <h3 class="table-title" style="margin-bottom:10px">Promote Position</h3>
+                            <h3 class="table-title" style="margin-bottom:10px">Promote Payroll</h3>
                             <div id="promote_position" class="table-content"></div>
                         </div>
                         <button type="submit" class="btn btn-success" style="margin-top:-60px" id="promote_submit" disabled>Promote</button>
                     </div>
                 </form>
-
-
             </div>
         </div>
-
     </div>
 @endsection
 
@@ -145,7 +142,7 @@
                         var employee_id=$('#employee_id').val();
                         return $.ajax({
                             method: "GET",
-                            url: "{{url('/getEmployeeEvent/')}}"+"/"+employee_id+"/"+employeement_state,
+                            url: "{{url('/getEmployeeJob/')}}"+"/"+employee_id+"/"+employeement_state,
                         }).done(function (result) {
                             console.log(result);
                         }).fail(function (err) {
@@ -162,7 +159,7 @@
 
                             return $.ajax({
                                 method: "post",
-                                url: "{{url('/insertEmployeeEvent')}}",
+                                url: "{{url('/insertEmployeeJob')}}",
                                 data: formData,
                                 contentType: false,
                                 processData: false,
@@ -188,7 +185,7 @@
 
                             return $.ajax({
                                 method: "post",
-                                url: "{{url('/editEmployeeEvent')}}",
+                                url: "{{url('/editEmployeeJob')}}",
                                 data: formData,
                                 contentType: false,
                                 processData: false,
@@ -207,7 +204,7 @@
                     deleteItem:function (item) {
                         return $.ajax({
                             method: "post",
-                            url: "{{url('/deleteEmployeeEvent')}}",
+                            url: "{{url('/deleteEmployeeJob')}}",
                             data: item,
                         }).done(function (result) {
                             // console.log(result);
@@ -222,8 +219,8 @@
 
                 fields: [
                     { name:"ID" ,type: "hidden", css: 'hide'},
-                    { name: "event", type: "select", width: 150, validate: { message: "Please Select Event",validator: function(value) { return value > 0;} },title:'Event',css:"text-center",
-                        items: event_item,
+                    { name: "job", type: "select", width: 150, validate: { message: "Please Select Job",validator: function(value) { return value > 0;} },title:'Job',css:"text-center",
+                        items: job_item,
                         valueField: "Id",
                         textField: "Name",
                         filtering:true,
@@ -236,11 +233,11 @@
                             // Attach onchange listener !
                             $insertControl.change(function () {
                                 var selectedValue = $(this).val();
-                                grid.option("fields")[3].insertControl.val(event_item[selectedValue]['pay_amount']);   // When changing Event, will set default value
-                                grid.option("fields")[4].insertControl.val(event_item[selectedValue]['bonus']);
-                                grid.option("fields")[5].insertControl.val(event_item[selectedValue]['extra']);
-                                grid.option("fields")[6].insertControl.val(event_item[selectedValue]['packing']);
-                                grid.option("fields")[7].insertControl.val(event_item[selectedValue]['service']);
+                                grid.option("fields")[3].insertControl.val(job_item[selectedValue]['pay_amount']);   // When changing Job, will set default value
+                                grid.option("fields")[4].insertControl.val(job_item[selectedValue]['bonus']);
+                                grid.option("fields")[5].insertControl.val(job_item[selectedValue]['extra']);
+                                grid.option("fields")[6].insertControl.val(job_item[selectedValue]['packing']);
+                                grid.option("fields")[7].insertControl.val(job_item[selectedValue]['service']);
                             });
 
                             return $insertControl;
@@ -254,11 +251,11 @@
                             // Attach onchange listener !
                             $editControl.change(function () {
                                 var selectedValue = $(this).val();
-                                grid.option("fields")[3].editControl.val(event_item[selectedValue]['pay_amount']);   // When changing Event, will set default value
-                                grid.option("fields")[4].editControl.val(event_item[selectedValue]['bonus']);
-                                grid.option("fields")[5].editControl.val(event_item[selectedValue]['extra']);
-                                grid.option("fields")[6].editControl.val(event_item[selectedValue]['packing']);
-                                grid.option("fields")[7].editControl.val(event_item[selectedValue]['service']);
+                                grid.option("fields")[3].editControl.val(job_item[selectedValue]['pay_amount']);   // When changing Job, will set default value
+                                grid.option("fields")[4].editControl.val(job_item[selectedValue]['bonus']);
+                                grid.option("fields")[5].editControl.val(job_item[selectedValue]['extra']);
+                                grid.option("fields")[6].editControl.val(job_item[selectedValue]['packing']);
+                                grid.option("fields")[7].editControl.val(job_item[selectedValue]['service']);
                             });
                             return $editControl;
                         }
@@ -327,7 +324,7 @@
     </script>
 
     <script>
-        var event_item=JSON.parse('<?php echo($event_item)?>');
+        var job_item=JSON.parse('<?php echo($job_item)?>');
         var position_item=JSON.parse('<?php echo($position)?>');
 
         function submit_function(employeement_state,e) {
@@ -387,8 +384,8 @@
                 .appendTo(form_id);
 
             $('<input />').attr('type', 'hidden')
-                .attr('name', "event-"+item_index.toString())
-                .attr('value', item['event'].toString())
+                .attr('name', "job-"+item_index.toString())
+                .attr('value', item['job'].toString())
                 .appendTo(form_id);
             $('<input />').attr('type', 'hidden')
                 .attr('name', "position-"+item_index.toString())
@@ -421,5 +418,4 @@
     </script>
 
 @endsection
-
 

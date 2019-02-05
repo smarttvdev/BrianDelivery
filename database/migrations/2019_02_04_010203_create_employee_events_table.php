@@ -17,13 +17,6 @@ class CreateEmployeeEventsTable extends Migration
             $table->increments('id');
             $table->integer('employee_id');
             $table->integer('event_id');
-            $table->integer('position_id');
-            $table->string('employeement_state');
-            $table->double('pay_amount');
-            $table->double('bonus')->default(0);
-            $table->double('extra')->default(0);
-            $table->double('packing')->default(0);
-            $table->double('service')->default(0);
             $table->timestamps();
         });
     }

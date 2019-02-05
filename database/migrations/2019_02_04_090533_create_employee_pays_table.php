@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJobsTable extends Migration
+class CreateEmployeePaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CreateJobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jobs', function (Blueprint $table) {
+        Schema::create('employee_pays', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
-            $table->string('variation')->nullable();
-            $table->double('pay_amount')->default(0);
+            $table->integer('employee_id');
+            $table->integer('event_id');
+            $table->double('pay_amount');
             $table->double('bonus')->default(0);
             $table->double('extra')->default(0);
             $table->double('packing')->default(0);
             $table->double('service')->default(0);
+            $table->double('tips')->default(0);
+            $table->double('non_profit')->default(0);
+            $table->double('discount')->default(0);
             $table->timestamps();
-
         });
     }
 
@@ -34,6 +36,6 @@ class CreateJobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs');
+        Schema::dropIfExists('employee_pays');
     }
 }
