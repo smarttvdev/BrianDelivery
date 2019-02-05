@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2019 at 03:22 PM
+-- Generation Time: Feb 05, 2019 at 06:13 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -47,8 +47,22 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `first_name`, `last_name`, `gender`, `pictureID`, `employeement_time`, `promotion_date`, `state`, `paid_method`, `created_at`, `updated_at`) VALUES
-(169, 'Oni', 'Angel', 'female', 'images.jpg', '2019-02-02 14:21:19', '2019-02-28', 'active', 'cash', '2019-02-02 04:34:35', '2019-02-02 06:21:19'),
-(170, 'Zhe', 'Zui', 'male', 'main-qimg-0af9be6ece34143f5ea71b59f3c30f60.png', '2019-02-02 12:35:39', '2019-02-23', 'active', 'cash', '2019-02-02 04:35:39', '2019-02-02 04:35:58');
+(184, 'Bai', 'MaoLi', 'male', 'sehun-tc-candler-768x768.jpg', '2019-02-04 04:56:38', NULL, 'active', 'cash', '2019-02-03 20:49:43', '2019-02-03 20:56:38'),
+(185, 'Zhe', 'Zui', 'male', 'aa.jpg', '2019-02-05 06:53:48', NULL, 'active', 'cash', '2019-02-03 20:51:43', '2019-02-04 22:53:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee_events`
+--
+
+CREATE TABLE `employee_events` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -76,13 +90,64 @@ CREATE TABLE `employee_jobs` (
 --
 
 INSERT INTO `employee_jobs` (`id`, `employee_id`, `job_id`, `position_id`, `employeement_state`, `pay_amount`, `bonus`, `extra`, `packing`, `service`, `created_at`, `updated_at`) VALUES
-(255, 170, 5, 4, 'beginner', 12, 1, 1, 1, 1, '2019-02-02 04:35:39', '2019-02-02 04:35:39'),
-(256, 170, 5, 4, 'promote', 12, 1, 1, 1, 1, '2019-02-02 04:35:40', '2019-02-02 04:35:40'),
-(257, 169, 6, 5, 'beginner', 12, 1, 1, 1, 1, '2019-02-02 06:09:31', '2019-02-02 06:21:19'),
-(259, 169, 6, 7, 'beginner', 12, 1, 1, 1, 1, '2019-02-02 06:09:47', '2019-02-02 06:21:19'),
-(263, 169, 7, 4, 'promote', 12, 1, 1, 1, 1, '2019-02-02 06:18:13', '2019-02-02 06:18:13'),
-(265, 169, 6, 5, 'promote', 12, 1, 1, 1, 1, '2019-02-02 06:21:19', '2019-02-02 06:21:19'),
-(266, 169, 6, 7, 'promote', 12, 1, 1, 1, 1, '2019-02-02 06:21:19', '2019-02-02 06:21:19');
+(267, 184, 2, 4, 'beginner', 15, 2, 1, 1, 1, '2019-02-03 20:49:43', '2019-02-03 20:50:01'),
+(268, 184, 2, 3, 'promote', 15, 2, 1, 1, 1, '2019-02-03 20:49:43', '2019-02-03 20:49:43'),
+(269, 185, 3, 3, 'beginner', 21, 1, 1, 1, 1, '2019-02-03 20:51:43', '2019-02-03 20:51:43'),
+(270, 185, 3, 3, 'promote', 21, 1, 1, 1, 1, '2019-02-03 20:51:43', '2019-02-03 20:51:43'),
+(271, 185, 2, 4, 'beginner', 15, 2, 1, 1, 1, '2019-02-03 20:51:51', '2019-02-03 20:51:51'),
+(272, 185, 2, 4, 'promote', 15, 2, 1, 1, 1, '2019-02-03 20:51:51', '2019-02-03 20:51:51'),
+(273, 185, 1, 4, 'promote', 12, 1, 0, 1, 1, '2019-02-03 20:52:02', '2019-02-03 20:52:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee_pays`
+--
+
+CREATE TABLE `employee_pays` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `employee_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `pay_amount` double NOT NULL,
+  `bonus` double NOT NULL DEFAULT '0',
+  `extra` double NOT NULL DEFAULT '0',
+  `packing` double NOT NULL DEFAULT '0',
+  `service` double NOT NULL DEFAULT '0',
+  `tips` double NOT NULL DEFAULT '0',
+  `non_profit` double NOT NULL DEFAULT '0',
+  `discount` double NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `pick_address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `drop_address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_time` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `finish_time` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `labor_hours` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `travel_time` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_hours` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `discount` double NOT NULL DEFAULT '0',
+  `job_total` double NOT NULL,
+  `truck_license` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tips` double NOT NULL DEFAULT '0',
+  `bonus` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attach_file` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `non_profit` double NOT NULL DEFAULT '0',
+  `job_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -92,8 +157,8 @@ INSERT INTO `employee_jobs` (`id`, `employee_id`, `job_id`, `position_id`, `empl
 
 CREATE TABLE `jobs` (
   `id` int(10) UNSIGNED NOT NULL,
-  `category` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `variation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `pay_amount` double NOT NULL DEFAULT '0',
   `bonus` double NOT NULL DEFAULT '0',
   `extra` double NOT NULL DEFAULT '0',
@@ -107,10 +172,11 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `category`, `name`, `pay_amount`, `bonus`, `extra`, `packing`, `service`, `created_at`, `updated_at`) VALUES
-(5, 'Flat', 'regular', 12, 1, 1, 1, 1, '2019-01-29 20:30:35', '2019-01-30 07:17:02'),
-(6, 'Hourly', 'regular', 10, 10, 10, 10, 10, '2019-01-30 07:17:21', '2019-02-01 02:00:02'),
-(7, 'Flat', 'Commerical', 12, 1, 1, 1, 1, '2019-02-01 02:00:36', '2019-02-01 02:00:36');
+INSERT INTO `jobs` (`id`, `type`, `variation`, `pay_amount`, `bonus`, `extra`, `packing`, `service`, `created_at`, `updated_at`) VALUES
+(1, 'Flat', NULL, 12, 1, 0, 1, 1, '2019-02-03 20:33:25', '2019-02-05 09:01:29'),
+(2, 'Flat', 'Commerical', 15, 2, 1, 1, 1, '2019-02-03 20:34:00', '2019-02-03 20:35:29'),
+(3, 'Flat', NULL, 21, 1, 1, 1, 1, '2019-02-03 20:34:19', '2019-02-03 20:34:19'),
+(4, 'Hourly', 'Professional', 25, 1, 2, 1, 1, '2019-02-03 20:34:38', '2019-02-03 20:34:38');
 
 -- --------------------------------------------------------
 
@@ -132,9 +198,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (4, '2019_01_30_000825_create_employees_table', 2),
-(5, '2019_01_30_012544_create_jobs_table', 2),
 (6, '2019_01_30_012627_create_postions_table', 2),
-(7, '2019_02_01_152149_create_employee_jobs_table', 3);
+(7, '2019_02_01_152149_create_employee_jobs_table', 3),
+(10, '2019_01_30_012544_create_jobs_table', 6),
+(11, '2019_02_04_002319_create_events_table', 7),
+(12, '2019_02_04_010203_create_employee_events_table', 7),
+(13, '2019_02_04_090533_create_employee_pays_table', 7);
 
 -- --------------------------------------------------------
 
@@ -195,7 +264,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Bai MaoLi', 'baimaoli9@gmail.com', NULL, '$2y$10$.LYa6lp1btAmpIEe/fTddOUhh5agDMQDdY9mekKyqkF3TDWfbxeVq', 'IiFXoql9GvJNMF3gv9HSMLnirdaseyUlXm0Ysiar4aFVImoh9TBtYJ0hhG3s', '2019-01-28 01:55:10', '2019-01-28 01:55:10'),
-(2, 'Oni Angel', 'oni@gmail.com', NULL, '$2y$10$YgwpSh.NKXfcPAglcuNXFekTCQis57CYfy76RR7WK5mD75lmTTmz2', 'XiYV55PFX87dxWHD7e83wtFbPTOx1O9iZgWlS2OYvtCyLXTeKH0p0SGh8RPU', '2019-01-29 01:19:16', '2019-01-29 01:19:16');
+(2, 'Oni Angel', 'oni@gmail.com', NULL, '$2y$10$YgwpSh.NKXfcPAglcuNXFekTCQis57CYfy76RR7WK5mD75lmTTmz2', 'fKgIC8RtwLkeYtgKwnkBNhUvVhRBxXrIrlBBa8eJpgTZUXxvRC5FAqIrsiGO', '2019-01-29 01:19:16', '2019-01-29 01:19:16');
 
 --
 -- Indexes for dumped tables
@@ -208,9 +277,27 @@ ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `employee_events`
+--
+ALTER TABLE `employee_events`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `employee_jobs`
 --
 ALTER TABLE `employee_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee_pays`
+--
+ALTER TABLE `employee_pays`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -252,25 +339,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+
+--
+-- AUTO_INCREMENT for table `employee_events`
+--
+ALTER TABLE `employee_events`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `employee_jobs`
 --
 ALTER TABLE `employee_jobs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=267;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=274;
+
+--
+-- AUTO_INCREMENT for table `employee_pays`
+--
+ALTER TABLE `employee_pays`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `postions`

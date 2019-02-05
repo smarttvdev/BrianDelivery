@@ -384,9 +384,9 @@
       <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="40" />
-    <option name="y" value="409" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="191" />
+    <option name="y" value="299" />
     <option name="width" value="1352" />
     <option name="height" value="757" />
   </component>
