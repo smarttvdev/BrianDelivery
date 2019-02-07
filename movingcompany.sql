@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2019 at 06:13 PM
+-- Generation Time: Feb 07, 2019 at 10:59 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -32,11 +32,12 @@ CREATE TABLE `employees` (
   `id` int(10) UNSIGNED NOT NULL,
   `first_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bonus` double NOT NULL DEFAULT '0',
   `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'male',
   `pictureID` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `employeement_time` datetime NOT NULL,
   `promotion_date` date DEFAULT NULL,
-  `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+  `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'activate',
   `paid_method` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -46,9 +47,8 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `first_name`, `last_name`, `gender`, `pictureID`, `employeement_time`, `promotion_date`, `state`, `paid_method`, `created_at`, `updated_at`) VALUES
-(184, 'Bai', 'MaoLi', 'male', 'sehun-tc-candler-768x768.jpg', '2019-02-04 04:56:38', NULL, 'active', 'cash', '2019-02-03 20:49:43', '2019-02-03 20:56:38'),
-(185, 'Zhe', 'Zui', 'male', 'aa.jpg', '2019-02-05 06:53:48', NULL, 'active', 'cash', '2019-02-03 20:51:43', '2019-02-04 22:53:48');
+INSERT INTO `employees` (`id`, `first_name`, `last_name`, `bonus`, `gender`, `pictureID`, `employeement_time`, `promotion_date`, `state`, `paid_method`, `created_at`, `updated_at`) VALUES
+(2, 'Bai', 'MaoLi', 0, 'male', 'images.jpg', '2019-02-07 21:46:04', NULL, 'activate', 'cash', '2019-02-07 13:25:57', '2019-02-07 13:46:04');
 
 -- --------------------------------------------------------
 
@@ -76,11 +76,12 @@ CREATE TABLE `employee_jobs` (
   `job_id` int(11) NOT NULL,
   `position_id` int(11) NOT NULL,
   `employeement_state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pay_amount` double NOT NULL,
-  `bonus` double NOT NULL DEFAULT '0',
-  `extra` double NOT NULL DEFAULT '0',
-  `packing` double NOT NULL DEFAULT '0',
-  `service` double NOT NULL DEFAULT '0',
+  `hourly_pay` double NOT NULL,
+  `hourly_percent` double NOT NULL DEFAULT '0',
+  `flat_percent` double NOT NULL DEFAULT '0',
+  `extra_percent` double NOT NULL DEFAULT '0',
+  `packing_percent` double NOT NULL DEFAULT '0',
+  `service_percent` double NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -89,14 +90,10 @@ CREATE TABLE `employee_jobs` (
 -- Dumping data for table `employee_jobs`
 --
 
-INSERT INTO `employee_jobs` (`id`, `employee_id`, `job_id`, `position_id`, `employeement_state`, `pay_amount`, `bonus`, `extra`, `packing`, `service`, `created_at`, `updated_at`) VALUES
-(267, 184, 2, 4, 'beginner', 15, 2, 1, 1, 1, '2019-02-03 20:49:43', '2019-02-03 20:50:01'),
-(268, 184, 2, 3, 'promote', 15, 2, 1, 1, 1, '2019-02-03 20:49:43', '2019-02-03 20:49:43'),
-(269, 185, 3, 3, 'beginner', 21, 1, 1, 1, 1, '2019-02-03 20:51:43', '2019-02-03 20:51:43'),
-(270, 185, 3, 3, 'promote', 21, 1, 1, 1, 1, '2019-02-03 20:51:43', '2019-02-03 20:51:43'),
-(271, 185, 2, 4, 'beginner', 15, 2, 1, 1, 1, '2019-02-03 20:51:51', '2019-02-03 20:51:51'),
-(272, 185, 2, 4, 'promote', 15, 2, 1, 1, 1, '2019-02-03 20:51:51', '2019-02-03 20:51:51'),
-(273, 185, 1, 4, 'promote', 12, 1, 0, 1, 1, '2019-02-03 20:52:02', '2019-02-03 20:52:02');
+INSERT INTO `employee_jobs` (`id`, `employee_id`, `job_id`, `position_id`, `employeement_state`, `hourly_pay`, `hourly_percent`, `flat_percent`, `extra_percent`, `packing_percent`, `service_percent`, `created_at`, `updated_at`) VALUES
+(4, 2, 4, 4, 'beginner', 25, 2, 2, 2, 1, 1, '2019-02-07 13:25:57', '2019-02-07 13:43:51'),
+(5, 2, 3, 3, 'promote', 22, 1, 1, 1, 2, 1, '2019-02-07 13:25:57', '2019-02-07 13:44:02'),
+(8, 2, 1, 4, 'promote', 16, 1, 1, 0, 1, 1, '2019-02-07 13:45:07', '2019-02-07 13:51:22');
 
 -- --------------------------------------------------------
 
@@ -159,11 +156,12 @@ CREATE TABLE `jobs` (
   `id` int(10) UNSIGNED NOT NULL,
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `variation` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pay_amount` double NOT NULL DEFAULT '0',
-  `bonus` double NOT NULL DEFAULT '0',
-  `extra` double NOT NULL DEFAULT '0',
-  `packing` double NOT NULL DEFAULT '0',
-  `service` double NOT NULL DEFAULT '0',
+  `hourly_pay` double NOT NULL DEFAULT '0',
+  `hourly_percent` double NOT NULL DEFAULT '0',
+  `flat_percent` double NOT NULL DEFAULT '0',
+  `extra_percent` double NOT NULL DEFAULT '0',
+  `packing_percent` double NOT NULL DEFAULT '0',
+  `service_percent` double NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -172,11 +170,11 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `type`, `variation`, `pay_amount`, `bonus`, `extra`, `packing`, `service`, `created_at`, `updated_at`) VALUES
-(1, 'Flat', NULL, 12, 1, 0, 1, 1, '2019-02-03 20:33:25', '2019-02-05 09:01:29'),
-(2, 'Flat', 'Commerical', 15, 2, 1, 1, 1, '2019-02-03 20:34:00', '2019-02-03 20:35:29'),
-(3, 'Flat', NULL, 21, 1, 1, 1, 1, '2019-02-03 20:34:19', '2019-02-03 20:34:19'),
-(4, 'Hourly', 'Professional', 25, 1, 2, 1, 1, '2019-02-03 20:34:38', '2019-02-03 20:34:38');
+INSERT INTO `jobs` (`id`, `type`, `variation`, `hourly_pay`, `hourly_percent`, `flat_percent`, `extra_percent`, `packing_percent`, `service_percent`, `created_at`, `updated_at`) VALUES
+(1, 'Hourly', NULL, 16, 1, 1, 1, 1, 1, '2019-02-07 11:38:31', '2019-02-07 11:39:07'),
+(2, 'Hourly', 'Commerical', 20, 2, 1, 1, 1, 1, '2019-02-07 11:38:57', '2019-02-07 11:38:57'),
+(3, 'Flat', NULL, 22, 1, 1, 1, 1, 1, '2019-02-07 11:42:28', '2019-02-07 11:42:28'),
+(4, 'Flat', 'Professional', 25, 2, 2, 2, 1, 1, '2019-02-07 11:47:38', '2019-02-07 11:47:55');
 
 -- --------------------------------------------------------
 
@@ -197,13 +195,13 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
-(4, '2019_01_30_000825_create_employees_table', 2),
 (6, '2019_01_30_012627_create_postions_table', 2),
-(7, '2019_02_01_152149_create_employee_jobs_table', 3),
-(10, '2019_01_30_012544_create_jobs_table', 6),
 (11, '2019_02_04_002319_create_events_table', 7),
 (12, '2019_02_04_010203_create_employee_events_table', 7),
-(13, '2019_02_04_090533_create_employee_pays_table', 7);
+(13, '2019_02_04_090533_create_employee_pays_table', 7),
+(14, '2019_01_30_000825_create_employees_table', 8),
+(15, '2019_01_30_012544_create_jobs_table', 8),
+(16, '2019_02_01_152149_create_employee_jobs_table', 8);
 
 -- --------------------------------------------------------
 
@@ -339,7 +337,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee_events`
@@ -351,7 +349,7 @@ ALTER TABLE `employee_events`
 -- AUTO_INCREMENT for table `employee_jobs`
 --
 ALTER TABLE `employee_jobs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=274;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employee_pays`
@@ -375,7 +373,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `postions`

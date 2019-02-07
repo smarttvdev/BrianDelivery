@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_30_000825_create_employees_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_30_000825_create_employees_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_30_012544_create_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_30_012544_create_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_01_152149_create_employee_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_01_152149_create_employee_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/template/css/js-grid-table.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/template/css/js-grid-table.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/create_employee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/create_employee.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/job.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/job.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/movingcompany.sql" beforeDir="false" afterPath="$PROJECT_DIR$/movingcompany.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +59,7 @@
           <entry key="js" value="9" />
           <entry key="php" value="139" />
           <entry key="png" value="1" />
-          <entry key="sql" value="2" />
+          <entry key="sql" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -78,7 +70,7 @@
           <entry key="JavaScript" value="9" />
           <entry key="PHP" value="71" />
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="SQL" value="2" />
+          <entry key="SQL" value="3" />
           <entry key="htaccess" value="1" />
         </counts>
       </usages-collector>
@@ -119,8 +111,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="344" lean-forward="true" selection-start-line="344" selection-end-line="344" />
+            <state relative-caret-position="341">
+              <caret line="351" column="53" lean-forward="true" selection-start-line="351" selection-start-column="53" selection-end-line="351" selection-end-column="53" />
               <folding>
                 <element signature="e#166#188#0#HTML" expanded="true" />
                 <element signature="e#4870#4935#0#HTML" expanded="true" />
@@ -391,8 +383,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="236" />
-    <option name="y" value="497" />
+    <option name="x" value="241" />
+    <option name="y" value="257" />
     <option name="width" value="1210" />
     <option name="height" value="757" />
   </component>
@@ -517,18 +509,18 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\MovingCompany\resources\views" />
+      <recent name="D:\xampp\htdocs\MovingCompany\public\login\vendor" />
+      <recent name="D:\xampp\htdocs\MovingCompany\public\login\fonts" />
+      <recent name="D:\xampp\htdocs\MovingCompany\public\login\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\MovingCompany" />
       <recent name="D:\xampp\htdocs\MovingCompany\resources\views\job" />
       <recent name="D:\xampp\htdocs\MovingCompany\resources\views\employee" />
       <recent name="D:\xampp\htdocs\MovingCompany\public\images" />
       <recent name="D:\xampp\htdocs\MovingCompany\public\template\Plugins" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\MovingCompany\resources\views" />
-      <recent name="D:\xampp\htdocs\MovingCompany\public\login\vendor" />
-      <recent name="D:\xampp\htdocs\MovingCompany\public\login\fonts" />
-      <recent name="D:\xampp\htdocs\MovingCompany\public\login\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -565,18 +557,18 @@
       <workItem from="1549336776888" duration="13807000" />
       <workItem from="1549366175912" duration="10800000" />
       <workItem from="1549386756304" duration="1999000" />
-      <workItem from="1549535216761" duration="15307000" />
+      <workItem from="1549535216761" duration="15501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201714000" />
+    <option name="totallyTimeSpent" value="201908000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="236" y="497" width="1210" height="757" extended-state="0" />
+    <frame x="241" y="257" width="1210" height="757" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.110434785" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.110434785" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -591,7 +583,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005417" side_tool="true" weight="0.32777777" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" visible="true" weight="0.28089887" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" visible="true" weight="0.28089887" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -762,13 +754,6 @@
     </entry>
     <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/591282_3_1/calendar.js" />
     <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/591282_3_0/calendar.js" />
-    <entry file="file://$PROJECT_DIR$/movingcompany.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/198248_2_0/.gitignore" />
     <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/198248_2_1/.env" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -886,10 +871,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/movingcompany.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="344" lean-forward="true" selection-start-line="344" selection-end-line="344" />
+        <state relative-caret-position="341">
+          <caret line="351" column="53" lean-forward="true" selection-start-line="351" selection-start-column="53" selection-end-line="351" selection-end-column="53" />
           <folding>
             <element signature="e#166#188#0#HTML" expanded="true" />
             <element signature="e#4870#4935#0#HTML" expanded="true" />
