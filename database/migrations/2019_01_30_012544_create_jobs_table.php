@@ -17,11 +17,12 @@ class CreateJobsTable extends Migration
             $table->increments('id');
             $table->string('type');
             $table->string('variation')->nullable();
-            $table->double('pay_amount')->default(0);
-            $table->double('bonus')->default(0);
-            $table->double('extra')->default(0);
-            $table->double('packing')->default(0);
-            $table->double('service')->default(0);
+            $table->double('hourly_pay')->default(0);
+            $table->double('hourly_percent')->default(0);
+            $table->double('flat_percent')->default(0);
+            $table->double('extra_percent')->default(0);
+            $table->double('packing_percent')->default(0);
+            $table->double('service_percent')->default(0);
             $table->timestamps();
 
         });

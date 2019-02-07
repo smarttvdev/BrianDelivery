@@ -19,11 +19,12 @@ class CreateEmployeeJobsTable extends Migration
             $table->integer('job_id');
             $table->integer('position_id');
             $table->string('employeement_state');
-            $table->double('pay_amount');
-            $table->double('bonus')->default(0);
-            $table->double('extra')->default(0);
-            $table->double('packing')->default(0);
-            $table->double('service')->default(0);
+            $table->double('hourly_pay');
+            $table->double('hourly_percent')->default(0);
+            $table->double('flat_percent')->default(0);
+            $table->double('extra_percent')->default(0);
+            $table->double('packing_percent')->default(0);
+            $table->double('service_percent')->default(0);
             $table->timestamps();
         });
     }

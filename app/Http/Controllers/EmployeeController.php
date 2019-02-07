@@ -51,11 +51,12 @@ class EmployeeController extends Controller
         $i=0;
         $job_item[0]['Name']=null;
         $job_item[0]['Id']=0;
-        $job_item[0]['pay_amount']=0;
-        $job_item[0]['bonus']=0;
-        $job_item[0]['extra']=0;
-        $job_item[0]['packing']=0;
-        $job_item[0]['service']=0;
+        $job_item[0]['hourly_pay']=0;
+        $job_item[0]['hourly_percent']=0;
+        $job_item[0]['flat_percent']=0;
+        $job_item[0]['extra_percent']=0;
+        $job_item[0]['packing_percent']=0;
+        $job_item[0]['service_percent']=0;
         foreach ($temps as $temp){
             if (!is_null($temp->variation))
                 $job_item[$i+1]['Name']=$temp->type.' - '. $temp->variation;
@@ -63,11 +64,12 @@ class EmployeeController extends Controller
                 $job_item[$i+1]['Name']=$temp->type;
 
             $job_item[$i+1]['Id']=$i+1;
-            $job_item[$i+1]['pay_amount']=$temp->pay_amount;
-            $job_item[$i+1]['bonus']=$temp->bonus;
-            $job_item[$i+1]['extra']=$temp->extra;
-            $job_item[$i+1]['packing']=$temp->packing;
-            $job_item[$i+1]['service']=$temp->service;
+            $job_item[$i+1]['hourly_pay']=$temp->hourly_pay;
+            $job_item[$i+1]['hourly_percent']=$temp->hourly_percent;
+            $job_item[$i+1]['flat_percent']=$temp->flat_percent;
+            $job_item[$i+1]['extra_percent']=$temp->extra_percent;
+            $job_item[$i+1]['packing_percent']=$temp->packing_percent;
+            $job_item[$i+1]['service_percent']=$temp->service_percent;
             $i++;
         }
         $job_item=json_encode($job_item);
@@ -81,6 +83,7 @@ class EmployeeController extends Controller
         if ($employeement_state=='beginner'){
             $first_name=$request->input('first_name');
             $last_name=$request->input('last_name');
+            $bonus=$request->input('bonus');
             $gender=$request->input('gender');
             $paid_method=$request->input('PaidMethod');
             if ($employee_id!=0)
@@ -92,6 +95,7 @@ class EmployeeController extends Controller
 
             $employee->first_name=$first_name;
             $employee->last_name=$last_name;
+            $employee->bonus=$bonus;
             $employee->gender=$gender;
             $employee->paid_method=$paid_method;
             $employee->employeement_time=$employeement_time;
@@ -135,11 +139,12 @@ class EmployeeController extends Controller
                 $employee_job->employee_id = $employee_id;
                 $employee_job->job_id = $job_id;
                 $employee_job->position_id = $position_id;
-                $employee_job->pay_amount = $request->input('pay_amount-' . $i);
-                $employee_job->bonus = $request->input('bonus-' . $i);
-                $employee_job->extra = $request->input('extra-' . $i);
-                $employee_job->packing = $request->input('packing-' . $i);
-                $employee_job->service = $request->input('service-' . $i);
+                $employee_job->hourly_pay = $request->input('hourly_pay-' . $i);
+                $employee_job->hourly_percent = $request->input('hourly_percent-' . $i);
+                $employee_job->flat_percent = $request->input('flat_percent-' . $i);
+                $employee_job->extra_percent = $request->input('extra_percent-' . $i);
+                $employee_job->packing_percent = $request->input('packing_percent-' . $i);
+                $employee_job->service_percent = $request->input('service_percent-' . $i);
                 $employee_job->employeement_state = $employeement_state;
                 $employee_job->save();
 
@@ -151,11 +156,12 @@ class EmployeeController extends Controller
                         $employee_job_promote->job_id = $employee_job->job_id;
                         $employee_job_promote->position_id = $employee_job->position_id;
                         $employee_job_promote->employeement_state = $employee_job->employeement_state;
-                        $employee_job_promote->pay_amount = $employee_job->pay_amount;
-                        $employee_job_promote->bonus = $employee_job->bonus;
-                        $employee_job_promote->extra = $employee_job->extra;
-                        $employee_job_promote->packing = $employee_job->packing;
-                        $employee_job_promote->service = $employee_job->service;
+                        $employee_job_promote->hourly_pay = $employee_job->hourly_pay;
+                        $employee_job_promote->hourly_percent = $employee_job->hourly_percent;
+                        $employee_job_promote->flat_percent = $employee_job->flat_percent;
+                        $employee_job_promote->extra_percent = $employee_job->extra_percent;
+                        $employee_job_promote->packing_percent = $employee_job->packing_percent;
+                        $employee_job_promote->service_percent = $employee_job->service_percent;
                         $employee_job_promote->employeement_state = 'promote';
                         $employee_job_promote->save();
                     }
@@ -186,11 +192,12 @@ class EmployeeController extends Controller
         $employee_job->employee_id = $employee_id;
         $employee_job->job_id = $job_id;
         $employee_job->position_id = $position_id;
-        $employee_job->pay_amount = $request->input('pay_amount-' . $i);
-        $employee_job->bonus = $request->input('bonus-' . $i);
-        $employee_job->extra = $request->input('extra-' . $i);
-        $employee_job->packing = $request->input('packing-' . $i);
-        $employee_job->service = $request->input('service-' . $i);
+        $employee_job->hourly_pay = $request->input('hourly_pay-' . $i);
+        $employee_job->hourly_percent = $request->input('hourly_percent-' . $i);
+        $employee_job->flat_percent = $request->input('flat_percent-' . $i);
+        $employee_job->extra_percent = $request->input('extra_percent-' . $i);
+        $employee_job->packing_percent = $request->input('packing_percent-' . $i);
+        $employee_job->service_percent = $request->input('service_percent-' . $i);
         $employee_job->employeement_state = $employeement_state;
         $employee_job->save();
 
@@ -199,11 +206,13 @@ class EmployeeController extends Controller
             $employee_job_promot->employee_id = $employee_id;
             $employee_job_promot->job_id = $job_id;
             $employee_job_promot->position_id = $position_id;
-            $employee_job_promot->pay_amount = $request->input('pay_amount-' . $i);
-            $employee_job_promot->bonus = $request->input('bonus-' . $i);
-            $employee_job_promot->extra = $request->input('extra-' . $i);
-            $employee_job_promot->packing = $request->input('packing-' . $i);
-            $employee_job_promot->service = $request->input('service-' . $i);
+            $employee_job_promot->hourly_pay = $request->input('hourly_pay-' . $i);
+            $employee_job_promot->hourly_percent = $request->input('hourly_percent-' . $i);
+            $employee_job_promot->flat_percent = $request->input('flat_percent-' . $i);
+
+            $employee_job_promot->extra_percent = $request->input('extra_percent-' . $i);
+            $employee_job_promot->packing_percent = $request->input('packing_percent-' . $i);
+            $employee_job_promot->service_percent = $request->input('service_percent-' . $i);
             $employee_job_promot->employeement_state = 'promote';
             $employee_job_promot->save();
 
@@ -228,11 +237,12 @@ class EmployeeController extends Controller
             $employee_job->employee_id = $employee_id;
             $employee_job->job_id = $job_id;
             $employee_job->position_id = $position_id;
-            $employee_job->pay_amount = $request->input('pay_amount-' . $i);
-            $employee_job->bonus = $request->input('bonus-' . $i);
-            $employee_job->extra = $request->input('extra-' . $i);
-            $employee_job->packing = $request->input('packing-' . $i);
-            $employee_job->service = $request->input('service-' . $i);
+            $employee_job->hourly_pay = $request->input('hourly_pay-' . $i);
+            $employee_job->hourly_percent = $request->input('hourly_percent-' . $i);
+            $employee_job->flat_percent = $request->input('flat_percent-' . $i);
+            $employee_job->extra_percent = $request->input('extra_percent-' . $i);
+            $employee_job->packing_percent = $request->input('packing_percent-' . $i);
+            $employee_job->service_percent = $request->input('service_percent-' . $i);
             $employee_job->employeement_state = $employeement_state;
             $employee_job->save();
         }
@@ -255,11 +265,12 @@ class EmployeeController extends Controller
                 $item[$i]['ID']=$EmployeeJob->id;
                 $item[$i]['job']=(int)$this->jobIndicies[$EmployeeJob->job_id];
                 $item[$i]['position']=(int)$this->positionIndicies[$EmployeeJob->position_id];
-                $item[$i]['pay_amount']=$EmployeeJob->pay_amount;
-                $item[$i]['bonus']=$EmployeeJob->bonus;
-                $item[$i]['extra']=$EmployeeJob->extra;
-                $item[$i]['packing']=$EmployeeJob->packing;
-                $item[$i]['service']=$EmployeeJob->service;
+                $item[$i]['hourly_pay']=$EmployeeJob->hourly_pay;
+                $item[$i]['hourly_percent']=$EmployeeJob->hourly_percent;
+                $item[$i]['flat_percent']=$EmployeeJob->flat_percent;
+                $item[$i]['extra_percent']=$EmployeeJob->extra_percent;
+                $item[$i]['packing_percent']=$EmployeeJob->packing_percent;
+                $item[$i]['service_percent']=$EmployeeJob->service_percent;
                 $i++;
             }
         }
@@ -355,19 +366,23 @@ class EmployeeController extends Controller
         $i=0;
         $job_item[0]['Name']=null;
         $job_item[0]['Id']=0;
-        $job_item[0]['pay_amount']=0;
-        $job_item[0]['bonus']=0;
-        $job_item[0]['extra']=0;
-        $job_item[0]['packing']=0;
-        $job_item[0]['service']=0;
+        $job_item[0]['hourly_pay']=0;
+        $job_item[0]['hourly_percent']=0;
+        $job_item[0]['flat_percent']=0;
+
+        $job_item[0]['extra_percent']=0;
+        $job_item[0]['packing_percent']=0;
+        $job_item[0]['service_percent']=0;
         foreach ($temps as $temp){
             $job_item[$i+1]['Name']=$temp->type.' - '. $temp->variation;
             $job_item[$i+1]['Id']=$i+1;
-            $job_item[$i+1]['pay_amount']=$temp->pay_amount;
-            $job_item[$i+1]['bonus']=$temp->bonus;
-            $job_item[$i+1]['extra']=$temp->extra;
-            $job_item[$i+1]['packing']=$temp->packing;
-            $job_item[$i+1]['service']=$temp->service;
+            $job_item[$i+1]['hourly_pay']=$temp->hourly_pay;
+            $job_item[$i+1]['hourly_percent']=$temp->hourly_percent;
+            $job_item[$i+1]['flat_percent']=$temp->flat_percent;
+
+            $job_item[$i+1]['extra_percent']=$temp->extra_percent;
+            $job_item[$i+1]['packing_percent']=$temp->packing_percent;
+            $job_item[$i+1]['service_percent']=$temp->service_percent;
             $i++;
         }
         $job_item=json_encode($job_item);

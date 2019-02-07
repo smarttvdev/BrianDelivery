@@ -10,7 +10,6 @@
 @endsection
 
 @section('insert-js')
-
     <script>
         $(function () {
             $("#jsGrid").jsGrid({
@@ -70,7 +69,6 @@
                         });
                     }
                 },
-
                 fields: [
                     { name:"ID" ,type: "hidden", css: 'hide'},
                     { name: "type", type: "select", width: 150, validate: "required",title:'Job Type',css:"text-center",
@@ -84,14 +82,13 @@
                         textField: "Name",
                         filtering:true,
                     },
-
                     { name: "variation", type: "text", width: 150, title:"Job Variation",css:"text-center",align: "center" ,filtering:true},
-                    { name: "pay_amount", type: "number", width: 100, css:"text-center",title:"$, Rate",align: "center",value:"0"},
-                    { name: "bonus", type: "number", width: 100, css:"text-center",title:"%, Bonus",align: "center",value:"0"},
-                    { name: "extra", type: "number", width: 100, css:"text-center",title:"%, Extra Flat",align: "center",value:"0"},
-                    { name: "packing", type: "number", width: 100, css:"text-center",title:"%, Packing",align: "center",value:"0"},
-                    { name: "service", type: "number", width: 100, css:"text-center",title:"%, Service",align: "center",value:"0"},
-
+                    { name: "hourly_pay", type: "number", width: 100, css:"text-center",title:"Hourly Pay",align: "center",value:"0"},
+                    { name: "hourly_percent", type: "number", width: 100, css:"text-center",title:"Hourly, %",align: "center",value:"0"},
+                    { name: "flat_percent", type: "number", width: 100, css:"text-center",title:"Flat, %",align: "center",value:"0"},
+                    { name: "extra_percent", type: "number", width: 100, css:"text-center",title:"Extra Flat, %",align: "center",value:"0"},
+                    { name: "packing_percent", type: "number", width: 100, css:"text-center",title:"Packing, %",align: "center",value:"0"},
+                    { name: "service_percent", type: "number", width: 100, css:"text-center",title:"Service, %",align: "center",value:"0"},
                     {
                         type: "control",width:50
                     }

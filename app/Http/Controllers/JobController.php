@@ -25,11 +25,12 @@ class JobController extends Controller
             else
                 $result[$i]['type']=2;
             $result[$i]['ID']=$Job->id;
-            $result[$i]['pay_amount']=$Job->pay_amount;
-            $result[$i]['bonus']=$Job->bonus;
-            $result[$i]['extra']=$Job->extra;
-            $result[$i]['packing']=$Job->packing;
-            $result[$i]['service']=$Job->service;
+            $result[$i]['hourly_pay']=$Job->hourly_pay;
+            $result[$i]['hourly_percent']=$Job->hourly_percent;
+            $result[$i]['flat_percent']=$Job->flat_percent;
+            $result[$i]['extra_percent']=$Job->extra_percent;
+            $result[$i]['packing_percent']=$Job->packing_percent;
+            $result[$i]['service_percent']=$Job->service_percent;
             $i++;
         }
         return response($result)->withHeaders([
@@ -53,11 +54,12 @@ class JobController extends Controller
             $Job=new Job;
             $Job->type=$type;
             $Job->variation=$variation;
-            $Job->pay_amount=$item['pay_amount'];
-            $Job->bonus=$item['bonus'];
-            $Job->extra=$item['extra'];
-            $Job->packing=$item['packing'];
-            $Job->service=$item['service'];
+            $Job->hourly_pay=$item['hourly_pay'];
+            $Job->hourly_percent=$item['hourly_percent'];
+            $Job->flat_percent=$item['flat_percent'];
+            $Job->extra_percent=$item['extra_percent'];
+            $Job->packing_percent=$item['packing_percent'];
+            $Job->service_percent=$item['service_percent'];
             $Job->save();
             $item['ID']=$Job->id;
             $item['type']=(int)$type_temp;
@@ -83,13 +85,13 @@ class JobController extends Controller
         }
 
         $Job=Job::find($id);
-        $Job->type=$type;
         $Job->variation=$variation;
-        $Job->pay_amount=$item['pay_amount'];
-        $Job->bonus=$item['bonus'];
-        $Job->extra=$item['extra'];
-        $Job->packing=$item['packing'];
-        $Job->service=$item['service'];
+        $Job->hourly_pay=$item['hourly_pay'];
+        $Job->hourly_percent=$item['hourly_percent'];
+        $Job->flat_percent=$item['flat_percent'];
+        $Job->extra_percent=$item['extra_percent'];
+        $Job->packing_percent=$item['packing_percent'];
+        $Job->service_percent=$item['service_percent'];
         $Job->save();
         $item['ID']=$Job->id;
         $item['type']=(int)$type_temp;

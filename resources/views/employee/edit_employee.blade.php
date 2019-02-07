@@ -3,7 +3,7 @@
 @section('page-content')
     <div class="page-content">
         <div class="panel">
-            <div class="panel-body container-fluid" style="height:1400px;">
+            <div class="panel-body container-fluid" style="height:1500px;">
                 <form autocomplete="off" method="post" id="beginner_form" action="{{url('employee/save')}}">
                     @csrf
                     <div class="form-wrap">
@@ -18,6 +18,12 @@
                                     <label class="form-control-label" for="last_name">Last Name</label>
                                     <input type="text" class="form-control" id="inputBasicFirstName" name="last_name"
                                            placeholder="Last Name" value="{{$employee->last_name}}" autocomplete="off" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="last_name">Bonus</label>
+                                    <input type="number" class="form-control" name="bonus"
+                                           placeholder=0 value="0" autocomplete="off" />
                                 </div>
 
                                 <div class="form-group">
@@ -63,12 +69,12 @@
                         </div>
                     </div>
 
-                    <div class="js-grid-holder" style="margin-top:-40px;padding-left:0;padding-right:0">
+                    <div class="js-grid-holder" style="margin-top:-40px;padding-left:0;padding-right:0;width:80%">
                         <h3 class="table-title" style="margin-bottom:10px">Initial Position</h3>
                         <div id="beginner_position" class="table-content"></div>
                     </div>
 
-                    <div style="margin-top:-40px;margin-left:10%">
+                    <div style="margin-top:-20px;margin-left:10%">
                         <button type="submit" class="btn btn-primary" id="Start_Date">Start Date</button>
                     </div>
                     <input type="text" style="display:none" id="employee_id" name="employee_id" value="{{$employee->id}}">
@@ -89,7 +95,7 @@
                             <h3 class="table-title" style="margin-bottom:10px">Promote Position</h3>
                             <div id="promote_position" class="table-content"></div>
                         </div>
-                        <button type="submit" class="btn btn-success" style="margin-top:-60px" id="promote_submit">Promote</button>
+                        <button type="submit" class="btn btn-success" style="margin-top:-30px" id="promote_submit">Promote</button>
                     </div>
                 </form>
 
@@ -235,11 +241,12 @@
                             // Attach onchange listener !
                             $insertControl.change(function () {
                                 var selectedValue = $(this).val();
-                                grid.option("fields")[3].insertControl.val(job_item[selectedValue]['pay_amount']);   // When changing Job, will set default value
-                                grid.option("fields")[4].insertControl.val(job_item[selectedValue]['bonus']);
-                                grid.option("fields")[5].insertControl.val(job_item[selectedValue]['extra']);
-                                grid.option("fields")[6].insertControl.val(job_item[selectedValue]['packing']);
-                                grid.option("fields")[7].insertControl.val(job_item[selectedValue]['service']);
+                                grid.option("fields")[3].insertControl.val(job_item[selectedValue]['hourly_pay']);   // When changing Job, will set default value
+                                grid.option("fields")[4].insertControl.val(job_item[selectedValue]['hourly_percent']);
+                                grid.option("fields")[5].insertControl.val(job_item[selectedValue]['flat_percent']);
+                                grid.option("fields")[6].insertControl.val(job_item[selectedValue]['extra_percent']);
+                                grid.option("fields")[7].insertControl.val(job_item[selectedValue]['packing_percent']);
+                                grid.option("fields")[8].insertControl.val(job_item[selectedValue]['service_percent']);
                             });
 
                             return $insertControl;
@@ -253,11 +260,12 @@
                             // Attach onchange listener !
                             $editControl.change(function () {
                                 var selectedValue = $(this).val();
-                                grid.option("fields")[3].editControl.val(job_item[selectedValue]['pay_amount']);   // When changing Job, will set default value
-                                grid.option("fields")[4].editControl.val(job_item[selectedValue]['bonus']);
-                                grid.option("fields")[5].editControl.val(job_item[selectedValue]['extra']);
-                                grid.option("fields")[6].editControl.val(job_item[selectedValue]['packing']);
-                                grid.option("fields")[7].editControl.val(job_item[selectedValue]['service']);
+                                grid.option("fields")[3].editControl.val(job_item[selectedValue]['hourly_pay']);   // When changing Job, will set default value
+                                grid.option("fields")[4].editControl.val(job_item[selectedValue]['hourly_percent']);
+                                grid.option("fields")[5].editControl.val(job_item[selectedValue]['flat_percent']);
+                                grid.option("fields")[6].editControl.val(job_item[selectedValue]['extra_percent']);
+                                grid.option("fields")[7].editControl.val(job_item[selectedValue]['packing_percent']);
+                                grid.option("fields")[8].editControl.val(job_item[selectedValue]['service_percent']);
                             });
                             return $editControl;
                         }
@@ -269,7 +277,7 @@
                         filtering:true,
                     },
 
-                    { name: "pay_amount", type: "number", width: 100, css:"text-center",title:"$, Rate",align: "center",value:"0",
+                    { name: "hourly_pay", type: "number", width: 100, css:"text-center",title:"Hourly Pay",align: "center",value:"0",
                         insertTemplate: function() {
                             var input = this.__proto__.insertTemplate.call(this); //original input
                             input.val(0);
@@ -277,29 +285,35 @@
                         }
 
                     },
-                    { name: "bonus", type: "number", width: 100, css:"text-center",title:"%, Bonus",align: "center",value:"0",
-                        insertTemplate: function() {
-                            var input = this.__proto__.insertTemplate.call(this); //original input
-                            input.val(0);
-                            return input;
-                        }
-
-                    },
-                    { name: "extra", type: "number", width: 100, css:"text-center",title:"%, Extra Flat",align: "center",value:"0",
+                    { name: "hourly_percent", type: "number", width: 100, css:"text-center",title:"Hourly, %",align: "center",value:"0",
                         insertTemplate: function() {
                             var input = this.__proto__.insertTemplate.call(this); //original input
                             input.val(0);
                             return input;
                         }
                     },
-                    { name: "packing", type: "number", width: 100, css:"text-center",title:"%, Packing",align: "center",value:"0",
+                    { name: "flat_percent", type: "number", width: 100, css:"text-center",title:"Flat, %",align: "center",value:"0",
                         insertTemplate: function() {
                             var input = this.__proto__.insertTemplate.call(this); //original input
                             input.val(0);
                             return input;
                         }
                     },
-                    { name: "service", type: "number", width: 100, css:"text-center",title:"%, Service",align: "center",value:"0",
+                    { name: "extra_percent", type: "number", width: 100, css:"text-center",title:"Extra Flat, %",align: "center",value:"0",
+                        insertTemplate: function() {
+                            var input = this.__proto__.insertTemplate.call(this); //original input
+                            input.val(0);
+                            return input;
+                        }
+                    },
+                    { name: "packing_percent", type: "number", width: 100, css:"text-center",title:"Packing, %",align: "center",value:"0",
+                        insertTemplate: function() {
+                            var input = this.__proto__.insertTemplate.call(this); //original input
+                            input.val(0);
+                            return input;
+                        }
+                    },
+                    { name: "service_percent", type: "number", width: 100, css:"text-center",title:"Service, %",align: "center",value:"0",
                         insertTemplate: function() {
                             var input = this.__proto__.insertTemplate.call(this); //original input
                             input.val(0);
@@ -391,8 +405,8 @@
                 .appendTo(form_id);
 
             $('<input />').attr('type', 'hidden')
-                .attr('name', "pay_amount-"+item_index.toString())
-                .attr('value', item['pay_amount'].toString())
+                .attr('name', "hourly_pay-"+item_index.toString())
+                .attr('value', item['hourly_pay'].toString())
                 .appendTo(form_id);
 
             $('<input />').attr('type', 'hidden')
@@ -404,21 +418,26 @@
                 .attr('value', item['position'].toString())
                 .appendTo(form_id);
 
+
             $('<input />').attr('type', 'hidden')
-                .attr('name', "bonus-"+item_index.toString())
-                .attr('value', item['bonus'].toString())
+                .attr('name', "hourly_percent-"+item_index.toString())
+                .attr('value', item['hourly_percent'].toString())
                 .appendTo(form_id);
             $('<input />').attr('type', 'hidden')
-                .attr('name', "extra-"+item_index.toString())
-                .attr('value', item['extra'].toString())
+                .attr('name', "flat_percent-"+item_index.toString())
+                .attr('value', item['flat_percent'].toString())
                 .appendTo(form_id);
             $('<input />').attr('type', 'hidden')
-                .attr('name', "packing-"+item_index.toString())
-                .attr('value', item['packing'].toString())
+                .attr('name', "extra_percent-"+item_index.toString())
+                .attr('value', item['extra_percent'].toString())
                 .appendTo(form_id);
             $('<input />').attr('type', 'hidden')
-                .attr('name', "service-"+item_index.toString())
-                .attr('value', item['service'].toString())
+                .attr('name', "packing_percent-"+item_index.toString())
+                .attr('value', item['packing_percent'].toString())
+                .appendTo(form_id);
+            $('<input />').attr('type', 'hidden')
+                .attr('name', "service_percent-"+item_index.toString())
+                .attr('value', item['service_percent'].toString())
                 .appendTo(form_id);
             $('<input />').attr('type', 'hidden')
                 .attr('name', "id-"+item_index.toString())
