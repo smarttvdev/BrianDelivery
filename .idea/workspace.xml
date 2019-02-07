@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="" />
+    <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,12 +79,12 @@
           <entry key="env" value="40" />
           <entry key="gitignore" value="3" />
           <entry key="js" value="14" />
-          <entry key="php" value="29349" />
+          <entry key="php" value="29357" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="14551" />
+          <entry key="Blade" value="14559" />
           <entry key="CSS" value="580" />
           <entry key="JavaScript" value="14" />
           <entry key="PHP" value="14798" />
@@ -108,8 +110,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="352" column="38" lean-forward="true" selection-start-line="352" selection-start-column="38" selection-end-line="352" selection-end-column="38" />
+            <state relative-caret-position="239">
+              <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
               <folding>
                 <element signature="e#166#188#0#HTML" expanded="true" />
                 <element signature="e#4870#4935#0#HTML" expanded="true" />
@@ -177,8 +179,8 @@
       <find>employeement_time</find>
       <find>employemen</find>
       <find>save(</find>
-      <find>bonus</find>
       <find>border</find>
+      <find>bonus</find>
     </findStrings>
     <replaceStrings>
       <replace>login/css</replace>
@@ -267,8 +269,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/JobController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_01_30_000825_create_employees_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/employee/create_employee.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php" />
       </list>
     </option>
   </component>
@@ -554,12 +556,12 @@
       <workItem from="1549336776888" duration="13807000" />
       <workItem from="1549366175912" duration="10800000" />
       <workItem from="1549386756304" duration="1999000" />
-      <workItem from="1549535216761" duration="15768000" />
+      <workItem from="1549535216761" duration="16585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202175000" />
+    <option name="totallyTimeSpent" value="202992000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="241" y="257" width="1210" height="757" extended-state="0" />
@@ -877,8 +879,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="352" column="38" lean-forward="true" selection-start-line="352" selection-start-column="38" selection-end-line="352" selection-end-column="38" />
+        <state relative-caret-position="239">
+          <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
           <folding>
             <element signature="e#166#188#0#HTML" expanded="true" />
             <element signature="e#4870#4935#0#HTML" expanded="true" />

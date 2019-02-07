@@ -23,7 +23,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label" for="last_name">Bonus</label>
                                     <input type="number" class="form-control" name="bonus"
-                                           placeholder=0 value="0" autocomplete="off" />
+                                           placeholder=0 value="{{$employee->bonus}}" autocomplete="off" />
                                 </div>
 
                                 <div class="form-group">
@@ -346,16 +346,6 @@
         function submit_function(employeement_state,e) {
             var form_id="#"+employeement_state+"_position";
             var data = $(form_id).jsGrid("option", "data");
-
-            // $('<input />').attr('type', 'hidden')
-            //     .attr('name', "employeement_state")
-            //     .attr('value', employeement_state)
-            //     .appendTo(form_id);
-            //
-            // $('<input />').attr('type', 'hidden')
-            //     .attr('name', "employee_id")
-            //     .attr('value', $('#employee_id').val())
-            //     .appendTo(form_id);
 
             if (data.length>0){
                 for (var i=0;i<data.length;i++){
