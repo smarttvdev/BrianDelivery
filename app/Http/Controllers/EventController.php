@@ -66,18 +66,43 @@ class EventController extends Controller
             $i++;
         }
 
-
-
-
-
-
-//        echo "<pre>";
-//        print_r($employees);
-//        print_r($employee_jobs);
-//        print_r($employee_positions);
-//        exit();
-
-
         return view('event.create',compact('menu_level1','menu_level2','jobs','positions','employees'));
     }
+
+    public function getEmployees($job=null,$position=null){
+        $result=Array();
+        if (is_null($job) && is_null($position)){
+            $temps=Employee::all();
+            $i=0;
+            foreach ($temps as $temp){
+                $employee_jobs=EmployeeJob::where('employee_id',$temp->id)->get();
+                foreach ($employee_jobs as $employee_job){
+
+                    $job=Job::find($employee_job->job_id);
+                    $position=Postion::find($employee_job->position_id);
+                    if ($job){
+                        $result[$i]['employee_id']=$temp->id;
+                        $result[$i]['name']=$temp->first_name.$temp->last_name;
+                        $result[$i]['job']=$job->type.' '.$job->variation;
+                        $result[$i]['job_id']=$job->id;
+                        $result[$i]['position']=$position->name;
+                        $result[$i]['position_id']=$position->id;
+                        $result[$i]['hourly_pay']=$job->hourly_pay;
+                        $result[$i]['hourly_percent']=$job->hourly_percent;
+                        $result[$i]['flat_percent']=$job->flat_percent;
+                        $result[$i]['extra_percent']=$job->extra_percent;
+                        $result[$i]['packing_percent']=$job->packing_percent;
+                        $result[$i]['service_percent']=$job->service_percent;
+                        $result[$i]['bonus']=$temp->bonus;
+                        $i++;
+                    }
+                }
+            }
+            return response()->json(['data'=>$result]);
+
+
+        }
+
+    }
+
 }

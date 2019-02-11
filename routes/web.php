@@ -60,12 +60,14 @@ Route::Group(['middleware'=>'auth'],function(){
 
     Route::get('/event/create','EventController@create');
 
-
     Route::get('/home', function (){
         $menu_level1='';
         $menu_level2='';
         return view('layouts.template',compact('menu_level2','menu_level1'));
     });
+
+
+    Route::get('getEmployee/{job?}/{position?}','EventController@getEmployees');
 
 });
 
