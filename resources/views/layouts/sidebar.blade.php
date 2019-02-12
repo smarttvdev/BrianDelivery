@@ -53,8 +53,8 @@
                         </a>
                     </li>
 
-                    <li class="site-menu-item {{$menu_level1=='job_list' ? ' active' : '' }}">
-                        <a href="{{url('job_list')}}">
+                    <li class="site-menu-item {{$menu_level1=='event_list' ? ' active' : '' }}">
+                        <a href="{{url('event/list')}}">
                             <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
                             <span class="site-menu-title">Event Lists</span>
                         </a>

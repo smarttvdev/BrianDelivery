@@ -65,20 +65,15 @@ Route::Group(['middleware'=>'auth'],function(){
 
 
     Route::get('/event/create','EventController@create');
+    Route::get('/event/list','EventController@listEmployees');
+    Route::get('/event/delete/{id}','EventController@deleteEvent');
     Route::get('/event/edit/{id}','EventController@edit');
-
-
-
 
     Route::post('getEmployee','EventController@getEmployees');
     Route::post('registerEvent','EventController@registerEvent');
     Route::post('addEmployeeToEvent','EventController@addEmployeeToEvent');
     Route::post('getSelectedEmployee','EventController@getSelectedEmployee');
     Route::post('deleteEmployeeEvent','EventController@deleteEmployeeEvent');
-
-
-
-
 
 });
 

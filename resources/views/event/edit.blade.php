@@ -144,55 +144,55 @@
                                     <div class="label-input">
                                         <div><label class="form-control-label">pick up address<span class="mandatory">(Mandatory)</span>: </label></div>
                                         <div>
-                                            <input type="text" class="form-control" id="pick_address" name="pick_address" placeholder="Pick Up Address" autocomplete="off"/>
+                                            <input type="text" class="form-control" id="pick_address" name="pick_address" placeholder="Pick Up Address" value="{{$eventData['pick_address']}}" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="label-input">
                                         <div><label class="form-control-label">Drop Off Address<span class="mandatory">(Mandatory)</span>: </label></div>
                                         <div>
-                                            <input type="text" class="form-control" id="drop_address" name="drop_address" autocomplete="off" placeholder="Drop Off Address"/>
+                                            <input type="text" class="form-control" id="drop_address" name="drop_address" value="{{$eventData['drop_address']}}" autocomplete="off" placeholder="Drop Off Address"/>
                                         </div>
                                     </div>
                                     <div class="label-input">
                                         <div><label class="form-control-label">Add A Stop<span class="mandatory">(Mandatory)</span>: </label></div>
                                         <div>
                                             <input type="text" class="form-control" id="stop_address" name="stop_address"
-                                                   placeholder="Add A Stop" autocomplete="off"/>
+                                                   placeholder="Add A Stop" value="{{$eventData['stop_address']}}" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="label-input">
                                         <div><label class="form-control-label">Non Profit: </label></div>
                                         <div>
-                                            <input type="number" class="form-control" id="stop" name="non_profit"
-                                                   value="0" autocomplete="off"/>
+                                            <input type="number" class="form-control" id="non_profit" name="non_profit"
+                                                   value="{{$eventData['non_profit']}}" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="label-input">
                                         <div><label class="form-control-label">Flat: </label></div>
                                         <div>
                                             <input type="number" class="form-control" id="flat" name="flat"
-                                                   value="0" autocomplete="off"/>
+                                                   value="{{$eventData['flat']}}" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="label-input">
                                         <div><label class="form-control-label">Packing</label></div>
                                         <div>
                                             <input type="text" class="form-control" id="packing" name="packing"
-                                                   value="0" autocomplete="off"/>
+                                                   value="{{$eventData['packing']}}" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="label-input">
                                         <div><label class="form-control-label">Service: </label></div>
                                         <div>
                                             <input type="text" class="form-control" id="service" name="service"
-                                                   value="0" autocomplete="off"/>
+                                                   value="{{$eventData['service']}}" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="label-input">
                                         <div><label class="form-control-label">Extra Amount: </label></div>
                                         <div>
                                             <input type="text" class="form-control" id="extra" name="extra"
-                                                   value="0" autocomplete="off"/>
+                                                   value="{{$eventData['extra']}}" autocomplete="off"/>
                                         </div>
                                     </div>
 
@@ -205,7 +205,7 @@
                                     <div class="label-input">
                                         <div><label class="form-control-label">truck license<span class="mandatory">(Mandatory)</span>: </label></div>
                                         <div>
-                                            <input type="text" class="form-control" name="truck_license" placeholder="Truck License" autocomplete="off"/>
+                                            <input type="text" class="form-control" name="truck_license" value="{{$eventData['truck_license']}}" placeholder="Truck License" autocomplete="off"/>
                                         </div>
                                     </div>
                                     <div class="label-input">
@@ -229,15 +229,15 @@
                                     <div class="label-input">
                                         <div><label class="form-control-label" style="margin-top:50px">Event Comment: </label></div>
                                         <div>
-                                            <textarea class="form-control" id="event_commnet" name="event_comment" rows="5"></textarea>
+                                            <textarea class="form-control" id="event_commnet" name="event_comment" rows="5">{{$eventData['comment']}}</textarea>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
                         </div>
-                            {{--<button type="submit" class="btn btn-primary" id="register_event" style="margin:auto; display:block;width:150px; border-radius:30px">Submit</button>--}}
-                        <input type="hidden" id="event_id" value="0" name="event_id">
+                            <button type="submit" class="btn btn-primary" id="register_event" style="margin:auto; display:block;width:150px; border-radius:30px">Submit</button>
+                        <input type="hidden" id="event_id" name="event_id" value="{{$eventData['id']}}">
                     </form>
                 </div>
 
@@ -616,6 +616,7 @@
             $('#finish_time').datetimepicker({footer:true,modal:true});
 
             getEmployee();
+            drawSelectedEmployee();
 
             // $('#example tbody').on('click', 'td.details-control', function () {
             $('#example tbody').on('click', 'tr', function () {
