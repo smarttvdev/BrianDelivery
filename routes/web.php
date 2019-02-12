@@ -27,6 +27,12 @@ Auth::routes();
 
 Route::Group(['middleware'=>'auth'],function(){
 
+    Route::get('/home', function (){
+        $menu_level1='';
+        $menu_level2='';
+        return view('layouts.template',compact('menu_level2','menu_level1'));
+    });
+
     Route::get('/job','JobController@showJob');
     Route::get('/getJobs','JobController@getJobs');
     Route::post('/insertJob','JobController@insertJob');
@@ -59,15 +65,20 @@ Route::Group(['middleware'=>'auth'],function(){
 
 
     Route::get('/event/create','EventController@create');
-
-    Route::get('/home', function (){
-        $menu_level1='';
-        $menu_level2='';
-        return view('layouts.template',compact('menu_level2','menu_level1'));
-    });
+    Route::get('/event/edit/{id}','EventController@edit');
 
 
-    Route::get('getEmployee/{job?}/{position?}','EventController@getEmployees');
+
+
+    Route::post('getEmployee','EventController@getEmployees');
+    Route::post('registerEvent','EventController@registerEvent');
+    Route::post('addEmployeeToEvent','EventController@addEmployeeToEvent');
+    Route::post('getSelectedEmployee','EventController@getSelectedEmployee');
+    Route::post('deleteEmployeeEvent','EventController@deleteEmployeeEvent');
+
+
+
+
 
 });
 

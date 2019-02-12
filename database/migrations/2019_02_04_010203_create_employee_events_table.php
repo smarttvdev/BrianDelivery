@@ -34,6 +34,8 @@ class CreateEmployeeEventsTable extends Migration
             $table->string('tips')->nullable();
             $table->string('hourly_rate')->nullable();
             $table->string('discount')->nullable();
+            $table->string('bonus')->nullable();
+            $table->string('job_total')->nullable();
             $table->string('payment_description')->nullable();
             $table->timestamps();
         });

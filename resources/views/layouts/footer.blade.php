@@ -66,6 +66,8 @@
 
 <script src="{{asset('template/vendor/bootstrap-datepicker/bootstrap-datepicker.js')}}"></script>
 <script src="{{asset('template/js/Plugin/bootstrap-datepicker.js')}}"></script>
+
+<script src="{{asset('template/js/Plugin/input-group-file.js')}}"></script>
 <script>
     $(document).ready(function () {
         $.ajaxSetup({
