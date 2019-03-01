@@ -69,6 +69,23 @@ class EventController extends Controller
         return view('event.create',compact('menu_level1','menu_level2','jobs','positions','employees'));
     }
 
+    public function create1(){
+        $menu_level1='event_create';
+        $menu_level2='';
+        $result=Array();
+        $jobs=Job::all();
+        $i=0;
+        foreach ($jobs as $job){
+            $result['job'][$i]['type']=$job->type;
+            $result['job'][$i]['variation']=$job->variation;
+            $i++;
+
+        }
+
+        return view('event.create1',compact('menu_level1','menu_level2','result'));
+    }
+
+
     public function getEmployees(Request $request){
         $job_id=$request->input('job_id');
         $position_id=$request->input('position_id');
