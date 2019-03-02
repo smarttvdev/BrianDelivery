@@ -65,7 +65,7 @@ Route::Group(['middleware'=>'auth'],function(){
 
 
     Route::get('/event/create','EventController@create');
-    Route::get('/event/create1','EventController@create1');
+//    Route::get('/event/create1','EventController@create1');
     Route::get('/event/list','EventController@listEmployees');
     Route::get('/event/delete/{id}','EventController@deleteEvent');
     Route::get('/event/edit/{id}','EventController@edit');

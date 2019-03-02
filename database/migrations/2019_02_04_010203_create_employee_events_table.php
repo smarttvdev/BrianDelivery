@@ -16,27 +16,19 @@ class CreateEmployeeEventsTable extends Migration
         Schema::create('employee_events', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('event_id');
-            $table->integer('employee_id');
-            $table->integer('job_id');
             $table->integer('position_id');
-            $table->string('start_time')->nullable();
-            $table->string('finish_time')->nullable();
-            $table->string('travel_time')->nullable();
-            $table->string('total_hours')->nullable();
-            $table->string('labor_hours')->nullable();
-            $table->string('non_profit_percent')->nullable();
-            $table->string('hourly_pay')->nullable();
-            $table->string('hourly_percent')->nullable();
-            $table->string('flat_percent')->nullable();
-            $table->string('extra_percent')->nullable();
-            $table->string('packing_percent')->nullable();
-            $table->string('service_percent')->nullable();
-            $table->string('tips')->nullable();
-            $table->string('hourly_rate')->nullable();
-            $table->string('discount')->nullable();
-            $table->string('bonus')->nullable();
-            $table->string('job_total')->nullable();
-            $table->string('payment_description')->nullable();
+            $table->integer('employee_id');
+            $table->double('non_profit_percent')->default(0);
+            $table->double('discount_percent')->default(0);
+            $table->double('tips_percent')->default(0);
+            $table->double('bonus')->default(0);
+            $table->double('hourly_pay')->default(0);
+            $table->double('hourly_percent')->default(0);
+            $table->double('flat_percent')->default(0);
+            $table->double('extra_percent')->default(0);
+            $table->double('packing_percent')->default(0);
+            $table->double('service_percent')->default(0);
+            $table->text('payment_description')->nullable();
             $table->timestamps();
         });
     }
@@ -51,3 +43,4 @@ class CreateEmployeeEventsTable extends Migration
         Schema::dropIfExists('employee_events');
     }
 }
+
