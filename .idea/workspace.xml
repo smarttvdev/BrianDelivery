@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/event/create2.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_04_002319_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_04_002319_create_events_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/Android Reference.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/docs/template.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/event/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/create1.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,12 +88,12 @@
           <entry key="env" value="45" />
           <entry key="gitignore" value="7" />
           <entry key="js" value="14" />
-          <entry key="php" value="62158" />
+          <entry key="php" value="62257" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="37309" />
+          <entry key="Blade" value="37408" />
           <entry key="CSS" value="580" />
           <entry key="HTML" value="2" />
           <entry key="JavaScript" value="14" />
@@ -139,10 +130,9 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/event/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="220" column="25" lean-forward="true" selection-start-line="220" selection-start-column="25" selection-end-line="220" selection-end-column="25" />
+            <state relative-caret-position="199">
+              <caret line="694" column="132" selection-start-line="694" selection-start-column="132" selection-end-line="694" selection-end-column="132" />
               <folding>
-                <element signature="e#1194#4521#0#HTML" />
                 <element signature="e#4651#5142#0#HTML" />
                 <element signature="e#7340#7360#0#HTML" expanded="true" />
                 <element signature="e#20092#20158#0#HTML" expanded="true" />
@@ -152,7 +142,7 @@
                 <element signature="e#20447#27913#0#HTML" />
                 <element signature="e#28087#29402#0#HTML" />
                 <element signature="e#29435#34999#0#HTML" />
-                <element signature="e#35785#36264#0#HTML" />
+                <element signature="e#36267#36972#0#HTML" />
                 <element signature="e#36930#37478#0#HTML" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
@@ -161,13 +151,13 @@
                 <element signature="e#39283#39307#0#HTML" />
                 <element signature="e#37079#37980#0#HTML" />
                 <element signature="e#38025#39173#0#HTML" />
-                <element signature="e#39215#41607#0#HTML" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
                 <element signature="e#44777#44801#0#HTML" />
                 <element signature="e#44719#45416#0#HTML" />
                 <element signature="e#41810#42651#0#HTML" />
                 <element signature="e#42710#43717#0#HTML" />
+                <element signature="e#48072#48691#0#HTML" />
               </folding>
             </state>
           </provider>
@@ -194,8 +184,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/event/create2.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="654" column="14" selection-start-line="639" selection-start-column="11" selection-end-line="654" selection-end-column="14" />
+            <state relative-caret-position="175">
+              <caret line="77" column="9" lean-forward="true" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
@@ -215,7 +205,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add a stop</find>
       <find>start time</find>
       <find>jquery</find>
       <find>validate</find>
@@ -245,6 +234,7 @@
       <find>extra</find>
       <find>packing</find>
       <find>job tot</find>
+      <find>hide</find>
     </findStrings>
     <replaceStrings>
       <replace>{{asset('template/</replace>
@@ -447,10 +437,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="46" />
-    <option name="y" value="356" />
+    <option name="x" value="179" />
+    <option name="y" value="216" />
     <option name="width" value="1626" />
-    <option name="height" value="1003" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -589,12 +579,12 @@
       <workItem from="1551402538901" duration="45472000" />
       <workItem from="1551499328620" duration="7532000" />
       <workItem from="1551516717464" duration="2174000" />
-      <workItem from="1551530626288" duration="30242000" />
+      <workItem from="1551530626288" duration="31236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="409611000" />
+    <option name="totallyTimeSpent" value="410605000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -606,7 +596,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="356" width="1626" height="1003" extended-state="0" />
+    <frame x="179" y="216" width="1626" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18837804" />
@@ -624,7 +614,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005417" side_tool="true" weight="0.32777777" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" weight="0.31066668" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" visible="true" weight="0.3092437" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -840,17 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/create2.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="654" column="14" selection-start-line="639" selection-start-column="11" selection-end-line="654" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Event.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -897,12 +876,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/event/create2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="77" column="9" lean-forward="true" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/event/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="220" column="25" lean-forward="true" selection-start-line="220" selection-start-column="25" selection-end-line="220" selection-end-column="25" />
+        <state relative-caret-position="199">
+          <caret line="694" column="132" selection-start-line="694" selection-start-column="132" selection-end-line="694" selection-end-column="132" />
           <folding>
-            <element signature="e#1194#4521#0#HTML" />
             <element signature="e#4651#5142#0#HTML" />
             <element signature="e#7340#7360#0#HTML" expanded="true" />
             <element signature="e#20092#20158#0#HTML" expanded="true" />
@@ -912,7 +901,7 @@
             <element signature="e#20447#27913#0#HTML" />
             <element signature="e#28087#29402#0#HTML" />
             <element signature="e#29435#34999#0#HTML" />
-            <element signature="e#35785#36264#0#HTML" />
+            <element signature="e#36267#36972#0#HTML" />
             <element signature="e#36930#37478#0#HTML" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
@@ -921,13 +910,13 @@
             <element signature="e#39283#39307#0#HTML" />
             <element signature="e#37079#37980#0#HTML" />
             <element signature="e#38025#39173#0#HTML" />
-            <element signature="e#39215#41607#0#HTML" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
             <element signature="e#44777#44801#0#HTML" />
             <element signature="e#44719#45416#0#HTML" />
             <element signature="e#41810#42651#0#HTML" />
             <element signature="e#42710#43717#0#HTML" />
+            <element signature="e#48072#48691#0#HTML" />
           </folding>
         </state>
       </provider>

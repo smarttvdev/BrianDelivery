@@ -550,9 +550,27 @@
                 table[i]=$('#selected-employees-tab-'+i).DataTable({
                     sort:false,
                     "columnDefs":{
-                        "targets": [9],
+                        "targets": [8],
                         "visible": false
-                    }
+                    },
+                    "columns":[
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {},
+                        {
+                            "className":"hide"
+                        },
+
+                    ]
+
+
+
                 });
             }
         });
@@ -674,7 +692,7 @@
             oneEmployee[6]=$('#packing_percent-tab-'+job_index).val();  //bonus
             oneEmployee[7]=$('#service_percent-tab-'+job_index).val();  //bonus
             oneEmployee[8]='<button type="button" class="btn btn-floating btn-success btn-sm edit" style="width:30px;height:30px" onclick="editEmployee('+job_index+',this)"><i class="icon wb-pencil" aria-hidden="true"></i></button>'+
-                '<button type="button" class="btn btn-floating btn-danger btn-sm remove" style="width:30px;height:30px" onclick="deleteEmployee('+job_index+','+'this)"><i class="icon fa-trash" aria-hidden="true"></i></button>';
+                '<button type="button" class="btn btn-floating btn-danger btn-sm remove" style="width:30px;height:30px;margin-left:5px;" onclick="deleteEmployee('+job_index+','+'this)"><i class="icon fa-trash" aria-hidden="true"></i></button>';
             oneEmployee[9]=$('#employee_pay_comment-tab-'+job_index).val();
 
             for (var i=0;i<selectedEmployees.length;i++){
@@ -783,14 +801,6 @@
                 var job_index=parseInt(form_id.replace('event_form-',''));
                 caclulateTotalHour(job_index,$(this));
         });
-        // $('form input').on('keypress', function (e) {
-        //     var form=$(this).parents('form');
-        //     var form_id=form.attr('id');
-        //     var job_index=parseInt(form_id.replace('event_form-',''));
-        //     caclulateTotalHour(job_index,$(this));
-        // })
-
-
 
         function caclulateTotalHour(job_index,$element) {
             var labor_hours,travel_time,total_hours,non_profit,hourly_rate,packing,flat,packing,service,extra_amount,job_total;
@@ -851,42 +861,8 @@
                     flat=parseFloat($('#flat-tab-'+job_index).val());
                 job_total+=flat;
             }
-
             $('#job_total-tab-'+job_index).val(job_total);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </script>
 @endsection
