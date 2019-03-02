@@ -10,6 +10,7 @@ use App\Employee;
 use App\EmployeeJob;
 use App\EmployeeEvent;
 use Monolog\Handler\IFTTTHandler;
+use phpDocumentor\Reflection\Types\Null_;
 
 class EventController extends Controller
 {
@@ -73,13 +74,74 @@ class EventController extends Controller
         $menu_level1='event_create';
         $menu_level2='';
         $result=Array();
+
+        $positions=Postion::all();
+        $result['position'][0]['Id']=0;
+        $result['position'][0]['Name']=null;
+        $i=1;
+        foreach ($positions as $position){
+            $result['position'][$i]['Id']=$i;
+            $result['position'][$i]['Name']=$position->name;
+            $i++;
+        }
+
         $jobs=Job::all();
         $i=0;
         foreach ($jobs as $job){
-            $result['job'][$i]['type']=$job->type;
-            $result['job'][$i]['variation']=$job->variation;
-            $i++;
+            $result["job"][$i]["type"]=$job->type;
+            $result["job"][$i]["variation"]=$job->variation;
 
+            $result['employee'][$i][0][0]['Id']=0;
+            $result['employee'][$i][0][0]['Name']='';
+            $result['employee'][$i][0][0]['bonus']=0;
+            $result['employee'][$i][0][0]['hourly_pay']=0;
+            $result['employee'][$i][0][0]['hourly_percent']=0;
+            $result['employee'][$i][0][0]['flat_percent']=0;
+            $result['employee'][$i][0][0]['packing_percent']=0;
+            $result['employee'][$i][0][0]['service_percent']=0;
+            $result['employee'][$i][0][0]['extra_percent']=0;
+
+            $j=1;
+            foreach ($positions as $position){
+                $result['employee'][$i][$j][0]['Id']=0;
+                $result['employee'][$i][$j][0]['Name']='';
+                $result['employee'][$i][$j][0]['bonus']=0;
+                $result['employee'][$i][$j][0]['hourly_pay']=0;
+                $result['employee'][$i][$j][0]['hourly_percent']=0;
+                $result['employee'][$i][$j][0]['flat_percent']=0;
+                $result['employee'][$i][$j][0]['packing_percent']=0;
+                $result['employee'][$i][$j][0]['service_percent']=0;
+                $result['employee'][$i][$j][0]['extra_percent']=0;
+                $employee_jobs=EmployeeJob::where([['job_id','=',$job->id],['position_id','=',$position->id]])->get();
+                $k=1;
+                foreach ($employee_jobs as $employee_job){
+                    $employee=Employee::find($employee_job->employee_id);
+                    $employeement_state='beginner';
+                    if (!is_null($employee->promotion_date)) {
+                        $promotion_date = $employee->promotion_date;
+                        $today = (new \DateTime())->format('promotion_date');
+                        if ($today >= $promotion_date)
+                            $employeement_state = 'promote';
+                    }
+
+                    if (!is_null($employee)){
+                        if ($employee_job->employeement_state==$employeement_state){
+                            $result['employee'][$i][$j][$k]['Id']=$k;
+                            $result['employee'][$i][$j][$k]['Name']="$employee->first_name $employee->last_name";
+                            $result['employee'][$i][$j][$k]['bonus']=$employee->bonus;
+                            $result['employee'][$i][$j][$k]['hourly_pay']=$employee_job->hourly_pay;
+                            $result['employee'][$i][$j][$k]['hourly_percent']=$employee_job->hourly_percent;
+                            $result['employee'][$i][$j][$k]['flat_percent']=$employee_job->flat_percent;
+                            $result['employee'][$i][$j][$k]['packing_percent']=$employee_job->packing_percent;
+                            $result['employee'][$i][$j][$k]['service_percent']=$employee_job->service_percent;
+                            $result['employee'][$i][$j][$k]['extra_percent']=$employee_job->extra_percent;
+                            $k++;
+                        }
+                    }
+                }
+                $j++;
+            }
+            $i++;
         }
 
         return view('event.create1',compact('menu_level1','menu_level2','result'));

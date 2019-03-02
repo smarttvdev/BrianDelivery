@@ -250,12 +250,9 @@
                             return $insertControl;
                         },
                         editTemplate: function (value) {
-                            // Retrieve the DOM element (select)
-                            // Note: prototype.editTemplate
                             var $editControl = jsGrid.fields.select.prototype.editTemplate.call(this, value);
                             var grid = this._grid;
 
-                            // Attach onchange listener !
                             $editControl.change(function () {
                                 var selectedValue = $(this).val();
                                 grid.option("fields")[3].editControl.val(job_item[selectedValue]['hourly_pay']);   // When changing Job, will set default value

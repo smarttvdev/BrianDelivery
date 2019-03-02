@@ -144,6 +144,11 @@
             margin-left:10px;
         }
 
+        .selected-employee-title{
+            margin:50px auto;
+            margin-bottom:10px;
+            width:fit-content;
+        }
 
     </style>
     <div class="page-content">
@@ -161,7 +166,7 @@
                         <div class="tab-pane fade {{$i==0 ? 'show active' : ''}}" id="nav-job-panel-{{$i}}" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="section">
                                 <h3 class="section-title">Event Common Variables</h3>
-                                <form autocomplete="off" method="post" id="event_form" action="{{url('employee/save')}}" enctype="multipart/form-data">
+                                <form autocomplete="off" method="post" id="event_form-{{$i}}" action="{{url('employee/save')}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row" style="margin-left:0;margin-right:0;">
                                         <div class="col-lg-6 col-12">
@@ -337,12 +342,191 @@
                                     <input type="hidden" id="event_id" value="0" name="event_id">
                                 </form>
                             </div>
+
+                            <div class="section">
+                                <h3 class="section-title">Employee Setting Parameter</h3>
+                                {{--<form autocomplete="off" method="post" id="event_form-{{$i}}" action="{{url('employee/save')}}" enctype="multipart/form-data">--}}
+                                    {{--@csrf--}}
+                                    <div class="row" style="margin-left:0;margin-right:0;">
+                                        <div class="col-lg-6 col-12">
+                                            <div class="form-group" style="">
+                                                <div class="label-input">
+                                                    <div><label class="form-control-label" style="color:black;font-weight:bold">Select Position<span class="mandatory">(Mandatory)</span>:</label></div>
+                                                    <div>
+                                                        <select class="form-control" style="width:200px" name="position" id="position-tab-{{$i}}" onchange="positionChange({{$i}})" required>
+                                                            @for($j=0;$j<count($result['position']);$j++)
+                                                                <option value="{{$result['position'][$j]['Id']}}">{{$result['position'][$j]['Name']}}</option>
+                                                            @endfor
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="label-input">
+                                                    <div><label class="form-control-label" style="color:black;font-weight:bold">Select Employee<span class="mandatory">(Mandatory)</span>:</label></div>
+                                                    <div>
+                                                        <select class="form-control" style="width:200px" name="employee" id="employee-tab-{{$i}}" onchange="employeeChange({{$i}})" required>
+                                                            <option value="0"></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="label-input">
+                                                    <div><label class="form-control-label" style="margin-top:50px">Employee Pay Comment: </label></div>
+                                                    <div>
+                                                        <textarea class="form-control" id="employee_pay_comment-tab-{{$i}}" name="event_comment" rows="5"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <button type="submit" class="btn btn-primary" style="margin-top:20px;float:right" id="add-employee-tab-{{$i}}" onclick="addEmployee({{$i}})">Add Employee</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-12">
+                                            <div class="form-group" style="">
+                                                <div class="label-input">
+                                                    <div><label class="form-control-label">Bonus, %: </label></div>
+                                                    <div>
+                                                        <input type="number" class="form-control" id="bonus-tab-{{$i}}" name="bonus" placeholder="Bonus" value="0" autocomplete="off"/>
+                                                    </div>
+                                                </div>
+                                                <div class="label-input">
+                                                    <div><label class="form-control-label">Hourly Pay: </label></div>
+                                                    <div>
+                                                        <input type="number" class="form-control" id="hourly_pay-tab-{{$i}}" name="hourly_pay" placeholder="Hourly Pay" value="0" autocomplete="off"/>
+                                                    </div>
+                                                </div>
+
+                                                @if($result['job'][$i]['type']=='Flat')
+                                                    <div class="label-input">
+                                                        <div><label class="form-control-label">Flat, %: </label></div>
+                                                        <div>
+                                                            <input type="number" class="form-control" id="flat_percent-tab-{{$i}}" name="flat_percent" placeholder="Flat, %" value="0" autocomplete="off"/>
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                    <div class="label-input">
+                                                        <div><label class="form-control-label">Hourly, %: </label></div>
+                                                        <div>
+                                                            <input type="number" class="form-control" id="hourly_percent-tab-{{$i}}" name="hourly_percent" placeholder="Hourly, %" value="0" autocomplete="off"/>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                                <div class="label-input">
+                                                    <div><label class="form-control-label">Extra, %: </label></div>
+                                                    <div>
+                                                        <input type="number" class="form-control" id="extra_percent-tab-{{$i}}" name="extra_percent" placeholder="Extra, %" value="0" autocomplete="off"/>
+                                                    </div>
+                                                </div>
+                                                <div class="label-input">
+                                                    <div><label class="form-control-label">Packing, %: </label></div>
+                                                    <div>
+                                                        <input type="number" class="form-control" id="packing_percent-tab-{{$i}}" name="packing_percent" placeholder="Packing, %" value="0" autocomplete="off"/>
+                                                    </div>
+                                                </div>
+                                                <div class="label-input">
+                                                    <div><label class="form-control-label">Service, %: </label></div>
+                                                    <div>
+                                                        <input type="number" class="form-control" id="service_percent-tab-{{$i}}" name="service_percent" placeholder="Service, %" value="0" autocomplete="off"/>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                {{--</form>--}}
+
+                                <h4 class="selected-employee-title">Selected Employees</h4>
+                                <div class="table-responsive table">
+                                    <table id="selected-employees-tab-{{$i}}" style="width:100%">
+                                        <thead class="table-primary">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Bonus</th>
+                                            <th>Hourly Pay</th>
+                                            @if($result['job'][$i]['type']=='Hourly')
+                                                <th>Hourly, %</th>
+                                            @else
+                                                <th>Flat, %</th>
+                                            @endif
+                                            <th>Extra, %</th>
+                                            <th>Packing, %</th>
+                                            <th>Service, %</th>
+                                            <th>Action</th>
+                                            <th style="display:none"></th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div class="modal fade" id="editEmployeeEvent-tab-{{$i}}" aria-hidden="true" aria-labelledby="examplePositionCenter"
+                                     role="dialog" tabindex="-1">
+                                    <div class="modal-dialog modal-simple modal-center">
+                                        <div class="modal-content">
+                                            <div class="modal-header" style="border-bottom:1px solid">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title">Edit Data</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="edit-modal-content">
+                                                    <div class="employee-edit-row">
+                                                        <div class="employee-edit-holder">
+                                                            <label class="edit-label">Hourly Pay: </label>
+                                                            <input type="text" class="edit-input" id="hourly_pay_modal-tab-{{$i}}">
+                                                        </div>
+                                                        <div class="employee-edit-holder">
+                                                            <label class="edit-label">Bonus: </label>
+                                                            <input type="text" class="edit-input" id="bonus_modal-tab-{{$i}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="employee-edit-row">
+                                                        @if($result['job'][$i]['type']=='Hourly')
+                                                            <div class="employee-edit-holder">
+                                                                <label class="edit-label">Hourly, %: </label>
+                                                                <input type="text" class="edit-input" id="hourly_percent_modal-tab-{{$i}}">
+                                                            </div>
+                                                        @else
+                                                            <div class="employee-edit-holder" >
+                                                                <label class="edit-label">Flat, %: </label>
+                                                                <input type="text" class="edit-input" id="flat_percent_modal-tab-{{$i}}">
+                                                            </div>
+                                                        @endif
+                                                        <div class="employee-edit-holder">
+                                                            <label class="edit-label">Extra, %: </label>
+                                                            <input type="text" class="edit-input" id="extra_percent_modal-tab-{{$i}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="employee-edit-row">
+
+                                                        <div class="employee-edit-holder" >
+                                                            <label class="edit-label">Packing, %: </label>
+                                                            <input type="text" class="edit-input" id="packing_percent_modal-tab-{{$i}}">
+                                                        </div>
+                                                        <div class="employee-edit-holder">
+                                                            <label class="edit-label">Service, %: </label>
+                                                            <input type="text" class="edit-input" id="service_percent_modal-tab-{{$i}}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="price-comment-holder" >
+                                                        <label class="comment-label">Pay Comment: </label>
+                                                        <textarea type="text" class="edit-input edit-comment" id="price_comment_modal-tab-{{$i}}" rows="6"></textarea>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer" style="border-top:1px solid #888;padding-top:15px">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-close">Close</button>
+                                                <button type="button" class="btn btn-primary modal-save" id="modal-save-tab-{{$i}}">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     @endfor
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
 
@@ -353,26 +537,165 @@
     <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <script>
 
+        var table=[];
+
+        var count={{$i}};
+        var result=JSON.parse('<?php echo(json_encode($result))?>');
+        var selected_tr;
+
+        $(document).ready(function () {
+            $('#start_time').datetimepicker({footer: true, modal: true});
+            $('#finish_time').datetimepicker({footer: true, modal: true});
+            for (var i=0;i<result['job'].length;i++){
+                table[i]=$('#selected-employees-tab-'+i).DataTable({
+                    sort:false,
+                    "columnDefs":{
+                    "targets": [9],
+                    "visible": false
+                    }
+                });
+            }
+        });
+
+
         $('#add-stop-button').click(function () {
             var count=$('#stop-holder').children().length;
             $('#stop-holder').append('<div class="row" style="margin-left:0 !important;margin-right:0 !important;"><input type="text" class="form-control"  name="stop_address'+count+'" style="margin-bottom:5px;width:200px !important;" placeholder="Stop'+count+'" autocomplete="off"/>\n' +
                 '<span class="remove-stop"><i class="fas fa-minus"></i></span></div>'
             );
             $('#stop-count').val(count);
-
         });
-
 
         $(document).on('click','.remove-stop',function () {
             $(this).parent().remove();
             var count=$('#stop-holder').children().length;
             $('#stop-count').val(count-1);
-        })
+        });
+
+        function positionChange(job_index) {
+            var position_index=$('#position'+'-tab-'+job_index).val();
+
+            $('#employee'+'-tab-'+job_index).empty();
+            for (var i=0;i<result['employee'][job_index][position_index].length;i++){
+                $('#employee'+'-tab-'+job_index).append('<option value="'+result['employee'][job_index][position_index][i]['Id']+'">'+result['employee'][job_index][position_index][i]['Name']+'</option>');
+            }
+            $('#bonus-tab-'+job_index).val(0);
+            $('#hourly_pay-'+job_index).val(0);
+            if (result['job'][job_index]['type']=='Hourly')
+                $('#hourly_percent-tab-'+job_index).val(0);
+            else
+                $('#flat_percent-tab-'+job_index).val(0);
+            $('#extra_percent-tab-'+job_index).val(0);
+            $('#packing_percent-tab-'+job_index).val(0);
+            $('#service_percent-tab-'+job_index).val(0);
+        }
+
+        function employeeChange(job_index) {
+            var position_index=$('#position'+'-tab-'+job_index).val();
+            var employee_index=$('#employee'+'-tab-'+job_index).val();
+            $('#bonus-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['bonus']);
+            $('#hourly_pay-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['hourly_pay']);
+            if (result['job'][job_index]['type']=='Hourly')
+                $('#hourly_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['hourly_percent']);
+            else
+               $('#flat_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['flat_percent']);
+
+            $('#extra_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['extra_percent']);
+            $('#packing_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['packing_percent']);
+            $('#service_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['service_percent']);
+        }
+
+        function addEmployee(job_index) {
+            console.log("job_index="+job_index);
+            var selectedEmployees=table[job_index].rows().data();
+            console.log(table[job_index]);
+
+            var position_index=$('#position'+'-tab-'+job_index).val();
+            var employee_index=$('#employee'+'-tab-'+job_index).val();
+            if (position_index==0){
+                alert("Please select position and employee");
+                return;
+            }else{
+                if (employee_index==0){
+                    alert("Please select employee");
+                    return;
+                }
+            }
+
+            var oneEmployee=[];
+
+            oneEmployee[0]=result['employee'][job_index][position_index][employee_index]['Name'];  // Employee Name
+            oneEmployee[1]=result['position'][position_index]['Name'];  // Position Name
+            oneEmployee[2]=$('#bonus-tab-'+job_index).val();  //bonus
+            oneEmployee[3]=$('#hourly_pay-tab-'+job_index).val();  //hourly pay
+            if (result['job'][job_index]['type']!='Hourly'){
+                oneEmployee[4]=$('#flat_percent-tab-'+job_index).val();  //bonus
+            }
+            else
+                oneEmployee[4]=$('#hourly_percent-tab-'+job_index).val();  //bonus
+            oneEmployee[5]=$('#extra_percent-tab-'+job_index).val();  //bonus
+            oneEmployee[6]=$('#packing_percent-tab-'+job_index).val();  //bonus
+            oneEmployee[7]=$('#service_percent-tab-'+job_index).val();  //bonus
+            oneEmployee[8]='<button type="button" class="btn btn-floating btn-success btn-sm edit" style="width:30px;height:30px" onclick="editEmployee('+job_index+',this)"><i class="icon wb-pencil" aria-hidden="true"></i></button>'+
+                '<button type="button" class="btn btn-floating btn-danger btn-sm remove" style="width:30px;height:30px" onclick="deleteEmployee('+job_index+','+'this)"><i class="icon fa-trash" aria-hidden="true"></i></button>';
+            oneEmployee[9]=$('#employee_pay_comment-tab-'+job_index).val();
+
+            for (var i=0;i<selectedEmployees.length;i++){
+                if (selectedEmployees[i][1]==oneEmployee[1] && selectedEmployees[i][2]==oneEmployee[2]){
+                    alert("Same Employee and position already exist. Please edit")
+                    return;
+                }
+            }
+            table[job_index].row.add(oneEmployee).draw();
+        }
+
+        function deleteEmployee(job_index,btn){
+            var tr = $(btn).closest('tr');
+            table[job_index].row(tr).remove().draw();
+        }
+
+        function editEmployee(job_index, btn){
+            var tr = $(btn).closest('tr');
+            selected_tr=tr;
+            var row=table[job_index].row(tr);
+            var data=row.data();
+            $('#editEmployeeEvent-tab-'+job_index).modal('show');
+            $('#bonus_modal-tab-'+job_index).val(data[2]);
+            $('#hourly_pay_modal-tab-'+job_index).val(data[3]);
+            if (result['job'][job_index]['type']=="Hourly")
+                $('#hourly_percent_modal-tab-'+job_index).val(data[4]);
+            else
+                $('#flat_percent_modal-tab-'+job_index).val(data[4]);
+            $('#extra_percent_modal-tab-'+job_index).val(data[5]);
+            $('#packing_percent_modal-tab-'+job_index).val(data[6]);
+            $('#service_percent_modal-tab-'+job_index).val(data[7]);
+            $('#price_comment_modal-tab-'+job_index).val(data[9]);
+        }
+
+        $(document).on('click','.modal-save',function () {
+            var id=this.id;
+            var job_index=parseInt(id.replace('modal-save-tab-',''));
+            var row = table[job_index].row(selected_tr);
+            var data=row.data();
+
+            data[2]=$('#bonus_modal-tab-'+job_index).val();
+            data[3]=$('#hourly_pay_modal-tab-'+job_index).val();
+            if (result['job'][job_index]['type']=="Hourly")
+                data[4]=$('#hourly_percent_modal-tab-'+job_index).val();
+            else
+                data[4]=$('#flat_percent_modal-tab-'+job_index).val();
+            data[5]=$('#extra_percent_modal-tab-'+job_index).val();
+            data[6]=$('#packing_percent_modal-tab-'+job_index).val();
+            data[7]=$('#service_percent_modal-tab-'+job_index).val();
+            data[9]=$('#price_comment_modal-tab-'+job_index).val();
+            table[job_index]
+                .row(selected_tr)
+                .data( data )
+                .draw();
+            $('#editEmployeeEvent-tab-'+job_index).modal('hide');
 
 
-
-
-
+        });
 
 
     </script>
