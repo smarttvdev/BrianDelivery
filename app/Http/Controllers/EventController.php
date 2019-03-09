@@ -89,7 +89,6 @@ class EventController extends Controller
             }
             $i++;
         }
-
         return view('event.create',compact('menu_level1','menu_level2','result'));
     }
 
@@ -305,15 +304,26 @@ class EventController extends Controller
             $result[$i]['id']=$temp->id;
             $result[$i]['pick_address']=$temp->pick_address;
             $result[$i]['drop_address']=$temp->drop_address;
-            $result[$i]['stop_address']=$temp->stop_address;
+            $result[$i]['stop_address']=implode(',',$temp->stop_address);
             $result[$i]['truck_license']=$temp->truck_license;
-            $result[$i]['state']=$temp->drop_address;
+            $result[$i]['state']=$temp->state;
             $result[$i]['flat']=$temp->flat;
+            $result[$i]['hourly_rate']=$temp->hourly_rate;
+            $result[$i]['job_total']=$temp->job_total;
+            $result[$i]['discount']=$temp->discount;
+            $result[$i]['tips']=$temp->tips;
             $result[$i]['extra']=$temp->extra;
             $result[$i]['service']=$temp->service;
             $result[$i]['packing']=$temp->packing;
             $result[$i]['non_profit']=$temp->non_profit;
             $result[$i]['employee_numbers']=0;
+
+            $job=Job::where('id',$temp->job_id)->first();
+            if (!is_null($job->variation))
+                $result[$i]['job_type']="$job->type - $job->variation";
+            else
+                $result[$i]['job_type']="$job->type";
+
             $employee_events=EmployeeEvent::where('event_id',$temp->id)->get();
 
             foreach($employee_events as $employee_event){
@@ -321,6 +331,7 @@ class EventController extends Controller
             }
             $i++;
         }
+
         return view('event.list',compact('menu_level1','menu_level2','result'));
     }
 
@@ -338,71 +349,128 @@ class EventController extends Controller
         $menu_level1='event_edit';
         $menu_level2='';
 
-        $temps=Job::orderBy('type','asc')->orderBy('variation','asc')->get();
-        $i=0;
-        foreach ($temps as $temp){
-            $jobs[$i]['name']=$temp->type.' - '.$temp->variation;
-            $jobs[$i]['id']=$temp->id;
-            $jobs[$i]['pay_amount']=$temp->pay_amount;
-            $jobs[$i]['bonus']=$temp->bonus;
-            $jobs[$i]['extra']=$temp->extra;
-            $jobs[$i]['packing']=$temp->packing;
-            $jobs[$i]['service']=$temp->service;
+        $menu_level1='event_create';
+        $menu_level2='';
+        $result=Array();
+
+        $positions=Postion::all();
+        $result['position'][0]['Id']=0;
+        $result['position'][0]['Name']=null;
+        $i=1;
+        foreach ($positions as $position){
+            $result['position'][$i]['Id']=$i;
+            $result['position'][$i]['Name']=$position->name;
             $i++;
         }
 
-        $position_temps=Postion::all();
+        $jobs=Job::all();
         $i=0;
-        foreach ($position_temps as $position_temp){
-            $positions[$i]['id']=$position_temp->id;
-            $positions[$i]['name']=$position_temp->name;
-            $i++;
-        }
+        foreach ($jobs as $job){
+            $result["job"][$i]["type"]=$job->type;
+            $result["job"][$i]["variation"]=$job->variation;
+            $result["job"][$i]["id"]=$job->id;
 
-        $employees=Array();
-        $employee_temps=Employee::all();
-        $i=0;
-        foreach ($employee_temps as $employee_temp) {
-            $employees[$i]['id'] = $employee_temp->id;
-            $employees[$i]['name'] = $employee_temp->first_name . ' ' . $employee_temp->last_name;
-            $state='beginner';
-            $today=(new \DateTime())->format('Y-m-d');
-            if ($today>=$employee_temp->promotion_date)
-                $state='promote';
+            $result['employee'][$i][0][0]['Id']=0;
+            $result['employee'][$i][0][0]['Name']='';
+            $result['employee'][$i][0][0]['bonus']=0;
+            $result['employee'][$i][0][0]['hourly_pay']=0;
+            $result['employee'][$i][0][0]['hourly_percent']=0;
+            $result['employee'][$i][0][0]['flat_percent']=0;
+            $result['employee'][$i][0][0]['packing_percent']=0;
+            $result['employee'][$i][0][0]['service_percent']=0;
+            $result['employee'][$i][0][0]['extra_percent']=0;
 
-            $employee_job_temps=EmployeeJob::where([['employee_id','=',$employee_temp->id],['employeement_state','=',$state]])->get();
-            if ($employee_job_temps->first()){
-                $k=0;
-                foreach ($employee_job_temps as $employee_job_temp){
-                    $employees[$i]['job'][$k]=$employee_job_temp->job_id;
-                    $employees[$i]['position'][$k]=$employee_job_temp->position_id;
-                    $employees[$i]['pay_amount'][$k]=$employee_job_temp->pay_amount;
-                    $employees[$i]['bonus'][$k]=$employee_job_temp->bonus;
-                    $employees[$i]['extra'][$k]=$employee_job_temp->extra;
-                    $employees[$i]['packing'][$k]=$employee_job_temp->packing;
-                    $employees[$i]['service'][$k]=$employee_job_temp->service;
-                    $k++;
+            $j=1;
+            foreach ($positions as $position){
+                $result['employee'][$i][$j][0]['Id']=0;
+                $result['employee'][$i][$j][0]['Name']='';
+                $result['employee'][$i][$j][0]['bonus']=0;
+                $result['employee'][$i][$j][0]['hourly_pay']=0;
+                $result['employee'][$i][$j][0]['hourly_percent']=0;
+                $result['employee'][$i][$j][0]['flat_percent']=0;
+                $result['employee'][$i][$j][0]['packing_percent']=0;
+                $result['employee'][$i][$j][0]['service_percent']=0;
+                $result['employee'][$i][$j][0]['extra_percent']=0;
+                $employee_jobs=EmployeeJob::where([['job_id','=',$job->id],['position_id','=',$position->id]])->get();
+                $k=1;
+                foreach ($employee_jobs as $employee_job){
+                    $employee=Employee::find($employee_job->employee_id);
+                    $employeement_state='beginner';
+                    if (!is_null($employee->promotion_date)) {
+                        $promotion_date = $employee->promotion_date;
+                        $today = (new \DateTime())->format('promotion_date');
+                        if ($today >= $promotion_date)
+                            $employeement_state = 'promote';
+                    }
+
+                    if (!is_null($employee)){
+                        if ($employee_job->employeement_state==$employeement_state){
+                            $result['employee'][$i][$j][$k]['Id']=$k;
+                            $result['employee'][$i][$j][$k]['Name']="$employee->first_name $employee->last_name";
+                            $result['employee'][$i][$j][$k]['bonus']=$employee->bonus;
+                            $result['employee'][$i][$j][$k]['hourly_pay']=$employee_job->hourly_pay;
+                            $result['employee'][$i][$j][$k]['hourly_percent']=$employee_job->hourly_percent;
+                            $result['employee'][$i][$j][$k]['flat_percent']=$employee_job->flat_percent;
+                            $result['employee'][$i][$j][$k]['packing_percent']=$employee_job->packing_percent;
+                            $result['employee'][$i][$j][$k]['service_percent']=$employee_job->service_percent;
+                            $result['employee'][$i][$j][$k]['extra_percent']=$employee_job->extra_percent;
+                            $k++;
+                        }
+                    }
                 }
+                $j++;
             }
             $i++;
         }
+
         $event=Event::find($id);
-        $eventData['id']=$event->id;
-        $eventData['pick_address']=$event->pick_address;
-        $eventData['drop_address']=$event->drop_address;
-        $eventData['stop_address']=$event->stop_address;
-        $eventData['flat']=$event->flat;
-        $eventData['extra']=$event->extra;
-        $eventData['packing']=$event->packing;
-        $eventData['service']=$event->service;
-        $eventData['non_profit']=$event->non_profit;
-        $eventData['truck_license']=$event->truck_license;
-        $eventData['comment']=$event->comment;
-        return view('event.edit',compact('menu_level1','menu_level2','jobs','positions','employees','eventData'));
+        $result['event']['pick_address']=$event->pick_address;
+        $result['event']['drop_address']=$event->drop_address;
+        $result['event']['stop_address']=$event->stop_address;
+        $result['event']['non_profit']=$event->non_profit;
+        $result['event']['hourly_rate']=$event->hourly_rate;
+        $result['event']['flat']=$event->flat;
+        $result['event']['packing']=$event->packing;
+        $result['event']['service']=$event->service;
+        $result['event']['extra']=$event->extra;
+        $result['event']['job_total']=$event->job_total;
+        $result['event']['tips']=$event->tips;
+        $result['event']['discount']=$event->discount;
+        $result['event']['start_time']=$event->start_time;
+        $result['event']['finish_time']=$event->finish_time;
+        $result['event']['truck_license']=$event->truck_license;
+        $result['event']['comment']=$event->comment;
+        $result['event']['labor_hours']=$event->labor_hours;
+        $result['event']['travel_time']=$event->travel_time;
+        $result['event']['total_hours']=$event->total_hours;
+        $result['event']['id']=$event->id;
+        $result['event']['job_id']=$event->job_id;
+
+        $result['event_employees']=Array();
+        $temps=EmployeeEvent::where('event_id',$event->id)->get();
+        $i=0;
+        foreach ($temps as $temp){
+            $result['event_employees'][$i]['id']=$temp->employee_id;
+            $employee=Employee::find($temp->employee_id);
+            $result['event_employees'][$i]['name']="$employee->first_name $employee->last_name";
+            $position=Postion::find($temp->position_id);
+            $result['event_employees'][$i]['position']=$position->name;
+            $result['event_employees'][$i]['bonus']=$temp->bonus;
+
+            $result['event_employees'][$i]['hourly_pay']=$temp->hourly_pay;
+            $result['event_employees'][$i]['flat']=$temp->flat;
+            $result['event_employees'][$i]['hourly_percent']=$temp->hourly_percent;
+            $result['event_employees'][$i]['flat_percent']=$temp->flat_percent;
+            $result['event_employees'][$i]['extra_percent']=$temp->extra_percent;
+            $result['event_employees'][$i]['packing_percent']=$temp->packing_percent;
+            $result['event_employees'][$i]['service_percent']=$temp->service_percent;
+            $result['event_employees'][$i]['payment_description']=$temp->payment_description;
+            $i++;
+        }
+
+
+
+        return view('event.edit',compact('menu_level1','menu_level2','result'));
     }
-
-
-
-
 
 }

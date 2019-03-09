@@ -157,7 +157,7 @@
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                         @for($i=0;$i<count($result['job']);$i++)
-                            <a class="nav-item nav-link {{$i==0 ? 'active' : ''}}" id="nav-job-{{$i}}" data-toggle="tab" href="#nav-job-panel-{{$i}}" role="tab" aria-selected="true">{{$result['job'][$i]['type']}} - {{$result['job'][$i]['variation']}}</a>
+                            <a class="nav-item nav-link {{$i==0 ? 'active' : ''}}" id="nav-job-{{$i}}" data-toggle="tab" href="#nav-job-panel-{{$i}}" role="tab" aria-selected="true">{{$result['job'][$i]['type']}} {{!is_null($result['job'][$i]['variation'])?'-':''}} {{$result['job'][$i]['variation']}}</a>
                         @endfor
                     </div>
                 </nav>
@@ -257,7 +257,7 @@
                                                 <div class="label-input">
                                                     <div><label class="form-control-label">Tips, $: </label></div>
                                                     <div>
-                                                        <input type="number" class="form-control" id="tips_tab-{{$i}}" name="tips"
+                                                        <input type="number" class="form-control" id="tips-tab-{{$i}}" name="tips"
                                                                value="0" autocomplete="off"/>
                                                     </div>
                                                 </div>
@@ -795,7 +795,7 @@
 
         });
 
-        $('form input').on('change', function (e) {
+        $('form input').on('keyup', function (e) {
                 var form=$(this).parents('form');
                 var form_id=form.attr('id');
                 var job_index=parseInt(form_id.replace('event_form-',''));
@@ -846,7 +846,7 @@
             else
                 tips=parseFloat($('#tips-tab-'+job_index).val());
 
-            job_total=non_profit+packing+service+extra_amount;
+            job_total=non_profit+packing+service+extra_amount+tips;
 
             if (result['job'][job_index]['type']=="Hourly"){
                 if ($('#hourly_rate-tab-'+job_index).val()==null)

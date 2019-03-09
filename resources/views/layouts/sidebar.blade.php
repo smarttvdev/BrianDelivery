@@ -60,6 +60,14 @@
                         </a>
                     </li>
 
+                    <li class="site-menu-category">Reports</li>
+                    <li class="site-menu-item {{$menu_level1=='create_job' ? ' active' : '' }}">
+                        <a href="{{url('event/create')}}">
+                            <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                            <span class="site-menu-title">View</span>
+                        </a>
+                    </li>
+
 
                     {{--<li class="site-menu-item has-sub">--}}
                         {{--<a href="javascript:void(0)">--}}

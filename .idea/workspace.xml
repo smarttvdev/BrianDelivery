@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/event/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/event/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/edit2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/event/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +37,8 @@
     <session id="544360915">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="27" />
-          <entry key="project.open.time.1" value="8" />
+          <entry key="project.closed" value="34" />
+          <entry key="project.open.time.1" value="9" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.112" value="1" />
           <entry key="project.open.time.19" value="1" />
@@ -47,12 +52,15 @@
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.75" value="1" />
+          <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.85" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.open.time.93" value="1" />
+          <entry key="project.opened" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -65,18 +73,18 @@
           <entry key="gitignore" value="7" />
           <entry key="htaccess" value="1" />
           <entry key="js" value="10" />
-          <entry key="php" value="204" />
+          <entry key="php" value="213" />
           <entry key="png" value="1" />
           <entry key="sql" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="103" />
+          <entry key="Blade" value="110" />
           <entry key="CSS" value="17" />
           <entry key="Image" value="1" />
           <entry key="JavaScript" value="10" />
-          <entry key="PHP" value="101" />
+          <entry key="PHP" value="103" />
           <entry key="PLAIN_TEXT" value="19" />
           <entry key="SQL" value="4" />
           <entry key="htaccess" value="1" />
@@ -88,16 +96,16 @@
           <entry key="env" value="45" />
           <entry key="gitignore" value="7" />
           <entry key="js" value="14" />
-          <entry key="php" value="62257" />
+          <entry key="php" value="64201" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="37408" />
+          <entry key="Blade" value="38194" />
           <entry key="CSS" value="580" />
           <entry key="HTML" value="2" />
           <entry key="JavaScript" value="14" />
-          <entry key="PHP" value="24847" />
+          <entry key="PHP" value="26005" />
           <entry key="PLAIN_TEXT" value="52" />
         </counts>
       </usages-collector>
@@ -108,88 +116,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="76" column="36" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="291" column="135" lean-forward="true" selection-start-line="291" selection-start-column="135" selection-end-line="291" selection-end-column="135" />
-              <folding>
-                <element signature="e#40#56#0#PHP" expanded="true" />
-                <element signature="e#11791#13911#0#PHP" />
-              </folding>
+            <state relative-caret-position="439">
+              <caret line="62" column="73" lean-forward="true" selection-start-line="62" selection-start-column="73" selection-end-line="62" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/event/create.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="694" column="132" selection-start-line="694" selection-start-column="132" selection-end-line="694" selection-end-column="132" />
-              <folding>
-                <element signature="e#4651#5142#0#HTML" />
-                <element signature="e#7340#7360#0#HTML" expanded="true" />
-                <element signature="e#20092#20158#0#HTML" expanded="true" />
-                <element signature="e#20212#20232#0#HTML" expanded="true" />
-                <element signature="e#20352#20372#0#HTML" expanded="true" />
-                <element signature="e#20082#35035#0#HTML" />
-                <element signature="e#20447#27913#0#HTML" />
-                <element signature="e#28087#29402#0#HTML" />
-                <element signature="e#29435#34999#0#HTML" />
-                <element signature="e#36267#36972#0#HTML" />
-                <element signature="e#36930#37478#0#HTML" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#37604#38525#0#HTML" />
-                <element signature="e#38563#38587#0#HTML" />
-                <element signature="e#39283#39307#0#HTML" />
-                <element signature="e#37079#37980#0#HTML" />
-                <element signature="e#38025#39173#0#HTML" />
-                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-                <element signature="e#44777#44801#0#HTML" />
-                <element signature="e#44719#45416#0#HTML" />
-                <element signature="e#41810#42651#0#HTML" />
-                <element signature="e#42710#43717#0#HTML" />
-                <element signature="e#48072#48691#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="26" column="55" lean-forward="true" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Event.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/event/create2.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="77" column="9" lean-forward="true" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="66" column="69" lean-forward="true" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -205,26 +142,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>start time</find>
-      <find>jquery</find>
-      <find>validate</find>
-      <find>itemtem</find>
-      <find>itemtemplate</find>
-      <find>datatable</find>
-      <find>selected_employees</find>
-      <find>selected_tr</find>
-      <find>pay comment</find>
-      <find>comment</find>
-      <find>start_time</find>
-      <find>add-stop-button</find>
-      <find>add-stop</find>
-      <find>stop-count</find>
-      <find>stop-holder</find>
       <find>formdata</find>
       <find>registerEn</find>
       <find>truck</find>
       <find>attach_docs</find>
-      <find>event_id</find>
       <find>addemployeeTo</find>
       <find>job_id</find>
       <find>addemployeetoeven</find>
@@ -235,10 +156,24 @@
       <find>packing</find>
       <find>job tot</find>
       <find>hide</find>
+      <find>tips</find>
+      <find>listemploy</find>
+      <find>edit</find>
+      <find>result</find>
+      <find>create</find>
+      <find>edit()</find>
+      <find>hourly</find>
+      <find>value={</find>
+      <find>]}}</find>
+      <find>event_id</find>
+      <find>job_index</find>
+      <find>plus</find>
+      <find>addEmployee</find>
+      <find>addEmployee(</find>
+      <find>stop</find>
+      <find>stop-holder-tab</find>
     </findStrings>
     <replaceStrings>
-      <replace>{{asset('template/</replace>
-      <replace>{{asset('template/vendor/</replace>
       <replace>.css')}}&quot;</replace>
       <replace>{{asset('template/fonts/</replace>
       <replace>{{asset('template/js</replace>
@@ -267,6 +202,8 @@
       <replace>$job_id==0</replace>
       <replace>address</replace>
       <replace>col-sm-6 col-12</replace>
+      <replace>value=&quot;{</replace>
+      <replace>]}}&quot;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -313,19 +250,19 @@
         <option value="$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/198762_2_8/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" />
         <option value="$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/198762_2_7/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/event/list.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/event/edit.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/views/employee/create_employee.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_04_002319_create_events_table.php" />
         <option value="$PROJECT_DIR$/app/Event.php" />
         <option value="$PROJECT_DIR$/resources/views/event/create1.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/event/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/event/create.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
+        <option value="$PROJECT_DIR$/resources/views/event/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" />
       </list>
     </option>
   </component>
@@ -437,10 +374,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="179" />
-    <option name="y" value="216" />
-    <option name="width" value="1626" />
-    <option name="height" value="729" />
+    <option name="x" value="271" />
+    <option name="y" value="81" />
+    <option name="width" value="1518" />
+    <option name="height" value="958" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -512,18 +449,18 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\MovingCompany\resources\views" />
+      <recent name="D:\xampp\htdocs\MovingCompany\public\login\vendor" />
+      <recent name="D:\xampp\htdocs\MovingCompany\public\login\fonts" />
+      <recent name="D:\xampp\htdocs\MovingCompany\public\login\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\MovingCompany\resources\views\event" />
       <recent name="D:\xampp\htdocs\MovingCompany\resources\views\employee" />
       <recent name="D:\xampp\htdocs\MovingCompany" />
       <recent name="D:\xampp\htdocs\MovingCompany\public\images" />
       <recent name="D:\xampp\htdocs\MovingCompany\resources\views\job" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\MovingCompany\resources\views" />
-      <recent name="D:\xampp\htdocs\MovingCompany\public\login\vendor" />
-      <recent name="D:\xampp\htdocs\MovingCompany\public\login\fonts" />
-      <recent name="D:\xampp\htdocs\MovingCompany\public\login\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -579,12 +516,18 @@
       <workItem from="1551402538901" duration="45472000" />
       <workItem from="1551499328620" duration="7532000" />
       <workItem from="1551516717464" duration="2174000" />
-      <workItem from="1551530626288" duration="31236000" />
+      <workItem from="1551530626288" duration="31565000" />
+      <workItem from="1551565870379" duration="598000" />
+      <workItem from="1551594168846" duration="198000" />
+      <workItem from="1551867018936" duration="708000" />
+      <workItem from="1552050411954" duration="9605000" />
+      <workItem from="1552060788450" duration="133000" />
+      <workItem from="1552085165161" duration="1548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="410605000" />
+    <option name="totallyTimeSpent" value="423724000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -596,10 +539,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="179" y="216" width="1626" height="729" extended-state="0" />
+    <frame x="271" y="81" width="1518" height="958" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18837804" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12414266" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -614,7 +557,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005417" side_tool="true" weight="0.32777777" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" visible="true" weight="0.3092437" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" visible="true" weight="0.22330096" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -653,20 +596,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/template/css/js-grid-table.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_01_152149_create_employee_jobs_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="55" lean-forward="true" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_01_30_012544_create_jobs_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -735,13 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/movingcompany (1).sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -749,17 +671,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/event/edit2.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
           <caret line="618" column="35" selection-start-line="618" selection-start-column="35" selection-end-line="618" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
         </state>
       </provider>
     </entry>
@@ -830,13 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_04_002319_create_events_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
@@ -844,80 +752,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/event/create2.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="26" column="55" lean-forward="true" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+        <state relative-caret-position="175">
+          <caret line="77" column="9" lean-forward="true" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3300">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="221">
+          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="76" column="36" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="36" />
+        <state relative-caret-position="329">
+          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/event/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/132996_2_0/swipecart.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/event/list.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/event/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5868">
+          <caret line="196" column="67" lean-forward="true" selection-start-line="196" selection-start-column="67" selection-end-line="196" selection-end-column="67" />
+          <folding>
+            <element signature="e#8410#8469#0#HTML" expanded="true" />
+            <element signature="e#8648#8697#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="291" column="135" lean-forward="true" selection-start-line="291" selection-start-column="135" selection-end-line="291" selection-end-column="135" />
+        <state relative-caret-position="272">
+          <caret line="428" column="40" selection-start-line="428" selection-start-column="8" selection-end-line="428" selection-end-column="40" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
-            <element signature="e#11791#13911#0#PHP" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/create2.blade.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="77" column="9" lean-forward="true" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="439">
+          <caret line="62" column="73" lean-forward="true" selection-start-line="62" selection-start-column="73" selection-end-line="62" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="694" column="132" selection-start-line="694" selection-start-column="132" selection-end-line="694" selection-end-column="132" />
-          <folding>
-            <element signature="e#4651#5142#0#HTML" />
-            <element signature="e#7340#7360#0#HTML" expanded="true" />
-            <element signature="e#20092#20158#0#HTML" expanded="true" />
-            <element signature="e#20212#20232#0#HTML" expanded="true" />
-            <element signature="e#20352#20372#0#HTML" expanded="true" />
-            <element signature="e#20082#35035#0#HTML" />
-            <element signature="e#20447#27913#0#HTML" />
-            <element signature="e#28087#29402#0#HTML" />
-            <element signature="e#29435#34999#0#HTML" />
-            <element signature="e#36267#36972#0#HTML" />
-            <element signature="e#36930#37478#0#HTML" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#37604#38525#0#HTML" />
-            <element signature="e#38563#38587#0#HTML" />
-            <element signature="e#39283#39307#0#HTML" />
-            <element signature="e#37079#37980#0#HTML" />
-            <element signature="e#38025#39173#0#HTML" />
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-            <element signature="e#44777#44801#0#HTML" />
-            <element signature="e#44719#45416#0#HTML" />
-            <element signature="e#41810#42651#0#HTML" />
-            <element signature="e#42710#43717#0#HTML" />
-            <element signature="e#48072#48691#0#HTML" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="66" column="69" lean-forward="true" selection-start-line="66" selection-start-column="69" selection-end-line="66" selection-end-column="69" />
         </state>
       </provider>
     </entry>

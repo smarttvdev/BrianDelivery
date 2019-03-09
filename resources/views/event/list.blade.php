@@ -58,12 +58,9 @@
                                     <th>Drop Address</th>
                                     <th>Stop Address</th>
                                     <th>Employee Numbers</th>
-                                    <th>Flat</th>
-                                    <th>Extra</th>
-                                    <th>Packing</th>
-                                    <th>Service</th>
-                                    <th>Non Profit</th>
                                     <th>Truck License</th>
+                                    <th>Job Type</th>
+                                    <th>Job Total</th>
                                     <th>State</th>
                                     <th>Action</th>
                                 </tr>
@@ -76,18 +73,14 @@
                                     <td>{{$result[$i]['drop_address']}}</td>
                                     <td>{{$result[$i]['stop_address']}}</td>
                                     <td>{{$result[$i]['employee_numbers']}}</td>
-                                    <td>{{$result[$i]['flat']}}</td>
-                                    <td>{{$result[$i]['extra']}}</td>
-                                    <td>{{$result[$i]['packing']}}</td>
-                                    <td>{{$result[$i]['service']}}</td>
-                                    <td>{{$result[$i]['non_profit']}}</td>
                                     <td>{{$result[$i]['truck_license']}}</td>
+                                    <td>{{$result[$i]['job_type']}}</td>
+                                    <td>{{$result[$i]['job_total']}}</td>
                                     <td>{{$result[$i]['state']}}</td>
                                     <td style="width:60px">
                                         <a href="{{url('/event/edit/'.$result[$i]['id'])}}"><button type="button" class="btn btn-floating btn-success btn-sm edit" style="width:25px;height:25px; display:inline"><i class="icon wb-pencil" aria-hidden="true"></i></button></a>
                                         <a href="{{url('/event/delete/'.$result[$i]['id'])}}"><button type="button" class="btn btn-floating btn-danger btn-sm remove" style="width:25px;height:25px; display:inline; margin-left:5px"><i class="icon fa-trash" aria-hidden="true"></i></button></a>
                                     </td>
-
                                 </tr>
                             @endfor
 
