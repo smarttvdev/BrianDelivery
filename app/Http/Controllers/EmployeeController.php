@@ -39,9 +39,11 @@ class EmployeeController extends Controller
         $temps=Postion::all();
         $i=0;
         $position[0]['Name']=null;
+        $position[0]['bonus']=0;
         $position[0]['Id']=$i;
         foreach ($temps as $temp){
             $position[$i+1]['Name']=$temp->name;
+            $position[$i+1]['bonus']=$temp->bonus;
             $position[$i+1]['Id']=$i+1;
             $i++;
         }
@@ -80,10 +82,9 @@ class EmployeeController extends Controller
     public function Save(Request $request){
         $employeement_state=$request->input('employeement_state');
         $employee_id=$request->input('employee_id');
-        if ($employeement_state=='beginner'){
+        if ($employeement_state!='promote'){
             $first_name=$request->input('first_name');
             $last_name=$request->input('last_name');
-            $bonus=$request->input('bonus');
             $gender=$request->input('gender');
             $paid_method=$request->input('PaidMethod');
             if ($employee_id!=0)
@@ -95,7 +96,6 @@ class EmployeeController extends Controller
 
             $employee->first_name=$first_name;
             $employee->last_name=$last_name;
-            $employee->bonus=$bonus;
             $employee->gender=$gender;
             $employee->paid_method=$paid_method;
             $employee->employeement_time=$employeement_time;
@@ -271,6 +271,8 @@ class EmployeeController extends Controller
                 $item[$i]['extra_percent']=$EmployeeJob->extra_percent;
                 $item[$i]['packing_percent']=$EmployeeJob->packing_percent;
                 $item[$i]['service_percent']=$EmployeeJob->service_percent;
+                $temp=Postion::find($EmployeeJob->position_id);
+                $item[$i]['bonus']=$temp->bonus;
                 $i++;
             }
         }
@@ -357,6 +359,7 @@ class EmployeeController extends Controller
         $position[0]['Id']=$i;
         foreach ($temps as $temp){
             $position[$i+1]['Name']=$temp->name;
+            $position[$i+1]['bonus']=$temp->bonus;
             $position[$i+1]['Id']=$i+1;
             $i++;
         }
@@ -373,6 +376,7 @@ class EmployeeController extends Controller
         $job_item[0]['extra_percent']=0;
         $job_item[0]['packing_percent']=0;
         $job_item[0]['service_percent']=0;
+        $job_item[0]['bonus']=0;
         foreach ($temps as $temp){
             $job_item[$i+1]['Name']=$temp->type.' - '. $temp->variation;
             $job_item[$i+1]['Id']=$i+1;
@@ -383,6 +387,7 @@ class EmployeeController extends Controller
             $job_item[$i+1]['extra_percent']=$temp->extra_percent;
             $job_item[$i+1]['packing_percent']=$temp->packing_percent;
             $job_item[$i+1]['service_percent']=$temp->service_percent;
+            $job_item[$i+1]['bonus']=$temp->bonus;
             $i++;
         }
         $job_item=json_encode($job_item);

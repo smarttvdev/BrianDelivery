@@ -19,6 +19,7 @@ class PositionController extends Controller
         $i=0;
         foreach ($positions as $position){
             $result[$i]['name']=$position->name;
+            $result[$i]['bonus']=$position->bonus;
             $result[$i]['ID']=$position->id;
             $i++;
         }
@@ -30,11 +31,13 @@ class PositionController extends Controller
     public function insertPosition(Request $request){
         $item=$request->all();
         $position_name=$item['name'];
+        $bonus=$item['bonus'];
 
         $temps=Postion::where('name',$position_name)->get();
         if (!$temps->first()){
             $position=new Postion;
             $position->name=$position_name;
+            $position->bonus=$bonus;
             $position->save();
             $item['ID']=$position->id;
             return response($item)->withHeaders([
@@ -49,9 +52,12 @@ class PositionController extends Controller
         $id=$item['ID'];
         $position_name=$item['name'];
 
+
         $position=Postion::find($id);
         if ($position){
             $position->name=$position_name;
+            $position->bonus=$item['bonus'];
+
             $position->save();
             $item['ID']=$position->id;
             return response($item)->withHeaders([

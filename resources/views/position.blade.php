@@ -75,8 +75,9 @@
                 fields: [
                     { name:"ID" ,type: "hidden", css: 'hide'},
                     { name: "name", type: "text", width: 150, validate: "required",title:"Position Name",css:"text-center",align: "center" ,filtering:true},
+                    { name: "bonus", type: "number", width: 100, validate: "required",title:"Bonus Points",css:"text-center",align: "center" ,filtering:true},
                     {
-                        type: "control",width:50
+                        type: "control",width:30
                     }
                 ]
             });

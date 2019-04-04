@@ -49,6 +49,14 @@
         Breakpoints();
     </script>
 
+    <style>
+        .disable input{
+            background:#eee;
+            border:none;
+            outline: none;
+        }
+    </style>
+
     @yield('insert-css')
 </head>
 

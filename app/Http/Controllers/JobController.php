@@ -110,7 +110,4 @@ class JobController extends Controller
     }
 
 
-
-
-
 }

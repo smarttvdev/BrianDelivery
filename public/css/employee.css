@@ -1,0 +1,17 @@
+#Start_Date{
+    margin-top:10px;
+}
+#promote_submit{
+    margin-top:-10px;
+}
+
+.btn{
+    border-radius:40px;
+    margin-bottom:20px;
+    width:170px;
+    padding: 7px 0;
+    font-size:16px;
+}
+#promote-grid-holder,#beginner-grid-holder{
+    display:none;
+}

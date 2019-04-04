@@ -19,7 +19,6 @@ class EventController extends Controller
         $menu_level1='event_create';
         $menu_level2='';
         $result=Array();
-
         $positions=Postion::all();
         $result['position'][0]['Id']=0;
         $result['position'][0]['Name']=null;
@@ -135,7 +134,6 @@ class EventController extends Controller
                     $result[$i]['packing_percent']=$job_temp->packing_percent;
                     $result[$i]['service_percent']=$job_temp->service_percent;
                     $result[$i]['bonus']=$temp->bonus;
-
                     $i++;
                 }
             }
@@ -194,9 +192,6 @@ class EventController extends Controller
         $event->save();
         return $event->id;
     }
-
-
-
 
     public function addEmployeeToEvent(Request $request){
         $event_id=$request->input('event_id');
@@ -467,9 +462,6 @@ class EventController extends Controller
             $result['event_employees'][$i]['payment_description']=$temp->payment_description;
             $i++;
         }
-
-
-
         return view('event.edit',compact('menu_level1','menu_level2','result'));
     }
 

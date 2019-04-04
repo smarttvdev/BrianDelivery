@@ -77,5 +77,6 @@
         });
         'use strict';
     })
+    var site_url="{{url('/')}}";
 </script>
 @yield('insert-js')

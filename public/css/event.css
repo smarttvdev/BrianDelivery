@@ -1,0 +1,137 @@
+.section{
+    margin:auto;
+    /*max-width:1200px;*/
+    border:1px solid #aaa;
+    margin-top:20px;
+    padding-bottom:30px;
+}
+.section-title{
+    margin:auto;
+    width:fit-content;
+    margin-top:30px !important;
+    margin-bottom:30px;
+
+}
+label.form-control-label{
+    text-align: right;
+    margin-right:10px;
+    width:210px;
+}
+.label-input{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    margin-top:5px;
+    max-width:500px;
+    float:right;
+
+    display:flex;
+    justify-content: space-between;
+}
+.form-control-label{
+    text-transform: uppercase;
+}
+input.form-control,textarea.form-control{
+    width:220px !important;
+}
+input[type='submit']{
+    width:200px !important;
+}
+select.form-control{
+    width:220px !important;
+}
+.checkbox-custom{
+    margin-left:150px;
+}
+.checkbox-label{
+    text-align: left;
+    width:150px;
+}
+.mandatory{
+    font-size:11px;
+    color:#f00;
+    margin-left:3px;
+}
+.plus{
+    font-size:18px;
+    margin-top:5px;
+    margin-left:5px;
+    font-weight: lighter;
+    color:#008000;
+    cursor: pointer;
+}
+
+i.fas.fa-minus{
+    margin-left:10px;
+    margin-top:5px;
+    color:#008000;
+    cursor: pointer;
+}
+
+td, th{
+    text-align: center;
+}
+tr{
+    cursor:pointer;
+}
+
+.hide{
+    display:none !important;
+}
+
+.edit-modal-content{
+    margin:auto;
+    margin-top:20px;
+}
+.edit-input{
+    padding-left:10px;
+}
+
+.employee-edit-row{
+    display:flex;
+    justify-content: space-between;
+}
+.edit-label{
+    width:100px;
+}
+.edit-input{
+    width:calc(100% - 120px);
+}
+.edit-comment{
+    width:calc(100% - 103px);
+}
+
+@media screen and (min-width:480px){
+    .employee-edit-holder:nth-child(odd){
+        margin-top:5px;
+        text-align:left;
+        width:fit-content;
+        padding-left:0;
+    }
+    .employee-edit-holder:nth-child(even){
+        margin-top:5px;
+        text-align:right;
+        width:fit-content;
+        padding-right:0;
+        margin-left:10px;
+    }
+}
+.employee-edit-holder label{
+    text-align:right;
+}
+.price-comment-holder{
+    text-align: right;
+    display:flex;
+    justify-content: space-between;
+    margin-top:10px;
+}
+.comment-label{
+    display:block;
+    margin-top:40px;
+    margin-left:10px;
+}
+
+.selected-employee-title{
+    margin:50px auto;
+    margin-bottom:10px;
+    width:fit-content;
+}

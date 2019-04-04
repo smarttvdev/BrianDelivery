@@ -25,6 +25,7 @@ class CreateEmployeeJobsTable extends Migration
             $table->double('extra_percent')->default(0);
             $table->double('packing_percent')->default(0);
             $table->double('service_percent')->default(0);
+            $table->double('bonus')->default(0);
             $table->timestamps();
         });
     }
