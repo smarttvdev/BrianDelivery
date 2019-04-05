@@ -3,21 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PositionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PositionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_01_30_012627_create_postions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_01_30_012627_create_postions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_01_152149_create_employee_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_01_152149_create_employee_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/create_employee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/create_employee.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/event.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/event.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/event/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/create2.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/event/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/edit2.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/head.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/position.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/position.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +73,7 @@
           <entry key="gitignore" value="7" />
           <entry key="htaccess" value="1" />
           <entry key="js" value="13" />
-          <entry key="php" value="246" />
+          <entry key="php" value="247" />
           <entry key="png" value="1" />
           <entry key="sql" value="4" />
         </counts>
@@ -95,7 +84,7 @@
           <entry key="CSS" value="19" />
           <entry key="Image" value="1" />
           <entry key="JavaScript" value="13" />
-          <entry key="PHP" value="116" />
+          <entry key="PHP" value="117" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="SQL" value="4" />
           <entry key="htaccess" value="1" />
@@ -106,17 +95,17 @@
           <entry key="css" value="761" />
           <entry key="env" value="45" />
           <entry key="gitignore" value="7" />
-          <entry key="js" value="444" />
-          <entry key="php" value="65390" />
+          <entry key="js" value="1981" />
+          <entry key="php" value="65600" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="39007" />
+          <entry key="Blade" value="39196" />
           <entry key="CSS" value="761" />
           <entry key="HTML" value="2" />
-          <entry key="JavaScript" value="444" />
-          <entry key="PHP" value="26381" />
+          <entry key="JavaScript" value="1981" />
+          <entry key="PHP" value="26402" />
           <entry key="PLAIN_TEXT" value="52" />
         </counts>
       </usages-collector>
@@ -125,13 +114,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="72" column="30" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/event/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="404" selection-start-line="404" selection-end-line="404" />
-              <folding>
-                <element signature="e#4526#35697#0#HTML" />
-              </folding>
+            <state relative-caret-position="245">
+              <caret line="290" column="46" lean-forward="true" selection-start-line="290" selection-start-column="46" selection-end-line="290" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -139,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/event/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="437" lean-forward="true" selection-start-line="437" selection-end-line="437" />
+            <state relative-caret-position="160">
+              <caret line="328" column="55" selection-start-line="328" selection-start-column="53" selection-end-line="328" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -148,14 +143,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/event.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="105" column="79" selection-start-line="105" selection-start-column="65" selection-end-line="105" selection-end-column="79" />
+            <state relative-caret-position="304">
+              <caret line="383" column="1" lean-forward="true" selection-start-line="383" selection-start-column="1" selection-end-line="383" selection-end-column="1" />
               <folding>
                 <element signature="e#324#1005#0" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+                <element signature="e#8934#9990#0" />
+                <element signature="n#!!block;n#calculateTotalPay#0" />
+                <element signature="n#!!block;n#f#0" />
+                <element signature="n#!!block;n#f#0" />
               </folding>
             </state>
           </provider>
@@ -164,8 +163,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="86" />
+            <state relative-caret-position="41">
+              <caret line="194" column="5" lean-forward="true" selection-start-line="194" selection-start-column="5" selection-end-line="194" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -191,41 +190,38 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>job_index</find>
-      <find>plus</find>
-      <find>addEmployee</find>
-      <find>addEmployee(</find>
-      <find>stop</find>
-      <find>stop-holder-tab</find>
-      <find>job_item</find>
-      <find>{{url</find>
-      <find>getEmployeeJob</find>
-      <find>position_item</find>
-      <find>$position</find>
-      <find>showcre</find>
-      <find>showedit</find>
-      <find>text-center</find>
-      <find>Start_Date</find>
-      <find>save</find>
-      <find>beginner_form</find>
-      <find>employeement_state</find>
-      <find>promote</find>
-      <find>css</find>
-      <find>link</find>
-      <find>load_grid</find>
-      <find>submit</find>
-      <find>submit_function</find>
-      <find>employee_id</find>
-      <find>add eo</find>
+      <find>calclulateTotalPay</find>
+      <find>ca</find>
+      <find>result</find>
       <find>bonus</find>
+      <find>positionChange</find>
+      <find>calcul</find>
+      <find>calculate</find>
+      <find>job=</find>
+      <find>bonus=</find>
+      <find>position</find>
+      <find>DISCOUNT</find>
+      <find>{{url</find>
+      <find>site_url</find>
+      <find>register</find>
       <find>url</find>
-      <find>deleteEmployee</find>
-      <find>employeeChange(</find>
+      <find>url+</find>
+      <find>addEmployeeToEvent</find>
+      <find>registerEvent</find>
+      <find>positionchange</find>
+      <find>employeechange</find>
+      <find>type</find>
+      <find>employeech</find>
+      <find>flat_percent</find>
+      <find>hourl</find>
+      <find>packing, %</find>
+      <find>th</find>
+      <find>modal</find>
+      <find>hourly pay</find>
+      <find>td</find>
+      <find>registerevent</find>
     </findStrings>
     <replaceStrings>
-      <replace>.css')}}&quot;</replace>
-      <replace>{{asset('template/fonts/</replace>
-      <replace>{{asset('template/js</replace>
       <replace>beginner_</replace>
       <replace>event_item</replace>
       <replace>event-</replace>
@@ -253,6 +249,9 @@
       <replace>col-sm-6 col-12</replace>
       <replace>value=&quot;{</replace>
       <replace>]}}&quot;</replace>
+      <replace>calclulateTotalPay</replace>
+      <replace>calculateTotalPay</replace>
+      <replace>Packing Amount</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -290,7 +289,6 @@
         <option value="$PROJECT_DIR$/app/Event.php" />
         <option value="$PROJECT_DIR$/resources/views/event/create1.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/event/list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_01_152149_create_employee_jobs_table.php" />
@@ -308,10 +306,11 @@
         <option value="$PROJECT_DIR$/public/js/employee.js" />
         <option value="$PROJECT_DIR$/public/css/employee.css" />
         <option value="$PROJECT_DIR$/public/css/event.css" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/public/js/event.js" />
         <option value="$PROJECT_DIR$/resources/views/event/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/event/edit.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/event.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
       </list>
     </option>
   </component>
@@ -423,9 +422,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="442" />
-    <option name="y" value="86" />
-    <option name="width" value="1435" />
+    <option name="x" value="433" />
+    <option name="y" value="410" />
+    <option name="width" value="1407" />
     <option name="height" value="883" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -575,12 +574,12 @@
       <workItem from="1552085165161" duration="1548000" />
       <workItem from="1552093574014" duration="244000" />
       <workItem from="1552120395507" duration="515000" />
-      <workItem from="1554402216709" duration="17146000" />
+      <workItem from="1554402216709" duration="28091000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="441629000" />
+    <option name="totallyTimeSpent" value="452574000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -592,7 +591,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="442" y="86" width="1435" height="883" extended-state="0" />
+    <frame x="433" y="410" width="1407" height="883" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.22472727" />
@@ -610,7 +609,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005417" side_tool="true" weight="0.32777777" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" weight="0.15086782" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" visible="true" weight="0.3751669" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -829,13 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="60" column="102" selection-start-line="60" selection-start-column="88" selection-end-line="60" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/employee/edit_employee.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -890,41 +882,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/create.blade.php">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="404" selection-start-line="404" selection-end-line="404" />
-          <folding>
-            <element signature="e#4526#35697#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="437" lean-forward="true" selection-start-line="437" selection-end-line="437" />
+        <state relative-caret-position="199">
+          <caret line="72" column="30" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/event.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="105" column="79" selection-start-line="105" selection-start-column="65" selection-end-line="105" selection-end-column="79" />
+        <state relative-caret-position="304">
+          <caret line="383" column="1" lean-forward="true" selection-start-line="383" selection-start-column="1" selection-end-line="383" selection-end-column="1" />
           <folding>
             <element signature="e#324#1005#0" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+            <element signature="e#8934#9990#0" />
+            <element signature="n#!!block;n#calculateTotalPay#0" />
+            <element signature="n#!!block;n#f#0" />
+            <element signature="n#!!block;n#f#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/event/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="328" column="55" selection-start-line="328" selection-start-column="53" selection-end-line="328" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/event/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="290" column="46" lean-forward="true" selection-start-line="290" selection-start-column="46" selection-end-line="290" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="86" />
+        <state relative-caret-position="41">
+          <caret line="194" column="5" lean-forward="true" selection-start-line="194" selection-start-column="5" selection-end-line="194" selection-end-column="5" />
         </state>
       </provider>
     </entry>

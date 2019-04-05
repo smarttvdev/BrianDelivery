@@ -250,7 +250,7 @@
                                                 <div class="label-input">
                                                     <div><label class="form-control-label">Bonus, $: </label></div>
                                                     <div>
-                                                        <input type="number" class="form-control" id="bonus-tab-{{$i}}" name="bonus" placeholder="Bonus" value="0" autocomplete="off" readonly/>
+                                                        <input type="number" class="form-control" id="bonus-tab-{{$i}}" name="bonus" placeholder="Bonus" value="0" autocomplete="off"/>
                                                     </div>
                                                 </div>
                                                 <div class="label-input">
@@ -262,33 +262,33 @@
 
                                                 @if($result['job'][$i]['type']=='Flat')
                                                     <div class="label-input">
-                                                        <div><label class="form-control-label">Flat, %: </label></div>
+                                                        <div><label class="form-control-label">Flat: </label></div>
                                                         <div>
                                                             <input type="number" class="form-control" id="flat_percent-tab-{{$i}}" name="flat_percent" placeholder="Flat, %" value="0" autocomplete="off"/>
                                                         </div>
                                                     </div>
                                                 @else
                                                     <div class="label-input">
-                                                        <div><label class="form-control-label">Hourly, %: </label></div>
+                                                        <div><label class="form-control-label">Hourly Rate: </label></div>
                                                         <div>
                                                             <input type="number" class="form-control" id="hourly_percent-tab-{{$i}}" name="hourly_percent" placeholder="Hourly, %" value="0" autocomplete="off"/>
                                                         </div>
                                                     </div>
                                                 @endif
                                                 <div class="label-input">
-                                                    <div><label class="form-control-label">Extra, %: </label></div>
+                                                    <div><label class="form-control-label">Extra: </label></div>
                                                     <div>
                                                         <input type="number" class="form-control" id="extra_percent-tab-{{$i}}" name="extra_percent" placeholder="Extra, %" value="0" autocomplete="off"/>
                                                     </div>
                                                 </div>
                                                 <div class="label-input">
-                                                    <div><label class="form-control-label">Packing, %: </label></div>
+                                                    <div><label class="form-control-label">Packing: </label></div>
                                                     <div>
                                                         <input type="number" class="form-control" id="packing_percent-tab-{{$i}}" name="packing_percent" placeholder="Packing, %" value="0" autocomplete="off"/>
                                                     </div>
                                                 </div>
                                                 <div class="label-input">
-                                                    <div><label class="form-control-label">Service, %: </label></div>
+                                                    <div><label class="form-control-label">Service: </label></div>
                                                     <div>
                                                         <input type="number" class="form-control" id="service_percent-tab-{{$i}}" name="service_percent" placeholder="Service, %" value="0" autocomplete="off"/>
                                                     </div>
@@ -311,11 +311,11 @@
                                             @if($result['job'][$i]['type']=='Hourly')
                                                 <th>Hourly, %</th>
                                             @else
-                                                <th>Flat, %</th>
+                                                <th>Flat</th>
                                             @endif
-                                            <th>Extra, %</th>
-                                            <th>Packing, %</th>
-                                            <th>Service, %</th>
+                                            <th>Extra</th>
+                                            <th>Packing</th>
+                                            <th>Service</th>
                                             <th>Action</th>
                                             <th style="display:none"></th>
                                         </tr>
@@ -435,6 +435,7 @@
         var count=parseInt("{{$i}}");
         var result=JSON.parse('<?php echo(json_encode($result))?>');
         var selected_tr;
+        var bonus=0;
 
     </script>
 @endsection

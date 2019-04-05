@@ -22,10 +22,12 @@ class EventController extends Controller
         $positions=Postion::all();
         $result['position'][0]['Id']=0;
         $result['position'][0]['Name']=null;
+        $result['position'][0]['bonus']=0;
         $i=1;
         foreach ($positions as $position){
             $result['position'][$i]['Id']=$i;
             $result['position'][$i]['Name']=$position->name;
+            $result['position'][$i]['bonus']=$position->bonus;
             $i++;
         }
 
@@ -73,7 +75,6 @@ class EventController extends Controller
                         if ($employee_job->employeement_state==$employeement_state){
                             $result['employee'][$i][$j][$k]['Id']=$k;
                             $result['employee'][$i][$j][$k]['Name']="$employee->first_name $employee->last_name";
-                            $result['employee'][$i][$j][$k]['bonus']=$employee->bonus;
                             $result['employee'][$i][$j][$k]['hourly_pay']=$employee_job->hourly_pay;
                             $result['employee'][$i][$j][$k]['hourly_percent']=$employee_job->hourly_percent;
                             $result['employee'][$i][$j][$k]['flat_percent']=$employee_job->flat_percent;
