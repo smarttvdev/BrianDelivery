@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/event.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/event.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/event.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/event/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/list.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,17 +89,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="812" />
+          <entry key="css" value="813" />
           <entry key="env" value="45" />
           <entry key="gitignore" value="7" />
           <entry key="js" value="2379" />
-          <entry key="php" value="65777" />
+          <entry key="php" value="65778" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="39312" />
-          <entry key="CSS" value="812" />
+          <entry key="Blade" value="39313" />
+          <entry key="CSS" value="813" />
           <entry key="HTML" value="2" />
           <entry key="JavaScript" value="2379" />
           <entry key="PHP" value="26463" />
@@ -132,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/event/list.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="76" column="30" lean-forward="true" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+            <state relative-caret-position="-765">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -150,7 +146,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/event.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="355">
@@ -195,8 +191,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/event.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
+            <state relative-caret-position="318">
+              <caret line="138" selection-start-line="138" selection-end-line="138" />
             </state>
           </provider>
         </entry>
@@ -330,10 +326,10 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/event/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/EventController.php" />
-        <option value="$PROJECT_DIR$/resources/views/event/list.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/event.css" />
         <option value="$PROJECT_DIR$/resources/views/event/edit.blade.php" />
         <option value="$PROJECT_DIR$/public/js/event.js" />
+        <option value="$PROJECT_DIR$/public/css/event.css" />
+        <option value="$PROJECT_DIR$/resources/views/event/list.blade.php" />
       </list>
     </option>
   </component>
@@ -445,10 +441,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="455" />
-    <option name="y" value="183" />
+    <option name="x" value="387" />
+    <option name="y" value="190" />
     <option name="width" value="1407" />
-    <option name="height" value="883" />
+    <option name="height" value="882" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -597,12 +593,12 @@
       <workItem from="1552085165161" duration="1548000" />
       <workItem from="1552093574014" duration="244000" />
       <workItem from="1552120395507" duration="515000" />
-      <workItem from="1554402216709" duration="30793000" />
+      <workItem from="1554402216709" duration="30937000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455276000" />
+    <option name="totallyTimeSpent" value="455420000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -614,10 +610,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="455" y="183" width="1407" height="883" extended-state="0" />
+    <frame x="418" y="302" width="1407" height="883" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22420193" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22420193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -632,7 +628,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005417" side_tool="true" weight="0.32777777" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" visible="true" weight="0.3751669" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49945828" visible="true" weight="0.3751669" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -915,27 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="76" column="30" lean-forward="true" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/event.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="139" column="34" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/event/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="140" column="213" selection-start-line="140" selection-start-column="195" selection-end-line="140" selection-end-column="213" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/event.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
@@ -952,6 +927,27 @@
             <element signature="n#!!block;n#f#0" />
             <element signature="n#!!block;n#f#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/event/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="140" column="213" selection-start-line="140" selection-start-column="195" selection-end-line="140" selection-end-column="213" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/event.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/event/list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>

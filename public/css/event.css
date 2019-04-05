@@ -136,9 +136,3 @@ tr{
     width:fit-content;
 }
 
-td.state-open{
-    background:#ffeeba !important;
-}
-td.state-closed{
-    background:#c3e6cb;
-}

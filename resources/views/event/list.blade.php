@@ -37,6 +37,12 @@
           padding-left:20px;
           padding-right:20px;
       }
+        td.state-open{
+            background:#ffeeba !important;
+        }
+        td.state-closed{
+            background:#c3e6cb;
+        }
 
     </style>
     <div class="page-content">
