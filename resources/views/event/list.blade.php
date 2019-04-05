@@ -38,11 +38,6 @@
           padding-right:20px;
       }
 
-
-
-
-
-
     </style>
     <div class="page-content">
         <div class="panel">
@@ -76,7 +71,11 @@
                                     <td>{{$result[$i]['truck_license']}}</td>
                                     <td>{{$result[$i]['job_type']}}</td>
                                     <td>{{$result[$i]['job_total']}}</td>
-                                    <td>{{$result[$i]['state']}}</td>
+                                    @if($result[$i]['state']=='open')
+                                        <td class="state-open">{{$result[$i]['state']}}</td>
+                                    @else
+                                        <td class="state-closed">{{$result[$i]['state']}}</td>
+                                    @endif
                                     <td style="width:60px">
                                         <a href="{{url('/event/edit/'.$result[$i]['id'])}}"><button type="button" class="btn btn-floating btn-success btn-sm edit" style="width:25px;height:25px; display:inline"><i class="icon wb-pencil" aria-hidden="true"></i></button></a>
                                         <a href="{{url('/event/delete/'.$result[$i]['id'])}}"><button type="button" class="btn btn-floating btn-danger btn-sm remove" style="width:25px;height:25px; display:inline; margin-left:5px"><i class="icon fa-trash" aria-hidden="true"></i></button></a>

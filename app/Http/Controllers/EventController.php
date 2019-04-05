@@ -144,6 +144,8 @@ class EventController extends Controller
 
     public function registerEvent(Request $request){
         $event_id=$request->input('event_id');
+        $state=$request->input('state');
+
         $event=Event::find($event_id);
         if (!$event)
             $event=new Event;
@@ -151,6 +153,7 @@ class EventController extends Controller
         $event->job_id=$request->input('job_id');
         $event->pick_address=$request->input('pick_address');
         $event->drop_address=$request->input('drop_address');
+        $event->state=$state;
 
         $stop_count=$request->input('stop-count');
         $stop_addresses=Array();
@@ -465,5 +468,5 @@ class EventController extends Controller
         }
         return view('event.edit',compact('menu_level1','menu_level2','result'));
     }
-
 }
+

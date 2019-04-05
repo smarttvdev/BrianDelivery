@@ -64,6 +64,7 @@ $(document).on('click','.register-event',function (e) {
 })
 
 function saveEvent(job_index) {
+    checkEventState(job_index);
     var formData=new FormData($('#event_form-'+job_index)[0]);
     $.ajax({
         url:site_url+"/registerEvent",
@@ -74,6 +75,7 @@ function saveEvent(job_index) {
         dataType:'json',
         async:false,
         success:function (result) {
+            console.log(result);
             $('#event_id-tab-'+job_index).val(result);
         },
         error:function (err) {
@@ -85,7 +87,6 @@ function saveEvent(job_index) {
 function positionChange(job_index) {
     var position_index=$('#position'+'-tab-'+job_index).val();
     var total_hours=$('#total_hours-tab-'+job_index).val();
-
 
     $('#employee'+'-tab-'+job_index).empty();
     for (var i=0;i<result['employee'][job_index][position_index].length;i++){
@@ -189,7 +190,7 @@ function deleteEmployee(job_index,btn){
     var data=row.data();
     $.ajax({
         method: 'post',
-        url: site_url+'deleteEmployeeEvent',
+        url: site_url+'/deleteEmployeeEvent',
         data: {
             event_id: event_id,
             employee_data: data
@@ -380,5 +381,30 @@ function employeePayUpdate(job_index) {
     var service_percent=parseFloat(result['employee'][job_index][position_index][employee_index]['service_percent'])/100;
     var service_amount=parseFloat($('#service-tab-'+job_index).val());
     $('#service_percent-tab-'+job_index).val(get2Digits(service_amount*service_percent));
+}
+
+function checkEventState(job_index) {
+    var state="closed";
+    if (!$('#pick_address-tab-'+job_index).val())
+        state="open";
+    if (!$('#drop_address-tab-'+job_index).val())
+        state="open";
+    if (!$('#truck-license-tab-'+job_index).val())
+        state="open";
+    if (!$('#start_time-tab-'+job_index).val())
+        state="open";
+    if (!$('#finish_time-tab-'+job_index).val())
+        state="open";
+    if ($('#total_hours-tab-'+job_index).val()=="0")
+        state="open";
+
+    if(!table[job_index].data().any())  // This means, there is no any employee for this event at all.
+        state="open";
+    console.log(state);
+
+    $('<input />').attr('type', 'hidden')
+        .attr('name', "state")
+        .attr('value', state)
+        .appendTo('#event_form-'+job_index);
 
 }

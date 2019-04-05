@@ -138,7 +138,7 @@
                                                 <div class="label-input">
                                                     <div><label class="form-control-label">truck license<span class="mandatory">(Mandatory)</span>: </label></div>
                                                     <div>
-                                                        <input type="text" class="form-control" name="truck_license" value="{{$result['event']['truck_license']}}" placeholder="Truck License" autocomplete="off"/>
+                                                        <input type="text" class="form-control" name="truck_license" value="{{$result['event']['truck_license']}}" placeholder="Truck License" id="truck-license-tab-{{$i}}" autocomplete="off"/>
                                                     </div>
                                                 </div>
                                                 <div class="label-input">
