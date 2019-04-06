@@ -32,6 +32,7 @@ class EventController extends Controller
         }
 
         $jobs=Job::all();
+        $result["job"]=Array();
         $i=0;
         foreach ($jobs as $job){
             $result["job"][$i]["type"]=$job->type;
