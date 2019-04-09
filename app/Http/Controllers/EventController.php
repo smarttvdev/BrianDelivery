@@ -318,11 +318,17 @@ class EventController extends Controller
             $result[$i]['non_profit']=$temp->non_profit;
             $result[$i]['employee_numbers']=0;
 
-            $job=Job::where('id',$temp->job_id)->first();
-            if (!is_null($job->variation))
-                $result[$i]['job_type']="$job->type - $job->variation";
-            else
-                $result[$i]['job_type']="$job->type";
+
+            $result[$i]['job_type']='';
+            $temps=Job::where('id',$temp->job_id)->get();
+            if ($temps->first()){
+                $job=$temps->first();
+                if (!is_null($job->variation))
+                    $result[$i]['job_type']="$job->type - $job->variation";
+                else
+                    $result[$i]['job_type']="$job->type";
+            }
+
 
             $employee_events=EmployeeEvent::where('event_id',$temp->id)->get();
 
