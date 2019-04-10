@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env___jb_tmp___" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Customer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CustomerController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_04_09_234700_create_customers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/report.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/customer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/report.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml___jb_tmp___" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml___jb_tmp___" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/JobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PositionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PositionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_04_002319_create_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_04_002319_create_events_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_02_04_010203_create_employee_events_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/event.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/event.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/event.js___jb_tmp___" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/event/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/event/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/report.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/report.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/report.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,9 +65,9 @@
         <counts>
           <entry key="config" value="1" />
           <entry key="css" value="20" />
-          <entry key="env" value="10" />
+          <entry key="env" value="11" />
           <entry key="env1" value="2" />
-          <entry key="env_server" value="1" />
+          <entry key="env_server" value="2" />
           <entry key="example" value="2" />
           <entry key="gitignore" value="8" />
           <entry key="htaccess" value="1" />
@@ -110,26 +84,26 @@
           <entry key="Image" value="1" />
           <entry key="JavaScript" value="16" />
           <entry key="PHP" value="128" />
-          <entry key="PLAIN_TEXT" value="24" />
+          <entry key="PLAIN_TEXT" value="26" />
           <entry key="SQL" value="4" />
           <entry key="htaccess" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="998" />
+          <entry key="css" value="1083" />
           <entry key="env" value="67" />
           <entry key="gitignore" value="7" />
-          <entry key="js" value="4918" />
-          <entry key="php" value="69830" />
+          <entry key="js" value="5523" />
+          <entry key="php" value="69935" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="40387" />
-          <entry key="CSS" value="998" />
-          <entry key="HTML" value="2" />
-          <entry key="JavaScript" value="4918" />
+          <entry key="Blade" value="40492" />
+          <entry key="CSS" value="1083" />
+          <entry key="HTML" value="20" />
+          <entry key="JavaScript" value="5505" />
           <entry key="PHP" value="29441" />
           <entry key="PLAIN_TEXT" value="74" />
         </counts>
@@ -163,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/report.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="-548">
+              <caret line="45" column="55" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
               <folding>
                 <element signature="e#2255#2280#0#HTML" expanded="true" />
                 <element signature="e#2392#2411#0#HTML" expanded="true" />
@@ -174,14 +148,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/report.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="35" column="15" lean-forward="true" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
+            <state relative-caret-position="180">
+              <caret line="95" column="66" selection-start-line="95" selection-start-column="59" selection-end-line="95" selection-end-column="66" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -211,11 +186,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/report.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
+            <state relative-caret-position="367">
+              <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -328,7 +303,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_02_04_090533_create_employee_pays_table.php" />
         <option value="$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/591282_3_0/calendar.js" />
@@ -376,9 +350,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/JobController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PositionController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" />
-        <option value="$PROJECT_DIR$/public/css/report.css" />
+        <option value="$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/132436_12_17/.env" />
         <option value="$PROJECT_DIR$/resources/views/report.blade.php" />
         <option value="$PROJECT_DIR$/public/js/report.js" />
+        <option value="$PROJECT_DIR$/public/css/report.css" />
       </list>
     </option>
   </component>
@@ -490,8 +465,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="60" />
-    <option name="y" value="214" />
+    <option name="x" value="100" />
+    <option name="y" value="237" />
     <option name="width" value="1477" />
     <option name="height" value="743" />
   </component>
@@ -639,12 +614,12 @@
       <workItem from="1554402216709" duration="31958000" />
       <workItem from="1554510815145" duration="1153000" />
       <workItem from="1554811574119" duration="4201000" />
-      <workItem from="1554851968803" duration="34233000" />
+      <workItem from="1554851968803" duration="38094000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="496028000" />
+    <option name="totallyTimeSpent" value="499889000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -656,7 +631,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="60" y="214" width="1477" height="743" extended-state="0" />
+    <frame x="100" y="237" width="1477" height="743" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.117854625" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -712,8 +688,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/198762_3_10/TaskController.php" />
-    <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/198762_3_11/TaskController.php" />
     <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/198762_3_9/mentalWeekTask.blade.php" />
     <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/198762_5_12/list.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
@@ -1025,6 +999,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/132436_12_17/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/132436_12_16/.env_server">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="24" lean-forward="true" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1035,17 +1023,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/report.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/report.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="-548">
+          <caret line="45" column="55" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
           <folding>
             <element signature="e#2255#2280#0#HTML" expanded="true" />
             <element signature="e#2392#2411#0#HTML" expanded="true" />
@@ -1056,12 +1037,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/report.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="35" column="15" lean-forward="true" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
+        <state relative-caret-position="180">
+          <caret line="95" column="66" selection-start-line="95" selection-start-column="59" selection-end-line="95" selection-end-column="66" />
           <folding>
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/report.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
         </state>
       </provider>
     </entry>

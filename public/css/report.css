@@ -13,7 +13,6 @@
     margin-top:30px !important;
     margin-bottom:30px;
     font-size:35px;
-
 }
 
 td, th{
@@ -49,4 +48,15 @@ td.state-closed{
 
 td:nth-child(13){
     width:100px;
+}
+
+th{
+    color:#222 !important;
+}
+.empty-row td{
+    height:40px;
+}
+.summary td{
+    color:#333;
+    font-weight:bold;
 }

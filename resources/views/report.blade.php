@@ -43,7 +43,7 @@
 
                     <div id="table-holder" class="table-responsive">
                         <table class="display" id="reportTable" style="width:100%">
-                            <thead>
+                            <thead class="table-primary table-bordered">
                                 <tr>
                                     <th>Customer Name</th>
                                     <th>Employee Name</th>
@@ -60,7 +60,7 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table table-striped">
                             {{--@for($i=0;$i<count($result);$i++)--}}
                                 {{--<tr>--}}
                                     {{--<td style="display:none">{{$result[$i]['id']}}</td>--}}
