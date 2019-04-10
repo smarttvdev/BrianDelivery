@@ -99,6 +99,13 @@ function updateTable() {
                                                 <td>${sum_packing}</td><td>${sum_service}</td><td></td>
                                                </tr>`);
 
+                $("#reportTable tbody").append(`<tr class="summary"><td></td><td></td><td style="font-weight:bold">Total Salary</td><td>$${parseFloat(sum_total_hours)+parseFloat(sum_hourly_pay)+parseFloat(sum_bonus)
+                +parseFloat(sum_hourly)+parseFloat(sum_flat)+parseFloat(sum_extra)+parseFloat(sum_packing)+parseFloat(sum_service)}</td>
+                                                <td></td><td></td><td></td>
+                                                <td></td><td></td><td></td>
+                                                <td></td><td></td><td></td>
+                                               </tr>`);
+
 
 
 

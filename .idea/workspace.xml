@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7604e30-a3ab-4682-989e-de3e3e7e4ba7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/css/report.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/report.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/report.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/report.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +92,7 @@
           <entry key="css" value="1083" />
           <entry key="env" value="67" />
           <entry key="gitignore" value="7" />
-          <entry key="js" value="5523" />
+          <entry key="js" value="5572" />
           <entry key="php" value="69935" />
         </counts>
       </usages-collector>
@@ -103,7 +101,7 @@
           <entry key="Blade" value="40492" />
           <entry key="CSS" value="1083" />
           <entry key="HTML" value="20" />
-          <entry key="JavaScript" value="5505" />
+          <entry key="JavaScript" value="5554" />
           <entry key="PHP" value="29441" />
           <entry key="PLAIN_TEXT" value="74" />
         </counts>
@@ -148,14 +146,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/report.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="95" column="66" selection-start-line="95" selection-start-column="59" selection-end-line="95" selection-end-column="66" />
+            <state relative-caret-position="282">
+              <caret line="101" column="137" selection-start-line="101" selection-start-column="137" selection-end-line="101" selection-end-column="137" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -186,7 +185,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/report.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="367">
@@ -352,8 +351,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" />
         <option value="$USER_HOME$/Documents/MobaXterm/slash/RemoteFiles/132436_12_17/.env" />
         <option value="$PROJECT_DIR$/resources/views/report.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/report.js" />
         <option value="$PROJECT_DIR$/public/css/report.css" />
+        <option value="$PROJECT_DIR$/public/js/report.js" />
       </list>
     </option>
   </component>
@@ -614,12 +613,12 @@
       <workItem from="1554402216709" duration="31958000" />
       <workItem from="1554510815145" duration="1153000" />
       <workItem from="1554811574119" duration="4201000" />
-      <workItem from="1554851968803" duration="38094000" />
+      <workItem from="1554851968803" duration="38679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="499889000" />
+    <option name="totallyTimeSpent" value="500474000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1035,22 +1034,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/report.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="95" column="66" selection-start-line="95" selection-start-column="59" selection-end-line="95" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/report.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="60" column="21" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/report.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="101" column="137" selection-start-line="101" selection-start-column="137" selection-end-line="101" selection-end-column="137" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
