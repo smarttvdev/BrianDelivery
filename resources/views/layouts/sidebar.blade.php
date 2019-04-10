@@ -1,4 +1,4 @@
-
+﻿
 <div class="site-menubar">
     <div class="site-menubar-body">
         <div>
@@ -13,19 +13,27 @@
                     {{--</li>--}}
                     <li class="site-menu-item {{isset($menu_level1) && $menu_level1=='job' ? ' active' : '' }}">
                         <a href="{{url('job')}}">
-                            <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                            <i class="site-menu-icon fas fa-address-book" aria-hidden="true"></i>
                             <span class="site-menu-title">Job</span>
                         </a>
                     </li>
                     <li class="site-menu-item {{ $menu_level1=='position' ? ' active' : '' }}">
                         <a href="{{url('position')}}">
-                            <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                            <i class="site-menu-icon fas fa-map" aria-hidden="true"></i>
                             <span class="site-menu-title">Position</span>
                         </a>
                     </li>
+
+                    <li class="site-menu-item {{ $menu_level1=='customer' ? ' active' : '' }}">
+                        <a href="{{url('customer')}}">
+                            <i class="site-menu-icon fas fa-user-circle" aria-hidden="true"></i>
+                            <span class="site-menu-title">Customer</span>
+                        </a>
+                    </li>
+
                     <li class="site-menu-item has-sub {{$menu_level1=='employee' ? ' active open' : '' }}">
                         <a href="javascript:void(0)">
-                            <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
+                            <i class="site-menu-icon far fa-user" aria-hidden="true"></i>
                             <span class="site-menu-title">Employee</span>
                             <span class="site-menu-arrow"></span>
                         </a>
@@ -48,23 +56,23 @@
                     <li class="site-menu-category">Events</li>
                     <li class="site-menu-item {{$menu_level1=='create_job' ? ' active' : '' }}">
                         <a href="{{url('event/create')}}">
-                            <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                            <i class="site-menu-icon far fa-plus-square" aria-hidden="true"></i>
                             <span class="site-menu-title">New Event</span>
                         </a>
                     </li>
 
                     <li class="site-menu-item {{$menu_level1=='event_list' ? ' active' : '' }}">
                         <a href="{{url('event/list')}}">
-                            <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                            <i class="site-menu-icon fas fa-tasks" aria-hidden="true"></i>
                             <span class="site-menu-title">Event Lists</span>
                         </a>
                     </li>
 
                     <li class="site-menu-category">Reports</li>
-                    <li class="site-menu-item {{$menu_level1=='create_job' ? ' active' : '' }}">
-                        <a href="{{url('event/create')}}">
-                            <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                            <span class="site-menu-title">View</span>
+                    <li class="site-menu-item {{$menu_level1=='report' ? ' active' : '' }}">
+                        <a href="{{url('view_report')}}">
+                            <i class="site-menu-icon fas fa-briefcase" aria-hidden="true"></i>
+                            <span class="site-menu-title">Report</span>
                         </a>
                     </li>
 

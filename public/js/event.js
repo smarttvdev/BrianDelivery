@@ -7,10 +7,11 @@ $(document).ready(function () {
         table[i]=$('#selected-employees-tab-'+i).DataTable({
             sort:false,
             "columnDefs":{
-                "targets": [8],
+                "targets": [9],
                 "visible": false
             },
             "columns":[
+                {},
                 {},
                 {},
                 {},
@@ -85,14 +86,14 @@ function saveEvent(job_index) {
 }
 
 function positionChange(job_index) {
-    var position_index=$('#position'+'-tab-'+job_index).val();
+    var position_index=parseInt($(`#position-tab-${job_index}`).val());
     var total_hours=$('#total_hours-tab-'+job_index).val();
 
-    $('#employee'+'-tab-'+job_index).empty();
+    $(`#employee-tab-${job_index}`).empty();
     for (var i=0;i<result['employee'][job_index][position_index].length;i++){
         $('#employee'+'-tab-'+job_index).append('<option value="'+result['employee'][job_index][position_index][i]['Id']+'">'+result['employee'][job_index][position_index][i]['Name']+'</option>');
     }
-    $('#bonus-tab-'+job_index).val(0);
+    $(`#bonus-tab-${job_index}`).val(0);
     $('#hourly_pay-'+job_index).val(0);
     if (result['job'][job_index]['type']=='Hourly')
         $('#hourly_percent-tab-'+job_index).val(0);
@@ -105,16 +106,6 @@ function positionChange(job_index) {
 }
 
 function employeeChange(job_index) {
-    // var position_index=$('#position'+'-tab-'+job_index).val();
-    // var employee_index=$('#employee'+'-tab-'+job_index).val();
-    // $('#hourly_pay-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['hourly_pay']);
-    // if (result['job'][job_index]['type']=='Hourly')
-    //     $('#hourly_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['hourly_percent']);
-    // else
-    //     $('#flat_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['flat_percent']);
-    // $('#extra_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['extra_percent']);
-    // $('#packing_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['packing_percent']);
-    // $('#service_percent-tab-'+job_index).val(result['employee'][job_index][position_index][employee_index]['service_percent']);
     employeePayUpdate(job_index);
 }
 
@@ -135,22 +126,23 @@ function addEmployee(job_index) {
     var oneEmployee=[];
     oneEmployee[0]=result['employee'][job_index][position_index][employee_index]['Name'];  // Employee Name
     oneEmployee[1]=result['position'][position_index]['Name'];  // Position Name
-    oneEmployee[2]=$('#bonus-tab-'+job_index).val();  //bonus
-    oneEmployee[3]=$('#hourly_pay-tab-'+job_index).val();  //hourly pay
+    oneEmployee[2]=$(`#total_hours-tab-${job_index}`).val();  // Position Name
+    oneEmployee[3]=$('#bonus-tab-'+job_index).val();  //bonus
+    oneEmployee[4]=$('#hourly_pay-tab-'+job_index).val();  //hourly pay
     if (result['job'][job_index]['type']!='Hourly'){
-        oneEmployee[4]=$('#flat_percent-tab-'+job_index).val();  //bonus
+        oneEmployee[5]=$('#flat_percent-tab-'+job_index).val();  //bonus
     }
     else
-        oneEmployee[4]=$('#hourly_percent-tab-'+job_index).val();  //bonus
-    oneEmployee[5]=$('#extra_percent-tab-'+job_index).val();  //bonus
-    oneEmployee[6]=$('#packing_percent-tab-'+job_index).val();  //bonus
-    oneEmployee[7]=$('#service_percent-tab-'+job_index).val();  //bonus
-    oneEmployee[8]='<button type="button" class="btn btn-floating btn-success btn-sm edit" style="width:30px;height:30px" onclick="editEmployee('+job_index+',this)"><i class="icon wb-pencil" aria-hidden="true"></i></button>'+
+        oneEmployee[5]=$('#hourly_percent-tab-'+job_index).val();  //bonus
+    oneEmployee[6]=$('#extra_percent-tab-'+job_index).val();  //bonus
+    oneEmployee[7]=$('#packing_percent-tab-'+job_index).val();  //bonus
+    oneEmployee[8]=$('#service_percent-tab-'+job_index).val();  //bonus
+    oneEmployee[9]='<button type="button" class="btn btn-floating btn-success btn-sm edit" style="width:30px;height:30px" onclick="editEmployee('+job_index+',this)"><i class="icon wb-pencil" aria-hidden="true"></i></button>'+
         '<button type="button" class="btn btn-floating btn-danger btn-sm remove" style="width:30px;height:30px;margin-left:5px;" onclick="deleteEmployee('+job_index+','+'this)"><i class="icon fa-trash" aria-hidden="true"></i></button>';
-    oneEmployee[9]=$('#employee_pay_comment-tab-'+job_index).val();
+    oneEmployee[10]=$('#employee_pay_comment-tab-'+job_index).val();
 
     for (var i=0;i<selectedEmployees.length;i++){
-        if (selectedEmployees[i][1]==oneEmployee[1] && selectedEmployees[i][2]==oneEmployee[2]){
+        if (selectedEmployees[i][0]==oneEmployee[0] && selectedEmployees[i][1]==oneEmployee[1]){
             alert("Same Employee and position already exist. Please edit")
             return;
         }
@@ -211,17 +203,19 @@ function editEmployee(job_index, btn){
     var row=table[job_index].row(tr);
     var data=row.data();
     $('#editEmployeeEvent-tab-'+job_index).modal('show');
-    $('#bonus_modal-tab-'+job_index).val(data[2]);
-    $('#hourly_pay_modal-tab-'+job_index).val(data[3]);
+    $('#total_hours_modal-tab-'+job_index).val(data[2]);
+    $('#bonus_modal-tab-'+job_index).val(data[3]);
+    $('#hourly_pay_modal-tab-'+job_index).val(data[4]);
     if (result['job'][job_index]['type']=="Hourly")
-        $('#hourly_percent_modal-tab-'+job_index).val(data[4]);
+        $('#hourly_percent_modal-tab-'+job_index).val(data[5]);
     else
-        $('#flat_percent_modal-tab-'+job_index).val(data[4]);
-    $('#extra_percent_modal-tab-'+job_index).val(data[5]);
-    $('#packing_percent_modal-tab-'+job_index).val(data[6]);
-    $('#service_percent_modal-tab-'+job_index).val(data[7]);
-    $('#price_comment_modal-tab-'+job_index).val(data[9]);
+        $('#flat_percent_modal-tab-'+job_index).val(data[5]);
+    $('#extra_percent_modal-tab-'+job_index).val(data[6]);
+    $('#packing_percent_modal-tab-'+job_index).val(data[7]);
+    $('#service_percent_modal-tab-'+job_index).val(data[8]);
+    $('#price_comment_modal-tab-'+job_index).val(data[10]);
 }
+
 
 $(document).on('click','.modal-save',function () {
     var id=this.id;
@@ -229,16 +223,17 @@ $(document).on('click','.modal-save',function () {
     var row = table[job_index].row(selected_tr);
     var data=row.data();
 
-    data[2]=$('#bonus_modal-tab-'+job_index).val();
-    data[3]=$('#hourly_pay_modal-tab-'+job_index).val();
+    data[2]=$('#total_hours_modal-tab-'+job_index).val();
+    data[3]=$('#bonus_modal-tab-'+job_index).val();
+    data[4]=$('#hourly_pay_modal-tab-'+job_index).val();
     if (result['job'][job_index]['type']=="Hourly")
-        data[4]=$('#hourly_percent_modal-tab-'+job_index).val();
+        data[5]=$('#hourly_percent_modal-tab-'+job_index).val();
     else
-        data[4]=$('#flat_percent_modal-tab-'+job_index).val();
-    data[5]=$('#extra_percent_modal-tab-'+job_index).val();
-    data[6]=$('#packing_percent_modal-tab-'+job_index).val();
-    data[7]=$('#service_percent_modal-tab-'+job_index).val();
-    data[9]=$('#price_comment_modal-tab-'+job_index).val();
+        data[5]=$('#flat_percent_modal-tab-'+job_index).val();
+    data[6]=$('#extra_percent_modal-tab-'+job_index).val();
+    data[7]=$('#packing_percent_modal-tab-'+job_index).val();
+    data[8]=$('#service_percent_modal-tab-'+job_index).val();
+    data[10]=$('#price_comment_modal-tab-'+job_index).val();
     table[job_index]
         .row(selected_tr)
         .data( data )
@@ -342,9 +337,9 @@ function getTotalHours(job_index) {
 }
 
 function calculateBonus(job_index) {
-    total_hours=getTotalHours(job_index);
-    var position_index=$('#position'+'-tab-'+job_index).val();
-    bonus=result['position'][position_index]['bonus'];
+    var total_hours=getTotalHours(job_index);
+    var position_index=parseInt($('#position'+'-tab-'+job_index).val());
+    var bonus=result['position'][position_index]['bonus'];
     $('#bonus-tab-'+job_index).val(parseFloat(bonus)*parseFloat(total_hours));
 }
 
@@ -385,6 +380,8 @@ function employeePayUpdate(job_index) {
 
 function checkEventState(job_index) {
     var state="closed";
+    if ($('#customer-tab-'+job_index).val()==0)
+        state="open";
     if (!$('#pick_address-tab-'+job_index).val())
         state="open";
     if (!$('#drop_address-tab-'+job_index).val())
@@ -405,6 +402,59 @@ function checkEventState(job_index) {
         .attr('name', "state")
         .attr('value', state)
         .appendTo('#event_form-'+job_index);
-
 }
+
+function get_PositionIndex_From_PositionName(position_name) {
+    console.log(position_name);
+    var position_index=0;
+    for (var i=0;i<result['position'].length;i++){
+        if (result['position'][i]['Name']==position_name)
+        {
+            position_index=i;
+            break;
+        }
+    }
+    return position_index;
+}
+
+function getEmployeeIndex_From_EmployeName_PositionIndex(job_index,position_index,employee_name) {
+    var employee_index=0;
+    for (var i=0;i<result['employee'][job_index][position_index].length;i++){
+        if (result['employee'][job_index][position_index][i]['Name']==employee_name){
+            employee_index=i;
+            break;
+        }
+    }
+    return employee_index;
+}
+
+
+$(document).on('keyup','.edit-input',function (e) {
+    var id=$(e.target).attr('id');
+    var job_index;
+    if (id.includes('total_hours_modal')){
+        job_index=parseInt(id.replace('total_hours_modal-tab-',''));
+        var row = table[job_index].row(selected_tr);
+        var data=row.data();
+        var position_name=data[1];
+        var employee_name=data[0];
+        var position_index=get_PositionIndex_From_PositionName(position_name);
+        var employee_index=getEmployeeIndex_From_EmployeName_PositionIndex(job_index,position_index,employee_name);
+        var total_hours=parseFloat($(this).val());
+        if (!total_hours)
+            total_hours=0;
+        $('#hourly_pay_modal-tab-'+job_index).val(parseFloat(result['employee'][job_index][position_index][employee_index]['hourly_pay'])*total_hours);
+        if (result['job'][job_index]['type']=='Hourly'){
+            var hourly_percent=0;
+            var hourly_rate=parseFloat($('#hourly_rate-tab-'+job_index).val());
+            hourly_percent=parseFloat(result['employee'][job_index][position_index][employee_index]['hourly_percent'])/100;
+            $('#hourly_percent_modal-tab-'+job_index).val(get2Digits(total_hours*hourly_percent*hourly_rate));
+        }
+
+        var bonus=result['position'][position_index]['bonus'];
+        $('#bonus_modal-tab-'+job_index).val(parseFloat(bonus)*parseFloat(total_hours));
+
+
+    }
+});
 

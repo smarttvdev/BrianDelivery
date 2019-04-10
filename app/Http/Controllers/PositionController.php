@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Postion;
+use App\EmployeeEvent;
+use App\EmployeeJob;
 
 class PositionController extends Controller
 {
@@ -74,6 +76,9 @@ class PositionController extends Controller
         if ($position){
             $position->delete();
         }
+
+        EmployeeJob::where('position_id',$id)->delete();
+        EmployeeEvent::where('position_id',$id)->delete();
     }
 
 }

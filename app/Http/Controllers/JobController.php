@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Job;
+use App\EmployeeJob;
+use App\EmployeeEvent;
 
 
 class JobController extends Controller
@@ -103,11 +105,18 @@ class JobController extends Controller
 
     public function deleteJob(Request $request){
         $id=$request->input('ID');
+        $temps=Job::all();
+        $i=0;
+        $job_index=0;
+        foreach($temps as $temp){
+            if ($temp->id==$id)
+                $job_index=$i;
+        }
         $Job=Job::find($id);
         if ($Job)
             $Job->delete();
-
+        EmployeeJob::where('job_id',$id)->delete();
+        Event::where('job_id',$job_index)->delete();
     }
-
 
 }

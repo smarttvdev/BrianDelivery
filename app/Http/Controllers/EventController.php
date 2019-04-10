@@ -10,6 +10,7 @@ use App\Job;
 use App\Employee;
 use App\EmployeeJob;
 use App\EmployeeEvent;
+use App\Customer;
 use Monolog\Handler\IFTTTHandler;
 use phpDocumentor\Reflection\Types\Null_;
 
@@ -28,6 +29,16 @@ class EventController extends Controller
             $result['position'][$i]['Id']=$i;
             $result['position'][$i]['Name']=$position->name;
             $result['position'][$i]['bonus']=$position->bonus;
+            $i++;
+        }
+
+        $customers=Customer::all();
+        $result['customer'][0]['Id']=0;
+        $result['customer'][0]['Name']=null;
+        $i=1;
+        foreach ($customers as $customer){
+            $result['customer'][$i]['Id']=$i;
+            $result['customer'][$i]['Name']=$customer->name;
             $i++;
         }
 
@@ -107,7 +118,6 @@ class EventController extends Controller
             if (!is_null($temp->promotion_date)){
                 if ($temp->promotion_date>=$now)
                     $employeement_state="promote";
-
             }
 
             if ($job_id==0 && $position_id==0)  // Will select all job, all position
@@ -146,12 +156,13 @@ class EventController extends Controller
     public function registerEvent(Request $request){
         $event_id=$request->input('event_id');
         $state=$request->input('state');
-
+        $customer_id=$request->input('customer_id');
         $event=Event::find($event_id);
         if (!$event)
             $event=new Event;
 
         $event->job_id=$request->input('job_id');
+        $event->customer_id=$customer_id;
         $event->pick_address=$request->input('pick_address');
         $event->drop_address=$request->input('drop_address');
         $event->state=$state;
@@ -204,6 +215,7 @@ class EventController extends Controller
         $employee_data=$request->input('employee_data');
         $employee_id=$this->getEmployeeIdFromName($employee_data[0]);
         $position_id=$this->getPositionIdFromName($employee_data[1]);
+
         $temps=EmployeeEvent::where([['event_id','=',$event_id],['position_id','=',$position_id],['employee_id','=',$employee_id]])->get();
         if ($temps->first())
             $employee_event=$temps->first();
@@ -213,21 +225,22 @@ class EventController extends Controller
         $employee_event->event_id=$event_id;
         $employee_event->position_id=$position_id;
         $employee_event->employee_id=$employee_id;
-        $employee_event->bonus=$employee_data[2];
-        $employee_event->hourly_pay=$employee_data[3];
+
+        $employee_event->total_hours=$employee_data[2];
+        $employee_event->bonus=$employee_data[3];
+        $employee_event->hourly_pay=$employee_data[4];
         $job=Job::find($job_id);
         if ($job->type=="Hourly")
-            $employee_event->hourly_percent=$employee_data[4];
+            $employee_event->hourly_percent=$employee_data[5];
         else
-            $employee_event->flat_percent=$employee_data[4];
-        $employee_event->extra_percent=$employee_data[5];
-        $employee_event->packing_percent=$employee_data[6];
-        $employee_event->service_percent=$employee_data[7];
-        $employee_event->payment_description=$employee_data[9];
+            $employee_event->flat_percent=$employee_data[5];
+        $employee_event->extra_percent=$employee_data[6];
+        $employee_event->packing_percent=$employee_data[7];
+        $employee_event->service_percent=$employee_data[8];
+        $employee_event->payment_description=$employee_data[10];
         $employee_event->save();
         return $request->all();
     }
-
 
     public function getEmployeeIdFromName($employee_name){
         $employee_lists=Employee::where(DB::raw("CONCAT(`first_name`,' ', `last_name`)"), '=',$employee_name)->get()->first();
@@ -318,7 +331,6 @@ class EventController extends Controller
             $result[$i]['non_profit']=$temp->non_profit;
             $result[$i]['employee_numbers']=0;
 
-
             $result[$i]['job_type']='';
             $temps=Job::where('id',$temp->job_id)->get();
             if ($temps->first()){
@@ -328,10 +340,14 @@ class EventController extends Controller
                 else
                     $result[$i]['job_type']="$job->type";
             }
-
+            $result[$i]['customer']='';
+            $temps=Customer::where('id',$temp->customer_id);
+            if ($temps->first()){
+                $customer=$temps->first();
+                $result[$i]['customer']=$customer->name;
+            }
 
             $employee_events=EmployeeEvent::where('event_id',$temp->id)->get();
-
             foreach($employee_events as $employee_event){
                 $result[$i]['employee_numbers']++;
             }
@@ -344,28 +360,37 @@ class EventController extends Controller
 
     public function deleteEvent($id){
         Event::where('id',$id)->delete();
-        EmployeeEvent::where('employee_id',$id)->delete();
+        EmployeeEvent::where('event_id',$id)->delete();
         return redirect()->back();
     }
 
 
 
     public function edit($id){
-
         $menu_level1='event_edit';
-        $menu_level2='';
-
-        $menu_level1='event_create';
         $menu_level2='';
         $result=Array();
 
         $positions=Postion::all();
         $result['position'][0]['Id']=0;
         $result['position'][0]['Name']=null;
+        $result['position'][0]['bonus']=0;
+
         $i=1;
         foreach ($positions as $position){
             $result['position'][$i]['Id']=$i;
             $result['position'][$i]['Name']=$position->name;
+            $result['position'][$i]['bonus']=$position->bonus;
+            $i++;
+        }
+
+        $customers=Customer::all();
+        $result['customer'][0]['Id']=0;
+        $result['customer'][0]['Name']=null;
+        $i=1;
+        foreach ($customers as $customer){
+            $result['customer'][$i]['Id']=$i;
+            $result['customer'][$i]['Name']=$customer->name;
             $i++;
         }
 
@@ -451,6 +476,7 @@ class EventController extends Controller
         $result['event']['total_hours']=$event->total_hours;
         $result['event']['id']=$event->id;
         $result['event']['job_id']=$event->job_id;
+        $result['event']['customer_id']=$event->customer_id;
 
         $result['event_employees']=Array();
         $temps=EmployeeEvent::where('event_id',$event->id)->get();
@@ -461,6 +487,7 @@ class EventController extends Controller
             $result['event_employees'][$i]['name']="$employee->first_name $employee->last_name";
             $position=Postion::find($temp->position_id);
             $result['event_employees'][$i]['position']=$position->name;
+            $result['event_employees'][$i]['total_hours']=$temp->total_hours;
             $result['event_employees'][$i]['bonus']=$temp->bonus;
 
             $result['event_employees'][$i]['hourly_pay']=$temp->hourly_pay;

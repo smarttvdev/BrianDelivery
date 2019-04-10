@@ -1,0 +1,52 @@
+.section{
+    margin:auto;
+    max-width:1400px;
+    border:1px solid #aaa;
+    margin-top:20px;
+    padding-bottom:30px;
+    padding-left:20px;
+    padding-right:20px;
+}
+.section-title{
+    margin:auto;
+    width:fit-content;
+    margin-top:30px !important;
+    margin-bottom:30px;
+    font-size:35px;
+
+}
+
+td, th{
+    text-align: center;
+}
+
+section{
+    padding-left:20px;
+    padding-right:20px;
+}
+td.state-open{
+    background:#ffeeba !important;
+}
+td.state-closed{
+    background:#c3e6cb;
+}
+
+#report-time-holder{
+    margin-left:0;
+    margin-bottom:30px;
+}
+
+#Selection-holder{
+    margin-left:0px;
+}
+#Selection-holder div{
+    margin-right:20px;
+}
+
+#report-time-holder div:not(:first-child){
+    margin-left:-10px;
+}
+
+td:nth-child(13){
+    width:100px;
+}

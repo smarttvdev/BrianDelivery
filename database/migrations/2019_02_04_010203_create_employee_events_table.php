@@ -18,6 +18,7 @@ class CreateEmployeeEventsTable extends Migration
             $table->integer('event_id');
             $table->integer('position_id');
             $table->integer('employee_id');
+            $table->double('total_hours')->default(0);
             $table->double('non_profit_percent')->default(0);
             $table->double('discount_percent')->default(0);
             $table->double('tips_percent')->default(0);

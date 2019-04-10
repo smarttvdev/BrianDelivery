@@ -46,6 +46,12 @@ Route::Group(['middleware'=>'auth'],function(){
     Route::post('/updatePosition','PositionController@updatePosition');
     Route::post('/deletePosition','PositionController@deletePosition');
 
+    Route::get('/customer','CustomerController@showCustomer');
+    Route::get('/getCustomers','CustomerController@getCustomers');
+    Route::post('/insertCustomer','CustomerController@insertCustomer');
+    Route::post('/updateCustomer','CustomerController@updateCustomer');
+    Route::post('/deleteCustomer','CustomerController@deleteCustomer');
+
 
     Route::get('employee/create','EmployeeController@showCreate');
     Route::post('employee/save','EmployeeController@Save');
@@ -74,6 +80,10 @@ Route::Group(['middleware'=>'auth'],function(){
     Route::post('addEmployeeToEvent','EventController@addEmployeeToEvent');
     Route::post('getSelectedEmployee','EventController@getSelectedEmployee');
     Route::post('deleteEmployeeEvent','EventController@deleteEmployeeEvent');
+
+    Route::get('view_report','ReportController@View');
+    Route::post('get_employee_report','ReportController@getEmployeeReport');
+
 
 });
 

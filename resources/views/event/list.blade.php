@@ -55,6 +55,7 @@
                             <thead>
                                 <tr>
                                     <th style="display:none"></th>
+                                    <th>Customer</th>
                                     <th>Pick Address</th>
                                     <th>Drop Address</th>
                                     <th>Stop Address</th>
@@ -70,6 +71,7 @@
                             @for($i=0;$i<count($result);$i++)
                                 <tr>
                                     <td style="display:none">{{$result[$i]['id']}}</td>
+                                    <td>{{$result[$i]['customer']}}</td>
                                     <td>{{$result[$i]['pick_address']}}</td>
                                     <td>{{$result[$i]['drop_address']}}</td>
                                     <td>{{$result[$i]['stop_address']}}</td>

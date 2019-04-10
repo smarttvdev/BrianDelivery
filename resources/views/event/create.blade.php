@@ -33,6 +33,16 @@
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group" style="">
                                                 <div class="label-input">
+                                                    <div><label class="form-control-label" style="color:black;font-weight:bold">Select Customer<span class="mandatory">(Mandatory)</span>:</label></div>
+                                                    <div>
+                                                        <select class="form-control" style="width:200px" name="customer_id" id="customer-tab-{{$i}}" required>
+                                                            @for($j=0;$j<count($result['customer']);$j++)
+                                                                <option value="{{$result['customer'][$j]['Id']}}">{{$result['customer'][$j]['Name']}}</option>
+                                                            @endfor
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="label-input">
                                                     <div><label class="form-control-label">pick up address<span class="mandatory">(Mandatory)</span>: </label></div>
                                                     <div>
                                                         <input type="text" class="form-control" id="pick_address-tab-{{$i}}" name="pick_address" placeholder="Pick Up Address" autocomplete="off"/>
@@ -257,33 +267,33 @@
                                                     <div class="label-input">
                                                         <div><label class="form-control-label">Flat: </label></div>
                                                         <div>
-                                                            <input type="number" class="form-control" id="flat_percent-tab-{{$i}}" name="flat_percent" placeholder="Flat, %" value="0" autocomplete="off"/>
+                                                            <input type="number" class="form-control" id="flat_percent-tab-{{$i}}" name="flat_percent" placeholder="Flat" value="0" autocomplete="off"/>
                                                         </div>
                                                     </div>
                                                 @else
                                                     <div class="label-input">
                                                         <div><label class="form-control-label">Hourly Rate</label></div>
                                                         <div>
-                                                            <input type="number" class="form-control" id="hourly_percent-tab-{{$i}}" name="hourly_percent" placeholder="Hourly, %" value="0" autocomplete="off"/>
+                                                            <input type="number" class="form-control" id="hourly_percent-tab-{{$i}}" name="hourly_percent" placeholder="Hourly" value="0" autocomplete="off"/>
                                                         </div>
                                                     </div>
                                                 @endif
                                                 <div class="label-input">
                                                     <div><label class="form-control-label">Extra: </label></div>
                                                     <div>
-                                                        <input type="number" class="form-control" id="extra_percent-tab-{{$i}}" name="extra_percent" placeholder="Extra, %" value="0" autocomplete="off"/>
+                                                        <input type="number" class="form-control" id="extra_percent-tab-{{$i}}" name="extra_percent" placeholder="Extra" value="0" autocomplete="off"/>
                                                     </div>
                                                 </div>
                                                 <div class="label-input">
                                                     <div><label class="form-control-label">Packing: </label></div>
                                                     <div>
-                                                        <input type="number" class="form-control" id="packing_percent-tab-{{$i}}" name="packing_percent" placeholder="Packing, %" value="0" autocomplete="off"/>
+                                                        <input type="number" class="form-control" id="packing_percent-tab-{{$i}}" name="packing_percent" placeholder="Packing" value="0" autocomplete="off"/>
                                                     </div>
                                                 </div>
                                                 <div class="label-input">
                                                     <div><label class="form-control-label">Service</label></div>
                                                     <div>
-                                                        <input type="number" class="form-control" id="service_percent-tab-{{$i}}" name="service_percent" placeholder="Service, %" value="0" autocomplete="off"/>
+                                                        <input type="number" class="form-control" id="service_percent-tab-{{$i}}" name="service_percent" placeholder="Service" value="0" autocomplete="off"/>
                                                     </div>
                                                 </div>
 
@@ -299,6 +309,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Position</th>
+                                            <th>Total Hours</th>
                                             <th>Bonus</th>
                                             <th>Hourly Pay</th>
                                             @if($result['job'][$i]['type']=='Hourly')
@@ -362,6 +373,12 @@
                                                         <div class="employee-edit-holder">
                                                             <label class="edit-label">Service</label>
                                                             <input type="text" class="edit-input" id="service_percent_modal-tab-{{$i}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="employee-edit-row">
+                                                        <div class="employee-edit-holder" >
+                                                            <label class="edit-label">Total Hours</label>
+                                                            <input type="text" class="edit-input" id="total_hours_modal-tab-{{$i}}">
                                                         </div>
                                                     </div>
 
