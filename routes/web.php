@@ -62,6 +62,8 @@ Route::Group(['middleware'=>'auth'],function(){
     Route::post('/deleteEmployee','EmployeeController@deleteEmployee');
     Route::get('/employee/edit/{employee_id}','EmployeeController@showEdit');
 
+    Route::post('/employee/update_state','EmployeeController@updateState');
+
     Route::post('/employee/search','EmployeeController@searchEmployee');
 
     Route::get('/getEmployeeJob/{employee_id}/{employee_statement}','EmployeeController@getEmployeeJob');
@@ -74,6 +76,8 @@ Route::Group(['middleware'=>'auth'],function(){
     Route::get('/event/list','EventController@listEmployees');
     Route::get('/event/delete/{id}','EventController@deleteEvent');
     Route::get('/event/edit/{id}','EventController@edit');
+
+    Route::post('/event/updateList','EventController@updateList');
 
     Route::post('getEmployee','EventController@getEmployees');
     Route::post('registerEvent','EventController@registerEvent');

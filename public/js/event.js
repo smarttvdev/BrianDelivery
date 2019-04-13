@@ -1,7 +1,13 @@
 $(document).ready(function () {
     for (var i=0;i<result['job'].length;i++){
-        $('#start_time-tab-'+i).datetimepicker({footer: true, modal: true});
-        $('#finish_time-tab-'+i).datetimepicker({footer: true, modal: true});
+        $('#start_time-tab-'+i).timepicker({
+            showOtherMonths: true,
+
+        });
+        $('#finish_time-tab-'+i).timepicker({
+            showOtherMonths: true,
+        });
+        $('#move-date-tab-'+i).datepicker();
     }
     for (var i=0;i<result['job'].length;i++){
         table[i]=$('#selected-employees-tab-'+i).DataTable({
@@ -108,7 +114,6 @@ function positionChange(job_index) {
 function employeeChange(job_index) {
     employeePayUpdate(job_index);
 }
-
 
 function addEmployee(job_index) {
     var selectedEmployees=table[job_index].rows().data();
@@ -380,7 +385,7 @@ function employeePayUpdate(job_index) {
 
 function checkEventState(job_index) {
     var state="closed";
-    if ($('#customer-tab-'+job_index).val()==0)
+    if ($('#customer-name-tab-'+job_index).val()==0)
         state="open";
     if (!$('#pick_address-tab-'+job_index).val())
         state="open";
@@ -443,18 +448,53 @@ $(document).on('keyup','.edit-input',function (e) {
         var total_hours=parseFloat($(this).val());
         if (!total_hours)
             total_hours=0;
-        $('#hourly_pay_modal-tab-'+job_index).val(parseFloat(result['employee'][job_index][position_index][employee_index]['hourly_pay'])*total_hours);
+        $('#hourly_pay_modal-tab-'+job_index).val(get2Digits(parseFloat(result['employee'][job_index][position_index][employee_index]['hourly_pay'])*total_hours));
         if (result['job'][job_index]['type']=='Hourly'){
             var hourly_percent=0;
             var hourly_rate=parseFloat($('#hourly_rate-tab-'+job_index).val());
             hourly_percent=parseFloat(result['employee'][job_index][position_index][employee_index]['hourly_percent'])/100;
             $('#hourly_percent_modal-tab-'+job_index).val(get2Digits(total_hours*hourly_percent*hourly_rate));
         }
-
         var bonus=result['position'][position_index]['bonus'];
-        $('#bonus_modal-tab-'+job_index).val(parseFloat(bonus)*parseFloat(total_hours));
-
-
+        $('#bonus_modal-tab-'+job_index).val(get2Digits(parseFloat(bonus)*parseFloat(total_hours)));
     }
 });
+
+$('.date_time').change(function (e) {
+    var target=$(e.target);
+    var id=target.attr('id');
+    var job_index=0;
+    if (id.includes('start_time-tab-')){
+        job_index=parseInt(id.replace('start_time-tab-',''));
+        console.log(job_index);
+        calculateLabourHour(job_index);
+        calculateTotalPay(job_index);
+        calculateBonus(job_index);
+        employeePayUpdate(job_index);
+    }
+    if (id.includes('finish_time-tab-')){
+        job_index=parseInt(id.replace('finish_time-tab-',''));
+        calculateLabourHour(job_index);
+        calculateTotalPay(job_index);
+        calculateBonus(job_index);
+        employeePayUpdate(job_index);
+    }
+})
+
+
+function calculateLabourHour(job_index) {
+    var start_time=$(`#start_time-tab-${job_index}`).val();
+    var finish_time=$(`#finish_time-tab-${job_index}`).val();
+    var labor_hour=0;
+    if (start_time && finish_time){
+        var start_hour=parseInt((start_time.split(":"))[0]);
+        var start_minute=parseInt((start_time.split(":"))[1]);
+        var finish_hour=parseInt((finish_time.split(":"))[0]);
+        var finish_minute=parseInt((finish_time.split(":"))[1]);
+        var labor_hour=get2Digits((finish_hour*60+finish_minute-start_hour*60-start_minute)/60);
+    }
+    else
+        labor_hour=0;
+    $(`#labor_hours-tab-${job_index}`).val(labor_hour);
+}
 

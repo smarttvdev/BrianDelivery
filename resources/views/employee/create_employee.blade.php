@@ -26,34 +26,7 @@
                                     {{--<input type="number" class="form-control" name="bonus"--}}
                                            {{--placeholder=0 value="0" autocomplete="off" />--}}
                                 {{--</div>--}}
-
-                                <div class="form-group">
-                                    <label class="form-control-label">Gender</label>
-                                    <div>
-                                        <div class="radio-custom radio-default radio-inline">
-                                            <input type="radio" id="gender_male" name="gender" value="male" checked />
-                                            <label for="gender_male">Male</label>
-                                        </div>
-                                        <div class="radio-custom radio-default radio-inline">
-                                            <input type="radio" id="gender_female" name="gender" value="female" />
-                                            <label for="gender_female">Female</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="form-control-label">Paid Method</label>
-                                    <div>
-                                        <div class="radio-custom radio-default radio-inline">
-                                            <input type="radio" id="cash" name="PaidMethod" value="cash" checked />
-                                            <label for="cash">Cash</label>
-                                        </div>
-                                        <div class="radio-custom radio-default radio-inline">
-                                            <input type="radio" id="credit" name="PaidMethod" value="credit" />
-                                            <label for="credit">Credit</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-success" id="add_employee_btn">Add Employee</button>
                             </div>
 
                             <div class="col-md-6">
@@ -68,16 +41,16 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success" id="add_employee_btn">Add Employee</button>
+
                     </div>
                     <div id="beginner-grid-holder">
                         <div class="js-grid-holder" style="margin-top:-40px;padding-left:0;padding-right:0;width:80%;">
                             <h3 class="table-title" style="margin-bottom:10px">Initial Payroll</h3>
                             <div id="beginner_position" class="table-content"></div>
                         </div>
-                        <div style="margin-top:0px;margin-left:10%;margin-top:-20px;">
-                            <button type="submit" class="btn btn-primary" id="Start_Date">Start Date</button>
-                        </div>
+                        {{--<div style="margin-top:0px;margin-left:10%;margin-top:-20px;">--}}
+                            {{--<button type="submit" class="btn btn-primary" id="Start_Date">Start Date</button>--}}
+                        {{--</div>--}}
                         <input type="text" style="display:none" id="employee_id" name="employee_id" value="0">
                     </div>
 

@@ -27,33 +27,7 @@
                                            {{--placeholder=0 value="{{$employee->bonus}}" autocomplete="off" />--}}
                                 {{--</div>--}}
 
-                                <div class="form-group">
-                                    <label class="form-control-label">Gender</label>
-                                    <div>
-                                        <div class="radio-custom radio-default radio-inline">
-                                            <input type="radio" id="gender_male" name="gender" value="male" {{$employee->gender=='male' ? 'checked' : ''}}/>
-                                            <label for="gender_male">Male</label>
-                                        </div>
-                                        <div class="radio-custom radio-default radio-inline">
-                                            <input type="radio" id="gender_female" name="gender" value="female" {{$employee->gender=='female' ? 'checked' : ''}} />
-                                            <label for="gender_female">Female</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="form-control-label">Paid Method</label>
-                                    <div>
-                                        <div class="radio-custom radio-default radio-inline">
-                                            <input type="radio" id="cash" name="PaidMethod" value="cash" {{$employee->paid_method=='cash' ? 'checked' : ''}} />
-                                            <label for="cash">Cash</label>
-                                        </div>
-                                        <div class="radio-custom radio-default radio-inline">
-                                            <input type="radio" id="credit" name="PaidMethod" value="credit" {{$employee->paid_method=='credit' ? 'checked' : ''}} />
-                                            <label for="credit">Credit</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button type="submit" class="btn btn-success" id="add_employee_btn">Update Employee</button>
                             </div>
 
                             <div class="col-md-6">
@@ -68,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success" id="add_employee_btn">Update Employee</button>
+
                     </div>
                     <div id="beginner-grid-holder">
                         <div class="js-grid-holder" style="margin-top:-40px;padding-left:0;padding-right:0;width:80%">
@@ -76,9 +50,9 @@
                             <div id="beginner_position" class="table-content"></div>
                         </div>
 
-                        <div style="margin-top:-20px;margin-left:10%">
-                            <button type="submit" class="btn btn-primary" id="Start_Date">Start Date</button>
-                        </div>
+                        {{--<div style="margin-top:-20px;margin-left:10%">--}}
+                            {{--<button type="submit" class="btn btn-primary" id="Start_Date">Start Date</button>--}}
+                        {{--</div>--}}
                     </div>
                     <input type="text" style="display:none" id="employee_id" name="employee_id" value="{{$employee->id}}">
                 </form>

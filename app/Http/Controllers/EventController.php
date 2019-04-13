@@ -32,15 +32,6 @@ class EventController extends Controller
             $i++;
         }
 
-        $customers=Customer::all();
-        $result['customer'][0]['Id']=0;
-        $result['customer'][0]['Name']=null;
-        $i=1;
-        foreach ($customers as $customer){
-            $result['customer'][$i]['Id']=$i;
-            $result['customer'][$i]['Name']=$customer->name;
-            $i++;
-        }
 
         $jobs=Job::all();
         $result["job"]=Array();
@@ -83,7 +74,7 @@ class EventController extends Controller
                             $employeement_state = 'promote';
                     }
 
-                    if (!is_null($employee)){
+                    if (!is_null($employee) && $employee->state=='active'){
                         if ($employee_job->employeement_state==$employeement_state){
                             $result['employee'][$i][$j][$k]['Id']=$k;
                             $result['employee'][$i][$j][$k]['Name']="$employee->first_name $employee->last_name";
@@ -156,16 +147,17 @@ class EventController extends Controller
     public function registerEvent(Request $request){
         $event_id=$request->input('event_id');
         $state=$request->input('state');
-        $customer_id=$request->input('customer_id');
+        $customer_name=$request->input('customer_name');
         $event=Event::find($event_id);
         if (!$event)
             $event=new Event;
 
         $event->job_id=$request->input('job_id');
-        $event->customer_id=$customer_id;
+        $event->customer_name=$customer_name;
         $event->pick_address=$request->input('pick_address');
         $event->drop_address=$request->input('drop_address');
         $event->state=$state;
+        $event->move_date=(new \DateTime($request->input('move-date')))->format('Y-m-d');
 
         $stop_count=$request->input('stop-count');
         $stop_addresses=Array();
@@ -198,10 +190,8 @@ class EventController extends Controller
             $event->attach_file=$file->getClientOriginalName();
         }
         $event->comment=$request->input('event_comment');
-        if (!is_null($request->input('start_time')))
-            $event->start_time=(new \DateTime($request->input('start_time')))->format('Y-m-d H:i:s');
-        if (!is_null($request->input('finish_time')))
-            $event->finish_time=(new \DateTime($request->input('finish_time')))->format('Y-m-d H:i:s');
+        $event->start_time=$request->input('start_time');
+        $event->finish_time=$request->input('finish_time');
         $event->labor_hours=$request->input('labor_hours');
         $event->travel_time=$request->input('travel_time');
         $event->total_hours=$request->input('total_hours');
@@ -311,14 +301,14 @@ class EventController extends Controller
         $menu_level2='';
 
         $result=Array();
-        $temps=Event::all();
+        $temps=Event::orderBy('move_date','dsc')->get();
         $i=0;
         foreach ($temps as $temp){
             $result[$i]['id']=$temp->id;
             $result[$i]['pick_address']=$temp->pick_address;
             $result[$i]['drop_address']=$temp->drop_address;
             $result[$i]['stop_address']=implode(',',$temp->stop_address);
-            $result[$i]['truck_license']=$temp->truck_license;
+            $result[$i]['move_date']=$temp->move_date;
             $result[$i]['state']=$temp->state;
             $result[$i]['flat']=$temp->flat;
             $result[$i]['hourly_rate']=$temp->hourly_rate;
@@ -340,12 +330,7 @@ class EventController extends Controller
                 else
                     $result[$i]['job_type']="$job->type";
             }
-            $result[$i]['customer']='';
-            $temps=Customer::where('id',$temp->customer_id);
-            if ($temps->first()){
-                $customer=$temps->first();
-                $result[$i]['customer']=$customer->name;
-            }
+            $result[$i]['customer']=$temp->customer_name;
 
             $employee_events=EmployeeEvent::where('event_id',$temp->id)->get();
             foreach($employee_events as $employee_event){
@@ -381,16 +366,6 @@ class EventController extends Controller
             $result['position'][$i]['Id']=$i;
             $result['position'][$i]['Name']=$position->name;
             $result['position'][$i]['bonus']=$position->bonus;
-            $i++;
-        }
-
-        $customers=Customer::all();
-        $result['customer'][0]['Id']=0;
-        $result['customer'][0]['Name']=null;
-        $i=1;
-        foreach ($customers as $customer){
-            $result['customer'][$i]['Id']=$i;
-            $result['customer'][$i]['Name']=$customer->name;
             $i++;
         }
 
@@ -434,7 +409,7 @@ class EventController extends Controller
                             $employeement_state = 'promote';
                     }
 
-                    if (!is_null($employee)){
+                    if (!is_null($employee) && $employee->state=='active'){
                         if ($employee_job->employeement_state==$employeement_state){
                             $result['employee'][$i][$j][$k]['Id']=$k;
                             $result['employee'][$i][$j][$k]['Name']="$employee->first_name $employee->last_name";
@@ -476,7 +451,7 @@ class EventController extends Controller
         $result['event']['total_hours']=$event->total_hours;
         $result['event']['id']=$event->id;
         $result['event']['job_id']=$event->job_id;
-        $result['event']['customer_id']=$event->customer_id;
+        $result['event']['customer']=$event->customer_name;
 
         $result['event_employees']=Array();
         $temps=EmployeeEvent::where('event_id',$event->id)->get();
@@ -502,5 +477,64 @@ class EventController extends Controller
         }
         return view('event.edit',compact('menu_level1','menu_level2','result'));
     }
+
+    public function updateList(Request $request){
+        $result=Array();
+        $start_date=$request->input('start_date');
+        $end_date=$request->input('end_date');
+        if (!is_null($start_date))
+            $start_date=(new \DateTime($start_date))->format('y-m-d');
+        if (!is_null($end_date))
+            $end_date=(new \DateTime($end_date))->format('y-m-d');
+
+        if (!is_null($start_date) && !is_null($end_date))
+            $temps=Event::where([['move_date','>=',$start_date],['move_date','<=',$end_date]])->orderBy('move_date','dsc')->get();
+        if (is_null($start_date) && !is_null($end_date))
+            $temps=Event::where('move_date','<=',$end_date)->orderBy('move_date','dsc')->get();
+        if (!is_null($start_date) && is_null($end_date))
+            $temps=Event::where('move_date','>=',$start_date)->orderBy('move_date','dsc')->get();
+        if (is_null($start_date) && is_null($end_date))
+            $temps=Event::all();
+
+        $i=0;
+        foreach ($temps as $temp){
+            $result[$i]['id']=$temp->id;
+            $result[$i]['pick_address']=$temp->pick_address;
+            $result[$i]['drop_address']=$temp->drop_address;
+            $result[$i]['stop_address']=implode(',',$temp->stop_address);
+            $result[$i]['move_date']=$temp->move_date;
+            $result[$i]['state']=$temp->state;
+            $result[$i]['flat']=$temp->flat;
+            $result[$i]['hourly_rate']=$temp->hourly_rate;
+            $result[$i]['job_total']=$temp->job_total;
+            $result[$i]['discount']=$temp->discount;
+            $result[$i]['tips']=$temp->tips;
+            $result[$i]['extra']=$temp->extra;
+            $result[$i]['service']=$temp->service;
+            $result[$i]['packing']=$temp->packing;
+            $result[$i]['non_profit']=$temp->non_profit;
+            $result[$i]['employee_numbers']=0;
+
+            $result[$i]['job_type']='';
+            $temps=Job::where('id',$temp->job_id)->get();
+            if ($temps->first()){
+                $job=$temps->first();
+                if (!is_null($job->variation))
+                    $result[$i]['job_type']="$job->type - $job->variation";
+                else
+                    $result[$i]['job_type']="$job->type";
+            }
+            $result[$i]['customer']=$temp->customer_name;
+
+            $employee_events=EmployeeEvent::where('event_id',$temp->id)->get();
+            foreach($employee_events as $employee_event){
+                $result[$i]['employee_numbers']++;
+            }
+            $i++;
+        }
+        return json_encode($result);
+    }
+
+
 }
 

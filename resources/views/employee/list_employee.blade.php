@@ -1,6 +1,11 @@
 @extends('layouts.template')
 
 @section('page-content')
+    <style>
+        .btn{
+            width:80px;
+        }
+    </style>
     <div class="page-content container-fluid">
         <div class="js-grid-holder" style="width:90%">
             <h3 class="table-title">Employee Lists</h3>
@@ -66,25 +71,6 @@
                         })
                     },
 
-                    {{--insertItem:function(item){--}}
-                        {{--return $.ajax({--}}
-                            {{--method: "post",--}}
-                            {{--url: "{{url('/insertJob')}}",--}}
-                            {{--data: item,--}}
-
-                        {{--}).done(function (result) {--}}
-                            {{--// item['ID']=result;--}}
-                        {{--});--}}
-                    {{--},--}}
-                    {{--updateItem:function (item) {--}}
-                        {{--return $.ajax({--}}
-                            {{--method: "post",--}}
-                            {{--url: "{{url('/updateJob')}}",--}}
-                            {{--data: item,--}}
-                        {{--}).done(function (result) {--}}
-                            {{--// console.log(result);--}}
-                        {{--});--}}
-                    {{--},--}}
                     deleteItem:function (item) {
                         return $.ajax({
                             method: "post",
@@ -126,24 +112,49 @@
                             if (item.state=='active'){
                                 return $("<div>").text("Active").attr('class','btn btn-success').css('border','none')
                                     .on("click", function() {
-                                        console.log(item.state);
+                                        console.log(item);
+                                        $(this).attr('class',"btn btn-danger");
+                                        $(this).text('InActive');
+                                        $.ajax({
+                                            "method":"post",
+                                            "url":`${site_url}/employee/update_state`,
+                                            "data":item,
+                                            success:function (result) {
+                                                console.log(result);
+                                            },
+                                            error:function (err) {
+                                                console.log(err);
+
+                                            }
+                                        })
 
                                     });
                             } else{
                                 return $("<div>").text("InActive").attr('class','btn btn-danger').css('border','none')
                                     .on("click", function() {
+                                        $(this).attr('class',"btn btn-success");
+                                        $(this).text('Active');
+                                        $.ajax({
+                                            "method":"post",
+                                            "url":`${site_url}/employee/update_state`,
+                                            "data":item,
+                                            success:function (result) {
+                                                console.log(result);
+                                            },
+                                            error:function (err) {
+                                                console.log(err);
+
+                                            }
+                                        })
 
                                     });
 
                             }
-
-
-
                         }
                     },
-                    { name: "bonus", type: "number", width: 100, validate: "required",title:"Bonus",css:"text-center",align: "center" ,filtering:false},
-                    { name: "penalty", type: "number", width: 100, validate: "required",title:"Penalty",css:"text-center",align: "center" ,filtering:false},
-                    { name: "reimbursment", type: "number", width: 100, validate: "required",title:"Reimbursment",css:"text-center",align: "center" ,filtering:false},
+                    // { name: "bonus", type: "number", width: 100, validate: "required",title:"Bonus",css:"text-center",align: "center" ,filtering:false},
+                    // { name: "penalty", type: "number", width: 100, validate: "required",title:"Penalty",css:"text-center",align: "center" ,filtering:false},
+                    // { name: "reimbursment", type: "number", width: 100, validate: "required",title:"Reimbursment",css:"text-center",align: "center" ,filtering:false},
 
                     {
                         type: "control",width:50,

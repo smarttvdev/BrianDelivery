@@ -33,13 +33,9 @@
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group" style="">
                                                 <div class="label-input">
-                                                    <div><label class="form-control-label" style="color:black;font-weight:bold">Select Customer<span class="mandatory">(Mandatory)</span>:</label></div>
+                                                    <div><label class="form-control-label">Customer Name<span class="mandatory">(Mandatory)</span>: </label></div>
                                                     <div>
-                                                        <select class="form-control" style="width:200px" name="customer_id" id="customer-tab-{{$i}}" required>
-                                                            @for($j=0;$j<count($result['customer']);$j++)
-                                                                <option value="{{$result['customer'][$j]['Id']}}" {{$result['event']['customer_id']==$result['customer'][$j]['Id'] ? "selected":""}}>{{$result['customer'][$j]['Name']}}</option>
-                                                            @endfor
-                                                        </select>
+                                                        <input type="text" class="form-control" id="customer-name-tab-{{$i}}" name="customer_name" placeholder="Customer Name" value="{{$result['event']['customer']}}" autocomplete="off"/>
                                                     </div>
                                                 </div>
                                                 <div class="label-input">
@@ -146,13 +142,13 @@
                                         <div class="col-12 col-lg-6">
                                             <div class="form-group"  style="">
                                                 <div class="label-input">
-                                                    <div><label class="form-control-label">truck license<span class="mandatory">(Mandatory)</span>: </label></div>
+                                                    <div><label class="form-control-label">truck license plate<br><span class="mandatory">(Mandatory)</span>: </label></div>
                                                     <div>
                                                         <input type="text" class="form-control" name="truck_license" value="{{$result['event']['truck_license']}}" placeholder="Truck License" id="truck-license-tab-{{$i}}" autocomplete="off"/>
                                                     </div>
                                                 </div>
                                                 <div class="label-input">
-                                                    <div><label class="form-control-label">Attach Shipping Documents<span class="mandatory">(Mandatory)</span>: </label></div>
+                                                    <div><label class="form-control-label">Attach Shipping Documents<br><span class="mandatory">(Mandatory)</span>: </label></div>
                                                     <div>
                                                         {{--<input type="file" accept=".pdf,.doc,.docx" class="form-control" id="profile_picture" name="profile_picture" style="margin-top:10px"/>--}}
                                                         <div class="input-group input-group-file" data-plugin="inputGroupFile">
@@ -176,6 +172,13 @@
                                                 </div>
 
                                                 <div class="label-input" style="margin-top:50px;">
+                                                    <div><label class="form-control-label">Move Date<span class="mandatory">(Mandatory)</span>:</label></div>
+                                                    <div>
+                                                        <input type="text" class="form-control date_time" id="move-date-tab-{{$i}}" name="move-date" placeholder="Move Date" autocomplete="off"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="label-input">
                                                     <div><label class="form-control-label">Start Time<span class="mandatory">(Mandatory)</span>:</label></div>
                                                     <div>
                                                         <input type="text" class="form-control date_time" id="start_time-tab-{{$i}}" name="start_time" placeholder="Start Time" value="{{$result['event']['start_time']}}" autocomplete="off"/>
@@ -192,7 +195,7 @@
                                                     <div><label class="form-control-label">Labor Hours: </label></div>
                                                     <div>
                                                         <input type="number" class="form-control" id="labor_hours-tab-{{$i}}" value="{{$result['event']['labor_hours']}}" name="labor_hours"
-                                                               autocomplete="off"/>
+                                                               autocomplete="off" readonly />
                                                     </div>
                                                 </div>
                                                 <div class="label-input">

@@ -14,12 +14,10 @@ class CreateEmployeesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->double('bonus')->default(0);
-            $table->string('gender')->default('male');
             $table->string('pictureID')->nullable();
             $table->dateTime('employeement_time');
             $table->date('promotion_date')->nullable();
-            $table->string('state')->default('activate');
-            $table->string('paid_method')->nullable();
+            $table->string('state')->default('active');
             $table->timestamps();
         });
     }

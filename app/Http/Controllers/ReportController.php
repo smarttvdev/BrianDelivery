@@ -46,14 +46,14 @@ class ReportController extends Controller
         $i=0;
         $event_ids=EmployeeEvent::where('employee_id',$employee_id)->pluck('event_id')->toArray();
         if (!is_null($start_date) && !is_null($end_date)){
-            $events=Event::whereIn('id',$event_ids)->where([['start_time','>=',$start_date],['start_time','<=',$end_date]])->get();
+            $events=Event::whereIn('id',$event_ids)->where([['move_date','>=',$start_date],['move_date','<=',$end_date]])->get();
         }
         if (!is_null($start_date) && is_null($end_date)){
-            $events=Event::whereIn('id',$event_ids)->where('start_time','<=',$start_date)->get();
+            $events=Event::whereIn('id',$event_ids)->where('move_date','<=',$start_date)->get();
         }
 
         if (is_null($start_date) && !is_null($end_date)){
-            $events=Event::whereIn('id',$event_ids)->where('start_time','<=',$end_date)->get();
+            $events=Event::whereIn('id',$event_ids)->where('move_date','<=',$end_date)->get();
         }
 
         if (is_null($start_date) && is_null($end_date)){
@@ -62,9 +62,8 @@ class ReportController extends Controller
         foreach ($events as $event){
             $result['event'][$i]['id']=$event->id;
             $result['event'][$i]['employee_name']=$employee_name;
-            $customer_id=$event->customer_id;
-            $customer=Customer::find($customer_id);
-            $result['event'][$i]['customer_name']=$customer->name;
+            $customer_name=$event->customer_name;
+            $result['event'][$i]['customer_name']=$customer_name;
             $job=Job::find($event->job_id);
             if (!is_null($job->variation))
                 $result['event'][$i]['job_type']=$job->type." ".$job->variation;

@@ -85,8 +85,8 @@ class EmployeeController extends Controller
         if ($employeement_state!='promote'){
             $first_name=$request->input('first_name');
             $last_name=$request->input('last_name');
-            $gender=$request->input('gender');
-            $paid_method=$request->input('PaidMethod');
+//            $gender=$request->input('gender');
+//            $paid_method=$request->input('PaidMethod');
             if ($employee_id!=0)
                 $employee=Employee::find($employee_id);
             else
@@ -96,8 +96,8 @@ class EmployeeController extends Controller
 
             $employee->first_name=$first_name;
             $employee->last_name=$last_name;
-            $employee->gender=$gender;
-            $employee->paid_method=$paid_method;
+//            $employee->gender=$gender;
+//            $employee->paid_method=$paid_method;
             $employee->employeement_time=$employeement_time;
             if ($request->hasFile('profile_picture')){
                 $file=$request->file('profile_picture');
@@ -327,9 +327,6 @@ class EmployeeController extends Controller
             $item[$i]['name']=$employee_list->first_name.' '.$employee_list->last_name;
             $item[$i]['employeement_date']=(new \DateTime($employee_list->employeement_tile))->format('Y-m-d');
             $item[$i]['state']=$employee_list->state;
-            $item[$i]['bonus']=0;
-            $item[$i]['penalty']=0;
-            $item[$i]['reimbursment']=0;
             $i++;
         }
         return response($item)->withHeaders([
@@ -397,4 +394,16 @@ class EmployeeController extends Controller
         return view('employee.edit_employee',compact('employee_id','job_item','position','menu_level1','menu_level2','employee'));
     }
 
+    public function updateState(Request $request){
+        $employee_id=$request->input('ID');
+        $state=$request->input('state');
+        if ($state=='active')
+            $state='inactive';
+        else
+            $state='active';
+        $employee=Employee::find($employee_id);
+        $employee->state=$state;
+        $employee->save();
+        return $employee->state;
+    }
 }

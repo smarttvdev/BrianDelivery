@@ -24,12 +24,12 @@
                         </a>
                     </li>
 
-                    <li class="site-menu-item {{ $menu_level1=='customer' ? ' active' : '' }}">
-                        <a href="{{url('customer')}}">
-                            <i class="site-menu-icon fas fa-user-circle" aria-hidden="true"></i>
-                            <span class="site-menu-title">Customer</span>
-                        </a>
-                    </li>
+                    {{--<li class="site-menu-item {{ $menu_level1=='customer' ? ' active' : '' }}">--}}
+                        {{--<a href="{{url('customer')}}">--}}
+                            {{--<i class="site-menu-icon fas fa-user-circle" aria-hidden="true"></i>--}}
+                            {{--<span class="site-menu-title">Customer</span>--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
 
                     <li class="site-menu-item has-sub {{$menu_level1=='employee' ? ' active open' : '' }}">
                         <a href="javascript:void(0)">
@@ -50,8 +50,6 @@
                             </li>
                         </ul>
                     </li>
-
-
 
                     <li class="site-menu-category">Events</li>
                     <li class="site-menu-item {{$menu_level1=='create_job' ? ' active' : '' }}">

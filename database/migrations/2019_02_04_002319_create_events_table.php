@@ -16,7 +16,7 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('job_id');
-            $table->integer('customer_id');
+            $table->string('customer_name')->nullable();
             $table->string('pick_address')->nullable();
             $table->string('drop_address')->nullable();
             $table->text('stop_address')->nullable();
@@ -34,6 +34,7 @@ class CreateEventsTable extends Migration
             $table->text('comment')->nullable();
             $table->string('start_time')->nullable();
             $table->string('finish_time')->nullable();
+            $table->date('move_date')->nullable();
             $table->double('labor_hours')->default(0);
             $table->double('travel_time')->default(0);
             $table->double('total_hours')->default(0);
