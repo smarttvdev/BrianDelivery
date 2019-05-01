@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use View;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        $menu_level1='';
+        $menu_level2='';
+        View::share(compact('menu_level1','menu_level2'));
+
     }
 
     /**

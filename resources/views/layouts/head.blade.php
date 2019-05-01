@@ -4,7 +4,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Moving Company</title>
+    <script>site_link = '{{ url('/') }}'</script>
+
+    <title>Remitty Delivery</title>
     <link rel="shortcut icon" href="{{asset('images/logo.png')}}">
     
     
@@ -45,9 +47,6 @@
 
     <!-- Scripts -->
     <script src="{{asset('template/vendor/breakpoints/breakpoints.js')}}"></script>
-    <script>
-        Breakpoints();
-    </script>
 
     <style>
         .disable input{
@@ -56,6 +55,10 @@
             outline: none;
         }
     </style>
+
+    <script>
+        Breakpoints();
+    </script>
 
     @yield('insert-css')
 </head>
