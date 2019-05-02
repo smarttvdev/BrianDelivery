@@ -19,11 +19,25 @@ Route::Group(['middleware'=>'auth:admin','namespace'=>'Admin'],function (){
         return view('layouts.template');
     });
 
-    Route::get('driver/all',function (){
-        return view('driver.all');
+    Route::get('driver/approvals/{state}','DriverController@getApprovals');
+    Route::get('driver/profile/all','DriverController@viewAllProfile');
+    Route::get('driver/profile/detail/{driver_id}','DriverController@viewDetailedProfile');
+
+
+
+    //********************** Api Part *************************///
+    Route::Group(['prefix'=>'api'],function (){
+        Route::get('driver/approvals/{$state}','DriverController@getApprovals');
+        Route::post('driver/changestate','DriverController@ChangeState');
+        Route::post('driver/changeAgreeState','DriverController@ChangeInformationAgreeState');
+
+
+
     });
 
-    Route::get('api/driver/all','DriverController@getAllDriver');
+
+
+
 });
 
 

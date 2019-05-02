@@ -20,6 +20,12 @@ class CreateVehicleInformationsTable extends Migration
             $table->double('max_stuff_weight')->nullable();
             $table->double('max_stuff_width')->nullable();
             $table->double('max_stuff_height')->nullable();
+
+            $table->integer('driver_license_agreed_state')->default(0);
+            $table->integer('vehicle_registration_agreed_state')->default(0);
+            $table->integer('proof_insurance_agreed_state')->default(0);
+            $table->integer('vehicle_picture_in_agreed_state')->default(0);
+            $table->integer('vehicle_picture_out_agreed_state')->default(0);
             $table->timestamps();
         });
     }

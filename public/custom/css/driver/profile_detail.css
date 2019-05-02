@@ -1,0 +1,23 @@
+.panel{
+    background:none;
+}
+.panel-body{
+    padding:0;
+}
+.profile-detail-img-holder{
+    width:130px;
+    margin: 0 auto 10px auto;
+}
+.profile_detail_pic{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    border:0 none;
+    border-radius:1000px;
+}
+.card-block{
+    padding:40px 15px;
+}
+.profile-amount-label{
+    display:block;
+}

@@ -12,7 +12,7 @@ class Driver extends Model
     }
 
     public function vehicleInformation(){
-        return $this->hasOne('App\Model\Driver\VehicleInformation','driver_id','user_id');
+        return $this->hasOne('App\Model\Driver\VehicleInformation','driver_id','id');
     }
 
 

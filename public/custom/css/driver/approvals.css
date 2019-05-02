@@ -1,0 +1,32 @@
+td, th{
+    text-align:center;
+    vertical-align: middle !important;
+}
+td img{
+    width:80px;
+    height:80px;
+    border-radius:6px;
+}
+
+.non-agreed{
+    color:#ff4c52;
+}
+.agreed{
+    color:#11c26d;
+}
+.agreed-state{
+    display:block !important;
+}
+
+.vehicle_information_photo_modal{
+    display:block;
+    border:1px solid #eee;
+    margin:0 auto;
+    width:100%;
+    height:auto;
+}
+
+.open-vehicle-information-photo-modal{
+    cursor:pointer;
+}
+

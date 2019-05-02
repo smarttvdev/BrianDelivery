@@ -110,24 +110,48 @@
                     </li>
 
                     <li class="site-menu-category">Drivers</li>
-                    <li class="site-menu-item {{ $menu_level1=='position' ? ' active' : '' }}">
-                        <a href="{{url('position')}}">
-                            <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                            <span class="site-menu-title">Manage Drivers</span>
+                    <li class="site-menu-item has-sub {{ $menu_level1=='approvals' ? ' active open' : '' }}">
+                        <a href="javascript:void(0)">
+                            <i class="site-menu-icon wb-bookmark" aria-hidden="true"></i>
+                            <span class="site-menu-title">Approvals</span>
+                            <span class="site-menu-arrow"></span>
+                        </a>
+
+                        <ul class="site-menu-sub">
+                            <li class="site-menu-item {{$menu_level2=='active' ? ' active' : ""}}">
+                                <a class="animsition-link" href="{{url('/driver/approvals/active')}}">
+                                    <span class="site-menu-title">Active</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="site-menu-sub">
+                            <li class="site-menu-item {{$menu_level2=='pending' ? ' active' : ""}}">
+                                <a class="animsition-link" href="{{url('/driver/approvals/pending')}}">
+                                    <span class="site-menu-title">Pending</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="site-menu-item has-sub {{$menu_level1=='map' ? ' active' : '' }}">
+                        <a href="{{url('employee/create')}}">
+                            <i class="site-menu-icon fa-map" aria-hidden="true"></i>
+                            <span class="site-menu-title">View On Map</span>
                         </a>
                     </li>
 
-                    {{--<li class="site-menu-item {{ $menu_level1=='customer' ? ' active' : '' }}">--}}
-                    {{--<a href="{{url('customer')}}">--}}
-                    {{--<i class="site-menu-icon fas fa-user-circle" aria-hidden="true"></i>--}}
-                    {{--<span class="site-menu-title">Customer</span>--}}
-                    {{--</a>--}}
-                    {{--</li>--}}
+                    <li class="site-menu-item has-sub {{$menu_level1=='profile' ? ' active' : '' }}">
+                        <a href="{{url('driver/profile/all')}}">
+                            <i class="site-menu-icon fa-map" aria-hidden="true"></i>
+                            <span class="site-menu-title">Profile</span>
+                        </a>
+                    </li>
 
-                    <li class="site-menu-item has-sub {{$menu_level1=='employee' ? ' active open' : '' }}">
+                    <li class="site-menu-item has-sub {{$menu_level1=='map' ? ' active' : '' }}">
                         <a href="{{url('employee/create')}}">
                             <i class="site-menu-icon fa-map" aria-hidden="true"></i>
-                            <span class="site-menu-title">Driver Position</span>
+                            <span class="site-menu-title">Schedule</span>
                         </a>
                     </li>
 

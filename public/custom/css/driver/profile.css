@@ -1,0 +1,16 @@
+td,th{
+    text-align: center;
+    vertical-align: middle !important;
+}
+td img{
+    width:80px;
+    height:80px;
+    border-radius:6px;
+}
+tr{
+    border-bottom:1px solid #ddd;
+    cursor:pointer;
+}
+table{
+    border:1px solid #ddd;
+}
