@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Driver;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use App\Model\Driver\VehicleInformation;
 
@@ -24,6 +25,7 @@ class InformationController extends Controller
             $file=$request->file('driver_license');
             $file_name=md5(uniqid()).".".$file->extension();
             $file->move(public_path().'/images/Driver',$file_name);
+//            Storage::disk('ftp')->put("/uploads/".$file_name, fopen($request->file('driver_license'), 'r+'));
             $vehicle_information->driver_license=$file_name;
         }
 
@@ -60,6 +62,5 @@ class InformationController extends Controller
         $vehicle_information->max_stuff_height=$request->input('max_stuff_height');
         $vehicle_information->save();
         return "success";
-
     }
 }

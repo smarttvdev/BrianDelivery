@@ -29,4 +29,18 @@ class User extends Authenticatable
         return $this->hasOne('App\Model\Customer\Customer');
     }
 
+    public function getFullNameAttribute() {
+        return ucfirst($this->firstname) . ' ' . ucfirst($this->lastname);
+    }
+
+//    public function getFirstNameAttribute() {
+//        return ucfirst($this->firstname);
+//    }
+//
+//    public function getLastNameAttribute() {
+//        return ucfirst($this->lastname);
+//    }
+
+
+
 }

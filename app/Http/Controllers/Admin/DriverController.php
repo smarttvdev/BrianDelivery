@@ -167,7 +167,7 @@ class DriverController extends Controller
             $data[$i]['driver_id'] = $driver->id;
             $data[$i]['email'] = $user->email;
             if (!is_null($user->avatar))
-                $data[$i]['profile_pic'] = url("/public/images/Profile/$user->avatar");
+                $data[$i]['profile_pic'] = "https://remittyllc.com/public/uploads/$user->avatar";
             else
                 $data[$i]['profile_pic'] = null;
             $data[$i]['phone_number'] = $user->phonenum;
@@ -195,7 +195,7 @@ class DriverController extends Controller
         $data=Array();
         $driver=Driver::find($driver_id);
         $user=$driver->user;
-        $data['profile_pic']= url("/public/images/Profile/$user->avatar");
+        $data['profile_pic']= "https://remittyllc.com/public/uploads/$user->avatar";
         $data['user_name']=ucfirst($user->firstname)." ".ucfirst($user->lastname);
         $data['about_me']=ucfirst($user->about_me);
         $data['earned']=$driver->earned;

@@ -43,6 +43,14 @@ return [
 
     'disks' => [
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+            'root' => '/public_html/public/' // for example: /var/www/html/dev/images
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
