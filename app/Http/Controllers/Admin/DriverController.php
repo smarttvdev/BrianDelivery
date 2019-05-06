@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Model\User\User;
 use App\Model\Driver\Driver;
 use App\Model\Driver\VehicleInformation;
-
+use App\Model\Order\Order;
+//use Illuminate\Support\Facades\Auth;
+use Auth;
 class DriverController extends Controller
 {
 
@@ -201,10 +203,67 @@ class DriverController extends Controller
         $data['earned']=$driver->earned;
         $data['rate']=$driver->rate;
         $data['task_numbers']=5;
-
         return $data;
+    }
+
+    public function viewMap(){
+        $menu_level1='map';
+        return view('driver.map',compact('menu_level1'));
+    }
+
+    public function getLocationInfo(Request $requet){
+        $user=Auth::user();
+        $user->lat=$requet->input('lat');
+        $user->lng=$requet->input('lng');
+        $user->save();
+        $data=Array();
+        $deliverying_data=Array();
+
+        $temps=Driver::where('state','active')->get();
+        $i=0;
+        $j=0;
+        foreach ($temps as $temp){
+            $data[$i]['id']=$temp->id;
+            $data[$i]['lat']=$temp->lat;
+            $data[$i]['lng']=$temp->lng;
+            $user=$temp->user;
+            $data[$i]['phone_number']=$user->phonenum;
+            $data[$i]['profile_pic']="https://remittyllc.com/public/uploads/".$user->avatar;
+            $data[$i]['name']=$user->full_name;
+            $data[$i]['email']=$user->email;
+            $data[$i]['delivery_state']=$this->deliveryState($temp->id);
+            $data[$i]['earned']=$temp->earned;
+            $data[$i]['rate']=$temp->rate;
+            $data[$i]['task_number']=$this->getTaskNumber($temp->id);
+            if ($data[$i]['delivery_state']==1){
+                $deliverying_data[$j]=$data[$i];
+                $j++;
+            }
+            $i++;
+        }
+        return response()->json([
+            'online_drivers'=>$data,
+            'deliverying_drivers'=>$deliverying_data
+        ]);
+        json_encode($data);
+    }
+
+    public function getTaskNumber($driver_id){
+        $order=Order::where([['accepted_driver_id','=',$driver_id],['order_finished_state','=',1]])->get();
+        $task_number=count($order);
+        return $task_number;
+    }
+
+    public function deliveryState($driver_id){
+        $orders=Order::where([['accepted_driver_id','=',$driver_id],['order_finished_state','=',0]])->get();
+        if ($orders->first())
+            $delivery_state=1;
+        else
+            $delivery_state=0;
+        return $delivery_state;
 
     }
+
 
 
 }

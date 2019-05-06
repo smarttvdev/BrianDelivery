@@ -1,0 +1,87 @@
+.panel{
+    background: none;
+    box-shadow: none;
+    margin-bottom:0;
+}
+.page-header{
+    padding:20px 30px;
+}
+.panel-body{
+    padding:0;
+}
+nav.nav-map-page{
+    padding:20px;
+    background:white;
+}
+nav.nav-map-page .nav.nav-tabs {
+    border-bottom:none !important;
+}
+nav.nav-map-page .nav.nav-tabs .nav-link {
+    color:#333;
+    font-size:20px;
+}
+nav.nav-map-page .nav.nav-tabs .nav-link.active{
+    color:white;
+}
+
+.tab-pane{
+    padding:0 !important;
+}
+.tab-pane-title{
+    color:#666;
+    border:1px solid #cec8c8;;
+    background: #e8e5e4;
+    padding:10px;
+    margin-bottom:0;
+}
+.map-container{
+    background:white;
+    padding:10px;
+    width:100%;
+    height:calc(100vh - 350px);
+    margin-bottom:20px;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.08), 0 2px 4px 0 rgba(0,0,0,.12);
+}
+
+.map-place-element{
+    width:100%;
+    height:calc(100vh - 400px);
+}
+
+.driver-info-holder{
+    width:150px;
+}
+
+.driver-image{
+    width:80px;
+    height:80px;
+    margin:0px auto;
+    border-radius:1000px;
+    display:block;
+}
+
+.driver-information{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+}
+.driver-information-item:first-child{
+    margin-top:11px !important;
+}
+
+.driver-information-item{
+    text-align: center;
+}
+.driver-information-item span{
+    display:block;
+    font-weight:normal;
+}
+.contact-driver-part{
+    border-top:1px solid #bbb;
+    padding:10px;
+    text-align:right;
+    font-size:25px;
+    color: #132088;
+}
+.contact-driver-part a{
+    margin-left:10px;
+}

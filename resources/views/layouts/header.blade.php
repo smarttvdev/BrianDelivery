@@ -55,7 +55,7 @@
                     <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
                        data-animation="scale-up" role="button">
                     <span class="avatar avatar-online">
-                      <img src="{{asset('images/Capture.png')}}" alt="...">
+                      <img src="{{asset('images/user.jpg')}}" alt="...">
                       <i></i>
                     </span>
                     </a>
@@ -135,7 +135,7 @@
                     </li>
 
                     <li class="site-menu-item has-sub {{$menu_level1=='map' ? ' active' : '' }}">
-                        <a href="{{url('employee/create')}}">
+                        <a href="{{url('driver/map')}}">
                             <i class="site-menu-icon fa-map" aria-hidden="true"></i>
                             <span class="site-menu-title">View On Map</span>
                         </a>
@@ -148,7 +148,7 @@
                         </a>
                     </li>
 
-                    <li class="site-menu-item has-sub {{$menu_level1=='map' ? ' active' : '' }}">
+                    <li class="site-menu-item has-sub {{$menu_level1=='schedule' ? ' active' : '' }}">
                         <a href="{{url('employee/create')}}">
                             <i class="site-menu-icon fa-map" aria-hidden="true"></i>
                             <span class="site-menu-title">Schedule</span>

@@ -22,6 +22,7 @@ Route::Group(['middleware'=>'auth:admin','namespace'=>'Admin'],function (){
     Route::get('driver/approvals/{state}','DriverController@getApprovals');
     Route::get('driver/profile/all','DriverController@viewAllProfile');
     Route::get('driver/profile/detail/{driver_id}','DriverController@viewDetailedProfile');
+    Route::get('driver/map','DriverController@viewMap');
 
 
 
@@ -30,6 +31,7 @@ Route::Group(['middleware'=>'auth:admin','namespace'=>'Admin'],function (){
         Route::get('driver/approvals/{$state}','DriverController@getApprovals');
         Route::post('driver/changestate','DriverController@ChangeState');
         Route::post('driver/changeAgreeState','DriverController@ChangeInformationAgreeState');
+        Route::post('driver/getLocationInfo','DriverController@getLocationInfo');
 
 
 
